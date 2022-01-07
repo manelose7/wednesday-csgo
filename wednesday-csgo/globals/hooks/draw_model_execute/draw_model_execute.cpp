@@ -25,7 +25,14 @@ void __fastcall hooks::draw_model_execute::draw_model_execute_detour( void* ecx,
         })#" );
 
 		animated_wireframe = g_interfaces.material_system->find_material( _( "animated_wireframe" ) );
+
+		animated_wireframe->set_material_var_flag( sdk::material_var_flags::MATERIAL_VAR_IGNOREZ, true );
 	}
+
+	bool model_is_player = strstr( info.model->name, "models/player" );
+
+	if ( !model_is_player )
+		return draw_model_execute_hook.call_original< void >( ecx, edx, context, state, info, custom_bone_to_world );
 
 	animated_wireframe->color_modulate( 1.f, 0.f, 0.f );
 

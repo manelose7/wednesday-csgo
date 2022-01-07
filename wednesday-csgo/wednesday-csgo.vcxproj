@@ -284,6 +284,7 @@
     <ClInclude Include="game\sdk\classes\i_mat_render_ctx.h" />
     <ClInclude Include="game\sdk\classes\i_panel.h" />
     <ClInclude Include="game\sdk\classes\i_prediction.h" />
+    <ClInclude Include="game\sdk\structs\i_model.h" />
     <ClInclude Include="game\sdk\structs\model_render_info.h" />
     <ClInclude Include="game\sdk\enums\buttons.h" />
     <ClInclude Include="game\sdk\enums\cvar_ids.h" />

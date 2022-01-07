@@ -94,4 +94,23 @@ namespace hooks
 		}
 	};
 
+	CREATE_HOOK_HELPER( build_transformations_hook, void( __fastcall )( void*, void*, void*, void*, void*, const math::matrix_3x4&, int, void* ) );
+	struct build_transformations {
+		static void __fastcall build_transformations_detour( void* ecx, void* edx, void* hdr, void* position, void* q,
+		                                                     const math::matrix_3x4& camera_transformation, int bone_mask, void* bone_computed );
+
+		static void init( )
+		{
+			build_transformations_hook.create(
+				g_client_dll
+					.pattern_scan(
+						_( "55 8B EC 83 E4 ? 81 EC ? ? ? ? 56 57 8B F9 8B 0D ? ? ? ? 89 7C 24 ? 8B 81 ? ? ? ? 89 44 24 ? 85 C0 74 ? 80 3D" ) )
+					.as< void* >( ),
+				build_transformations_detour, _( "build_transformations_detour" ) );
+		}
+		static void unload( )
+		{
+			build_transformations_hook.disable( );
+		}
+	};
 } // namespace hooks

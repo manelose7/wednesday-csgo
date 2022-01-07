@@ -19,7 +19,7 @@ bool configs::impl::init( )
 {
 	MOCKING_TRY
 
-	COLOR_EMPLACE_A( color( 148, 123, 237, 255 ), "main_menu_color" );
+	COLOR_EMPLACE_A( color( 144, 2, 168, 255 ), "main_menu_color" );
 
 	MOCKING_CATCH( return false );
 

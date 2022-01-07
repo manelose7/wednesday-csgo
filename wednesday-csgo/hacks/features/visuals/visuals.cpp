@@ -67,11 +67,12 @@ void visuals::impl::update_object( esp_object& object )
 
 	object.m_box.m_titles.clear( );
 	object.m_box.m_texts.clear( );
+	object.m_box.m_bars.clear( );
 
 	auto buffer_title = esp_title( );
-	auto buffer_text  = esp_text( );
+	auto buffer_bar   = esp_bar( );
 
-	buffer_title.m_location = esp_location::LOCATION_LEFT;
+	buffer_title.m_location = esp_location::LOCATION_TOP;
 	buffer_title.m_text     = object.m_owner->name( );
 	buffer_title.m_color.r  = 200;
 	buffer_title.m_color.g  = 50;
@@ -81,47 +82,22 @@ void visuals::impl::update_object( esp_object& object )
 	buffer_title.m_flags    = font_flags::FLAG_NONE;
 
 	object.m_box.m_titles.push_back( buffer_title );
-	object.m_box.m_titles.push_back( buffer_title );
 
-	buffer_title.m_location = esp_location::LOCATION_RIGHT;
+	buffer_bar.m_location     = esp_location::LOCATION_LEFT;
+	buffer_bar.m_width        = 2;
+	buffer_bar.m_color_from.r = 0;
+	buffer_bar.m_color_from.g = 255;
+	buffer_bar.m_color_from.b = 0;
+	buffer_bar.m_color_from.a = 255;
+	buffer_bar.m_color_to.r   = 255;
+	buffer_bar.m_color_to.g   = 0;
+	buffer_bar.m_color_to.b   = 0;
+	buffer_bar.m_color_to.a   = 255;
+	buffer_bar.m_min          = 0;
+	buffer_bar.m_max          = 100;
+	buffer_bar.m_cur          = object.m_owner->health( );
 
-	object.m_box.m_titles.push_back( buffer_title );
-	object.m_box.m_titles.push_back( buffer_title );
-
-	buffer_title.m_location = esp_location::LOCATION_TOP;
-
-	object.m_box.m_titles.push_back( buffer_title );
-	object.m_box.m_titles.push_back( buffer_title );
-	buffer_title.m_location = esp_location::LOCATION_BOTTOM;
-
-	object.m_box.m_titles.push_back( buffer_title );
-	object.m_box.m_titles.push_back( buffer_title );
-
-	buffer_text.m_location = esp_location::LOCATION_LEFT;
-	buffer_text.m_text     = object.m_owner->name( );
-	buffer_text.m_color.r  = 255;
-	buffer_text.m_color.g  = 192;
-	buffer_text.m_color.b  = 203;
-	buffer_text.m_color.a  = 255;
-	buffer_text.m_font     = g_fonts[ HASH( "esp_font" ) ];
-	buffer_text.m_flags    = font_flags::FLAG_DROPSHADOW;
-
-	object.m_box.m_texts.push_back( buffer_text );
-	object.m_box.m_texts.push_back( buffer_text );
-
-	buffer_text.m_location = esp_location::LOCATION_RIGHT;
-
-	object.m_box.m_texts.push_back( buffer_text );
-	object.m_box.m_texts.push_back( buffer_text );
-
-	buffer_text.m_location = esp_location::LOCATION_TOP;
-
-	object.m_box.m_texts.push_back( buffer_text );
-	object.m_box.m_texts.push_back( buffer_text );
-	buffer_text.m_location = esp_location::LOCATION_BOTTOM;
-
-	object.m_box.m_texts.push_back( buffer_text );
-	object.m_box.m_texts.push_back( buffer_text );
+	object.m_box.m_bars.push_back( buffer_bar );
 }
 
 void visuals::impl::update( )
@@ -191,6 +167,12 @@ void visuals::esp_box::render( sdk::c_cs_player* owner )
 
 		iterator[ static_cast< unsigned int >( text.m_location ) ]++;
 	}
+
+	for ( auto& bar : m_bars ) {
+		bar.render( dimensions, iterator[ static_cast< unsigned int >( bar.m_location ) ] );
+
+		iterator[ static_cast< unsigned int >( bar.m_location ) ]++;
+	}
 }
 
 void visuals::esp_title::render( math::box box, int offset )
@@ -241,26 +223,46 @@ void visuals::esp_text::render( math::box box, int offset )
 
 void visuals::esp_bar::render( math::box box, int offset )
 {
-	auto text_size_buffer = g_render.render_text_size( m_text.c_str( ), m_font );
-	auto text_size        = math::vec2< int >( text_size_buffer.x, text_size_buffer.y );
+	math::vec2< int > border_start_position;
+	math::vec2< int > border_end_position;
 
 	math::vec2< int > start_position;
 	math::vec2< int > end_position;
 
+	auto current_percentage = -( m_cur / ( m_max - m_min ) ) + 1.f;
+
 	if ( m_location == esp_location::LOCATION_TOP ) {
-		start_position = math::vec2< int >( box.x, box.y - m_width - 4 );
-		end_position   = math::vec2< int >( box.w, box.y );
+		border_start_position = math::vec2< int >( box.x - m_width - 4, box.y );
+		border_end_position = math::vec2< int >( box.x - m_width - 4, box.y );
+
+		start_position = math::vec2< int >( box.x - m_width - 4, box.y );
+		end_position   = math::vec2< int >( box.x - 4, box.h ) - start_position;
 	}
 	if ( m_location == esp_location::LOCATION_BOTTOM ) {
-		start_position = math::vec2< int >( box.x, box.h );
-		end_position   = math::vec2< int >( box.w, box.h + m_width + 4 );
+		border_start_position = math::vec2< int >( box.x - m_width - 4, box.y );
+		border_end_position = math::vec2< int >( box.x - m_width - 4, box.y );
+
+		start_position = math::vec2< int >( box.x - m_width - 4, box.y );
+		end_position   = math::vec2< int >( box.x - 4, box.h ) - start_position;
 	}
 	if ( m_location == esp_location::LOCATION_RIGHT ) {
-		start_position = math::vec2< int >( box.w, box.y );
-		end_position   = math::vec2< int >( box.w + m_width + 4, box.h );
+		border_start_position = math::vec2< int >( box.x + 4, box.y );
+		border_end_position = math::vec2< int >( box.x + 4, box.h ) - border_start_position;
+
+		start_position = math::vec2< int >( box.x + 4, box.y + ( ( box.h - box.y ) * current_percentage ) );
+		end_position   = math::vec2< int >( box.x + m_width + 4, box.h ) - start_position;
 	}
 	if ( m_location == esp_location::LOCATION_LEFT ) {
-		start_position = math::vec2< int >( box.x - m_width - 4, box.y );
-		end_position   = math::vec2< int >( box.x, box.h );
+		border_start_position = math::vec2< int >( box.x - m_width - 4, box.y );
+		border_end_position = math::vec2< int >( box.x - 4, box.h ) - border_start_position;
+
+		start_position = math::vec2< int >( box.x - m_width - 4, box.y + ( ( box.h - box.y ) * current_percentage ) );
+		end_position   = math::vec2< int >( box.x - 4, box.h ) - start_position;
 	}
+
+	auto current_color = m_color_from.lerp( m_color_to, current_percentage );
+
+	g_render.render_filled_rectangle( border_start_position - math::vec2< int >( 1, 1 ), border_end_position + math::vec2< int >( m_width, m_width ),
+	                                  color( 32, 32, 32, current_color.a ) );
+	g_render.render_filled_rectangle( start_position, end_position, current_color );
 }

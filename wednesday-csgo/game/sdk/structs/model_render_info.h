@@ -3,6 +3,8 @@
 #include "../../../utils/math/types/matrix.h"
 #include "../../../utils/math/types/vector.h"
 
+#include "../structs/i_model.h"
+
 struct i_client_renderable;
 
 namespace sdk
@@ -13,7 +15,7 @@ namespace sdk
 		math::vec3 angles;
 		PAD( 0x4 );
 		i_client_renderable* renderable;
-		void* model;
+		i_model* model;
 		math::matrix_3x4* model_to_world;
 		math::matrix_3x4* lighting_offset;
 		math::vec3* lighting_origin;

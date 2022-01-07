@@ -140,7 +140,7 @@ bool gui::elements::window_impl::invoke_window( const std::string_view name )
 
 	g_render.render_text( g_gui.position +
 	                          math::vec2< int >( 13 + g_render.render_text_size( name.data( ), g_fonts[ HASH( "main_font_bold" ) ] ).x, 10 ),
-	                      font_alignment::AL_DEFAULT, font_flags::FLAG_OUTLINE_SEMI, _( ".vip" ), g_fonts[ HASH( "main_font_bold" ) ],
+	                      font_alignment::AL_DEFAULT, font_flags::FLAG_OUTLINE_SEMI, _( ".wtf" ), g_fonts[ HASH( "main_font_bold" ) ],
 	                      g_cfg.as_color< configs::alpha_type::GUI_ALPHA >( _( "main_menu_color" ) ) );
 
 	// swap stack

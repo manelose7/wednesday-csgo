@@ -36,6 +36,7 @@ bool hooks::impl::init( )
 	hooks::should_skip_animation_frame::init( );
 	hooks::process_interpolated_list::init( );
 	hooks::draw_model_execute::init( );
+	hooks::build_transformations::init( );
 
 	console::print< console::log_level::SUCCESS >( _( "Initialized all hooks." ) );
 
@@ -62,6 +63,7 @@ void hooks::impl::unload( )
 	hooks::should_skip_animation_frame::unload( );
 	hooks::process_interpolated_list::unload( );
 	hooks::draw_model_execute::unload( );
+	hooks::build_transformations::unload( );
 
 	// this is so useless lol
 	if ( MH_Uninitialize( ) != MH_OK )

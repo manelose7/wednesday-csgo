@@ -47,3 +47,14 @@ int __cdecl hooks::process_interpolated_list::process_interpolated_list_detour( 
 
 	return process_interpolated_list_hook.call_original< int >( );
 }
+
+void __fastcall hooks::build_transformations::build_transformations_detour( void* ecx, void* edx, void* hdr, void* position, void* q,
+                                                                            const math::matrix_3x4& camera_transformation, int bone_mask,
+                                                                            void* bone_computed )
+{
+	auto player = reinterpret_cast< sdk::c_cs_player* >( ecx );
+
+	player->is_jiggle_bones_enabled( ) = false;
+
+	build_transformations_hook.call_original< void >( ecx, edx, hdr, position, q, camera_transformation, bone_mask, bone_computed );
+}

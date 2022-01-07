@@ -49,8 +49,9 @@ void logging::impl::think( )
 		                      g_fonts[ HASH( "main_font_bold" ) ],
 		                      g_cfg.as_color< configs::alpha_type::MAX_ALPHA >( _( "main_menu_color" ) ).set_alpha( draw_color.a ) );
 
-		g_render.render_text( x + g_render.render_text_size( log.m_text.data( ), g_fonts[ HASH( "main_font" ) ] ).x, y, font_alignment::AL_DEFAULT,
-		                      font_flags::FLAG_DROPSHADOW, log.m_text.data( ), g_fonts[ HASH( "main_font" ) ], draw_color );
+		g_render.render_text( x + 3 + g_render.render_text_size( log.m_text.data( ), g_fonts[ HASH( "main_font" ) ] ).x, y,
+		                      font_alignment::AL_DEFAULT, font_flags::FLAG_DROPSHADOW, log.m_text.data( ), g_fonts[ HASH( "main_font" ) ],
+		                      draw_color );
 		y += size;
 	}
 }

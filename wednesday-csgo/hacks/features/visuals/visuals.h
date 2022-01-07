@@ -46,22 +46,18 @@ namespace visuals
 		void render( math::box box, int offset );
 	};
 
-	struct esp_bar {
+	struct esp_bar : public esp_text {
 	public:
 		void render( math::box box, int offset );
 
 		float m_width{ };
 
-		std::string m_text{ };
-
-		LPD3DXFONT m_font{ };
-
-		font_flags m_flags{ };
-
 		color m_color_from{ };
 		color m_color_to{ };
 
-		esp_location m_location{ };
+		float m_max{ };
+		float m_min{ };
+		float m_cur{ };
 	};
 
 	struct esp_box {
@@ -80,6 +76,7 @@ namespace visuals
 
 		std::deque< esp_title > m_titles{ };
 		std::deque< esp_text > m_texts{ };
+		std::deque< esp_bar > m_bars{ };
 	};
 
 	struct esp_object {

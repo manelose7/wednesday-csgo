@@ -10,7 +10,7 @@ void __fastcall hooks::paint_traverse::paint_traverse_detour( sdk::i_panel* self
 
 	if ( static bool already_logged = false; !already_logged ) {
 		//	g_interfaces.engine->execute_client_cmd( _( "clear" ) );
-		g_log.print( _( " injection success." ), _( "[wednesday.vip]" ) );
+		g_log.print( _( " injection success." ), _( "[wednesday.wtf]" ) );
 
 		already_logged = true;
 	}

@@ -18,9 +18,11 @@ namespace sdk
 			return *reinterpret_cast< std::array< float, 24 >* >( reinterpret_cast< std::uintptr_t >( this ) + offset );
 		}
 
-		math::vec3 hitbox_position( int index ) 
+		bool& is_jiggle_bones_enabled( )
 		{
-
+			return *reinterpret_cast< bool* >( reinterpret_cast< std::uintptr_t >( this ) + 0x2930 );
 		}
+
+		math::vec3 hitbox_position( int index ) { }
 	};
 } // namespace sdk
