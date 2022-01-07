@@ -1,0 +1,280 @@
+cmake_minimum_required(VERSION 3.21)
+project(hotwheels)
+
+set(CMAKE_CXX_STANDARD 14)
+
+include_directories(hw-sdk/dependencies/audio)
+include_directories(hw-sdk/dependencies/audio/kyu)
+include_directories(hw-sdk/dependencies/audio/peter_griffin)
+include_directories(hw-sdk/dependencies/audio/soilder)
+include_directories(hw-sdk/dependencies/checksum)
+include_directories(hw-sdk/dependencies/formatting)
+include_directories(hw-sdk/dependencies/formatting/fmt)
+include_directories(hw-sdk/dependencies/hash)
+include_directories(hw-sdk/dependencies/lazy_importer)
+include_directories(hw-sdk/dependencies/minhook/include)
+include_directories(hw-sdk/dependencies/minhook/src)
+include_directories(hw-sdk/dependencies/minhook/src/hde)
+include_directories(hw-sdk/dependencies/mocking_bird)
+include_directories(hw-sdk/dependencies/xor)
+include_directories(hw-sdk/game/datatypes)
+include_directories(hw-sdk/game/sdk)
+include_directories(hw-sdk/game/sdk/classes)
+include_directories(hw-sdk/game/sdk/enums)
+include_directories(hw-sdk/game/sdk/structs)
+include_directories(hw-sdk/globals)
+include_directories(hw-sdk/globals/ctx)
+include_directories(hw-sdk/globals/hooks)
+include_directories(hw-sdk/globals/hooks/anim_fix)
+include_directories(hw-sdk/globals/hooks/cl_move)
+include_directories(hw-sdk/globals/hooks/create_move)
+include_directories(hw-sdk/globals/hooks/draw_model_execute)
+include_directories(hw-sdk/globals/hooks/emit_sound)
+include_directories(hw-sdk/globals/hooks/end_scene)
+include_directories(hw-sdk/globals/hooks/frame_stage_notify)
+include_directories(hw-sdk/globals/hooks/glow_effect_spectator)
+include_directories(hw-sdk/globals/hooks/item_post_frame)
+include_directories(hw-sdk/globals/hooks/paint_traverse)
+include_directories(hw-sdk/globals/hooks/wndproc)
+include_directories(hw-sdk/globals/hotwheels)
+include_directories(hw-sdk/globals/includes)
+include_directories(hw-sdk/globals/interfaces)
+include_directories(hw-sdk/globals/macros)
+include_directories(hw-sdk/hacks/features/aimbot)
+include_directories(hw-sdk/hacks/features/lagcomp)
+include_directories(hw-sdk/hacks/features/movement)
+include_directories(hw-sdk/hacks/features/visuals)
+include_directories(hw-sdk/hacks/gui)
+include_directories(hw-sdk/hacks/gui/anims)
+include_directories(hw-sdk/hacks/gui/cfg)
+include_directories(hw-sdk/hacks/gui/groupbox)
+include_directories(hw-sdk/hacks/gui/gui_ctx)
+include_directories(hw-sdk/hacks/gui/includes)
+include_directories(hw-sdk/hacks/gui/utils)
+include_directories(hw-sdk/hacks/gui/window)
+include_directories(hw-sdk/hacks/logging)
+include_directories(hw-sdk/hacks/prediction)
+include_directories(hw-sdk/utils)
+include_directories(hw-sdk/utils/console)
+include_directories(hw-sdk/utils/console/log_level)
+include_directories(hw-sdk/utils/convars)
+include_directories(hw-sdk/utils/entity_list)
+include_directories(hw-sdk/utils/helpers)
+include_directories(hw-sdk/utils/helpers/function_enforce)
+include_directories(hw-sdk/utils/helpers/primitive_definitions)
+include_directories(hw-sdk/utils/keybinds)
+include_directories(hw-sdk/utils/math)
+include_directories(hw-sdk/utils/math/types)
+include_directories(hw-sdk/utils/modules)
+include_directories(hw-sdk/utils/modules/address)
+include_directories(hw-sdk/utils/netvar)
+include_directories(hw-sdk/utils/particle_system)
+include_directories(hw-sdk/utils/renderer)
+include_directories(hw-sdk/utils/vfunc)
+
+add_executable(hotwheels
+        hw-sdk/dependencies/audio/kyu/loaded.h
+        hw-sdk/dependencies/audio/peter_griffin/loaded.h
+        hw-sdk/dependencies/audio/soilder/loaded.h
+        hw-sdk/dependencies/checksum/checksum.cpp
+        hw-sdk/dependencies/checksum/checksum.hpp
+        hw-sdk/dependencies/formatting/fmt/chrono.h
+        hw-sdk/dependencies/formatting/fmt/color.h
+        hw-sdk/dependencies/formatting/fmt/compile.h
+        hw-sdk/dependencies/formatting/fmt/core.h
+        hw-sdk/dependencies/formatting/fmt/format-inl.h
+        hw-sdk/dependencies/formatting/fmt/format.h
+        hw-sdk/dependencies/formatting/fmt/locale.h
+        hw-sdk/dependencies/formatting/fmt/os.h
+        hw-sdk/dependencies/formatting/fmt/ostream.h
+        hw-sdk/dependencies/formatting/fmt/posix.h
+        hw-sdk/dependencies/formatting/fmt/printf.h
+        hw-sdk/dependencies/formatting/fmt/ranges.h
+        hw-sdk/dependencies/formatting/tinyformat.h
+        hw-sdk/dependencies/hash/hash.h
+        hw-sdk/dependencies/lazy_importer/lazy_importer.h
+        hw-sdk/dependencies/minhook/include/MinHook.h
+        hw-sdk/dependencies/minhook/src/hde/hde32.c
+        hw-sdk/dependencies/minhook/src/hde/hde32.h
+        hw-sdk/dependencies/minhook/src/hde/hde64.c
+        hw-sdk/dependencies/minhook/src/hde/hde64.h
+        hw-sdk/dependencies/minhook/src/hde/pstdint.h
+        hw-sdk/dependencies/minhook/src/hde/table32.h
+        hw-sdk/dependencies/minhook/src/hde/table64.h
+        hw-sdk/dependencies/minhook/src/buffer.c
+        hw-sdk/dependencies/minhook/src/buffer.h
+        hw-sdk/dependencies/minhook/src/hook.c
+        hw-sdk/dependencies/minhook/src/trampoline.c
+        hw-sdk/dependencies/minhook/src/trampoline.h
+        hw-sdk/dependencies/mocking_bird/mocking_bird.h
+        hw-sdk/dependencies/xor/xor.h
+        hw-sdk/game/datatypes/cutl.h
+        hw-sdk/game/datatypes/keyvalues.h
+        hw-sdk/game/sdk/classes/c_base_animating.h
+        hw-sdk/game/sdk/classes/c_base_combat_character.h
+        hw-sdk/game/sdk/classes/c_base_combat_weapon.h
+        hw-sdk/game/sdk/classes/c_base_entity.h
+        hw-sdk/game/sdk/classes/c_base_player.h
+        hw-sdk/game/sdk/classes/c_client_state.h
+        hw-sdk/game/sdk/classes/c_cs_player.cpp
+        hw-sdk/game/sdk/classes/c_cs_player.h
+        hw-sdk/game/sdk/classes/c_effect.h
+        hw-sdk/game/sdk/classes/c_handle.h
+        hw-sdk/game/sdk/classes/c_hud_chat.h
+        hw-sdk/game/sdk/classes/c_input.h
+        hw-sdk/game/sdk/classes/c_studio_render.h
+        hw-sdk/game/sdk/classes/c_usercmd.h
+        hw-sdk/game/sdk/classes/c_verified_cmd.h
+        hw-sdk/game/sdk/classes/c_view_setup.h
+        hw-sdk/game/sdk/classes/i_app_system.h
+        hw-sdk/game/sdk/classes/i_client_dll.h
+        hw-sdk/game/sdk/classes/i_client_entity.h
+        hw-sdk/game/sdk/classes/i_client_entity_list.h
+        hw-sdk/game/sdk/classes/i_client_networkable.h
+        hw-sdk/game/sdk/classes/i_client_renderable.h
+        hw-sdk/game/sdk/classes/i_client_thinkable.h
+        hw-sdk/game/sdk/classes/i_client_unknown.h
+        hw-sdk/game/sdk/classes/i_collideable.h
+        hw-sdk/game/sdk/classes/i_cvar.h
+        hw-sdk/game/sdk/classes/i_debug_overlay.h
+        hw-sdk/game/sdk/classes/i_engine_sound.h
+        hw-sdk/game/sdk/classes/i_engine_trace.h
+        hw-sdk/game/sdk/classes/i_global_vars.h
+        hw-sdk/game/sdk/classes/i_handle_entity.h
+        hw-sdk/game/sdk/classes/i_localize.h
+        hw-sdk/game/sdk/classes/i_mat_render_ctx.h
+        hw-sdk/game/sdk/classes/i_material_system.h
+        hw-sdk/game/sdk/classes/i_net_channel_info.h
+        hw-sdk/game/sdk/classes/i_panel.h
+        hw-sdk/game/sdk/classes/i_prediction.h
+        hw-sdk/game/sdk/classes/iv_engine_client.h
+        hw-sdk/game/sdk/classes/iv_model_render.h
+        hw-sdk/game/sdk/enums/buttons.h
+        hw-sdk/game/sdk/enums/class_ids.h
+        hw-sdk/game/sdk/enums/cvar_ids.h
+        hw-sdk/game/sdk/enums/data_update_type.h
+        hw-sdk/game/sdk/enums/def_idx.h
+        hw-sdk/game/sdk/enums/field_type.h
+        hw-sdk/game/sdk/enums/flow.h
+        hw-sdk/game/sdk/enums/frame_stage.h
+        hw-sdk/game/sdk/enums/glow_style.h
+        hw-sdk/game/sdk/enums/key_type.h
+        hw-sdk/game/sdk/enums/material_var_flags.h
+        hw-sdk/game/sdk/enums/move_type.h
+        hw-sdk/game/sdk/enums/net_channel_type.h
+        hw-sdk/game/sdk/enums/player_flags.h
+        hw-sdk/game/sdk/enums/prop_type.h
+        hw-sdk/game/sdk/enums/td_offset.h
+        hw-sdk/game/sdk/enums/teams.h
+        hw-sdk/game/sdk/enums/trace_type.h
+        hw-sdk/game/sdk/enums/weapon_type.h
+        hw-sdk/game/sdk/structs/cnetmsg_signonstate_t.h
+        hw-sdk/game/sdk/structs/color.h
+        hw-sdk/game/sdk/structs/data_map.h
+        hw-sdk/game/sdk/structs/demo_playback_parameters_t.h
+        hw-sdk/game/sdk/structs/dt_common.h
+        hw-sdk/game/sdk/structs/dt_recv.h
+        hw-sdk/game/sdk/structs/i_client_class.h
+        hw-sdk/game/sdk/structs/i_material.h
+        hw-sdk/game/sdk/structs/i_texture.h
+        hw-sdk/game/sdk/structs/model_render_info.h
+        hw-sdk/game/sdk/structs/player_info_t.h
+        hw-sdk/game/sdk/structs/studio.h
+        hw-sdk/game/sdk/structs/type_description.h
+        hw-sdk/game/sdk/structs/weapon_data_t.h
+        hw-sdk/game/sdk/include.h
+        hw-sdk/globals/ctx/ctx.cpp
+        hw-sdk/globals/ctx/ctx.h
+        hw-sdk/globals/hooks/anim_fix/anim_fix.cpp
+        hw-sdk/globals/hooks/anim_fix/anim_fix.h
+        hw-sdk/globals/hooks/cl_move/cl_move.cpp
+        hw-sdk/globals/hooks/cl_move/cl_move.h
+        hw-sdk/globals/hooks/create_move/create_move.cpp
+        hw-sdk/globals/hooks/create_move/create_move.h
+        hw-sdk/globals/hooks/draw_model_execute/draw_model_execute.cpp
+        hw-sdk/globals/hooks/draw_model_execute/draw_model_execute.h
+        hw-sdk/globals/hooks/emit_sound/emit_sound.cpp
+        hw-sdk/globals/hooks/emit_sound/emit_sound.h
+        hw-sdk/globals/hooks/end_scene/end_scene.cpp
+        hw-sdk/globals/hooks/end_scene/end_scene.h
+        hw-sdk/globals/hooks/frame_stage_notify/frame_stage_notify.cpp
+        hw-sdk/globals/hooks/frame_stage_notify/frame_stage_notify.h
+        hw-sdk/globals/hooks/glow_effect_spectator/glow_effect_spectator.cpp
+        hw-sdk/globals/hooks/glow_effect_spectator/glow_effect_spectator.h
+        hw-sdk/globals/hooks/item_post_frame/item_post_frame.cpp
+        hw-sdk/globals/hooks/item_post_frame/item_post_frame.h
+        hw-sdk/globals/hooks/paint_traverse/paint_traverse.cpp
+        hw-sdk/globals/hooks/paint_traverse/paint_traverse.h
+        hw-sdk/globals/hooks/wndproc/wndproc.cpp
+        hw-sdk/globals/hooks/wndproc/wndproc.h
+        hw-sdk/globals/hooks/hooking.cpp
+        hw-sdk/globals/hooks/hooking.h
+        hw-sdk/globals/hotwheels/hotwheels.cpp
+        hw-sdk/globals/hotwheels/hotwheels.h
+        hw-sdk/globals/includes/includes.h
+        hw-sdk/globals/interfaces/interfaces.cpp
+        hw-sdk/globals/interfaces/interfaces.h
+        hw-sdk/globals/macros/macros.h
+        hw-sdk/globals/csgo.cpp
+        hw-sdk/globals/csgo.h
+        hw-sdk/hacks/features/aimbot/aimbot.cpp
+        hw-sdk/hacks/features/aimbot/aimbot.h
+        hw-sdk/hacks/features/lagcomp/lagcomp.cpp
+        hw-sdk/hacks/features/lagcomp/lagcomp.h
+        hw-sdk/hacks/features/movement/movement.cpp
+        hw-sdk/hacks/features/movement/movement.h
+        hw-sdk/hacks/features/visuals/visuals.cpp
+        hw-sdk/hacks/features/visuals/visuals.h
+        hw-sdk/hacks/gui/anims/anims.h
+        hw-sdk/hacks/gui/anims/effects.h
+        hw-sdk/hacks/gui/cfg/cfg.cpp
+        hw-sdk/hacks/gui/cfg/cfg.h
+        hw-sdk/hacks/gui/cfg/cfg.inl
+        hw-sdk/hacks/gui/groupbox/groupbox.cpp
+        hw-sdk/hacks/gui/groupbox/groupbox.h
+        hw-sdk/hacks/gui/gui_ctx/gui_ctx.cpp
+        hw-sdk/hacks/gui/gui_ctx/gui_ctx.h
+        hw-sdk/hacks/gui/includes/includes.h
+        hw-sdk/hacks/gui/utils/ui_utils.cpp
+        hw-sdk/hacks/gui/utils/ui_utils.h
+        hw-sdk/hacks/gui/window/window.cpp
+        hw-sdk/hacks/gui/window/window.h
+        hw-sdk/hacks/gui/gui.cpp
+        hw-sdk/hacks/gui/gui.h
+        hw-sdk/hacks/logging/logging.cpp
+        hw-sdk/hacks/logging/logging.h
+        hw-sdk/hacks/prediction/prediction.cpp
+        hw-sdk/hacks/prediction/prediction.h
+        hw-sdk/utils/console/log_level/log_level.h
+        hw-sdk/utils/console/console.cpp
+        hw-sdk/utils/console/console.h
+        hw-sdk/utils/console/console.inl
+        hw-sdk/utils/convars/convars.h
+        hw-sdk/utils/entity_list/entity_list.cpp
+        hw-sdk/utils/entity_list/entity_list.h
+        hw-sdk/utils/helpers/function_enforce/function_enforce.h
+        hw-sdk/utils/helpers/primitive_definitions/primitives.h
+        hw-sdk/utils/helpers/bit_flag.h
+        hw-sdk/utils/keybinds/keybinds.cpp
+        hw-sdk/utils/keybinds/keybinds.h
+        hw-sdk/utils/math/types/matrix.h
+        hw-sdk/utils/math/types/quaternion.h
+        hw-sdk/utils/math/types/vector.h
+        hw-sdk/utils/math/math.cpp
+        hw-sdk/utils/math/math.h
+        hw-sdk/utils/math/math.inl
+        hw-sdk/utils/modules/address/address.h
+        hw-sdk/utils/modules/modules.cpp
+        hw-sdk/utils/modules/modules.h
+        hw-sdk/utils/modules/modules.inl
+        hw-sdk/utils/netvar/netvar.cpp
+        hw-sdk/utils/netvar/netvar.h
+        hw-sdk/utils/particle_system/particle_system.cpp
+        hw-sdk/utils/particle_system/particle_system.h
+        hw-sdk/utils/renderer/renderer.cpp
+        hw-sdk/utils/renderer/renderer.h
+        hw-sdk/utils/renderer/renderer.inl
+        hw-sdk/utils/vfunc/vfunc.h
+        hw-sdk/utils/utils.cpp
+        hw-sdk/utils/utils.h
+        hw-sdk/dllmain.cpp)

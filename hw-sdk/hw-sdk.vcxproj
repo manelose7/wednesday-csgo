@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{3fffae36-23e4-4b45-8659-17e5224ed75e}</ProjectGuid>
+    <RootNamespace>hwsdk</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <ProjectName>csgo</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PreferredToolArchitecture>x86</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>.\debug\</OutDir>
+    <TargetName>$(Configuration) - $(Platform)</TargetName>
+    <IntDir>.\debug\intermediate\</IntDir>
+    <IncludePath>$(DXSDK_DIR)Include;$(IncludePath);$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>$(DXSDK_DIR)Lib\x86;$(LibraryPath);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>$(Configuration) - $(Platform)</TargetName>
+    <OutDir>.\release\</OutDir>
+    <IntDir>.\release\intermediate\</IntDir>
+    <IncludePath>$(DXSDK_DIR)Include;$(IncludePath);$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>$(DXSDK_DIR)Lib\x86;$(LibraryPath);$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NOMINMAX;CONSOLE_ENABLED</PreprocessorDefinitions>
+      <ConformanceMode>Default</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+      <SupportJustMyCode>false</SupportJustMyCode>
+      <SDLCheck>true</SDLCheck>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;HWSDK_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;HWSDK_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;HWSDK_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="dependencies\checksum\checksum.cpp" />
+    <ClCompile Include="dependencies\minhook\src\buffer.c" />
+    <ClCompile Include="dependencies\minhook\src\hde\hde32.c" />
+    <ClCompile Include="dependencies\minhook\src\hde\hde64.c" />
+    <ClCompile Include="dependencies\minhook\src\hook.c" />
+    <ClCompile Include="dependencies\minhook\src\trampoline.c" />
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="game\sdk\classes\c_cs_player.cpp" />
+    <ClCompile Include="globals\csgo.cpp" />
+    <ClCompile Include="globals\ctx\ctx.cpp" />
+    <ClCompile Include="globals\hooks\anim_fix\anim_fix.cpp" />
+    <ClCompile Include="globals\hooks\cl_move\cl_move.cpp" />
+    <ClCompile Include="globals\hooks\create_move\create_move.cpp" />
+    <ClCompile Include="globals\hooks\draw_model_execute\draw_model_execute.cpp" />
+    <ClCompile Include="globals\hooks\emit_sound\emit_sound.cpp" />
+    <ClCompile Include="globals\hooks\frame_stage_notify\frame_stage_notify.cpp" />
+    <ClCompile Include="globals\hooks\glow_effect_spectator\glow_effect_spectator.cpp" />
+    <ClCompile Include="globals\hooks\hooking.cpp" />
+    <ClCompile Include="globals\hooks\end_scene\end_scene.cpp" />
+    <ClCompile Include="globals\hooks\item_post_frame\item_post_frame.cpp" />
+    <ClCompile Include="globals\hooks\paint_traverse\paint_traverse.cpp" />
+    <ClCompile Include="globals\hooks\wndproc\wndproc.cpp" />
+    <ClCompile Include="globals\wednesday\wednesday.cpp" />
+    <ClCompile Include="globals\interfaces\interfaces.cpp" />
+    <ClCompile Include="hacks\features\aimbot\aimbot.cpp" />
+    <ClCompile Include="hacks\features\lagcomp\lagcomp.cpp" />
+    <ClCompile Include="hacks\features\movement\movement.cpp" />
+    <ClCompile Include="hacks\features\visuals\visuals.cpp" />
+    <ClCompile Include="hacks\gui\cfg\cfg.cpp" />
+    <ClCompile Include="hacks\gui\groupbox\groupbox.cpp" />
+    <ClCompile Include="hacks\gui\gui_ctx\gui_ctx.cpp" />
+    <ClCompile Include="hacks\gui\gui.cpp" />
+    <ClCompile Include="hacks\gui\utils\ui_utils.cpp" />
+    <ClCompile Include="hacks\gui\window\window.cpp" />
+    <ClCompile Include="hacks\logging\logging.cpp" />
+    <ClCompile Include="hacks\prediction\prediction.cpp" />
+    <ClCompile Include="utils\entity_list\entity_list.cpp" />
+    <ClCompile Include="utils\keybinds\keybinds.cpp" />
+    <ClCompile Include="utils\math\math.cpp" />
+    <ClCompile Include="utils\modules\modules.cpp" />
+    <ClCompile Include="utils\console\console.cpp" />
+    <ClCompile Include="utils\netvar\netvar.cpp" />
+    <ClCompile Include="utils\particle_system\particle_system.cpp" />
+    <ClCompile Include="utils\renderer\renderer.cpp" />
+    <ClCompile Include="utils\utils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="dependencies\audio\kyu\loaded.h" />
+    <ClInclude Include="dependencies\audio\peter_griffin\loaded.h" />
+    <ClInclude Include="dependencies\audio\soilder\loaded.h" />
+    <ClInclude Include="dependencies\checksum\checksum.hpp" />
+    <ClInclude Include="dependencies\formatting\fmt\chrono.h" />
+    <ClInclude Include="dependencies\formatting\fmt\color.h" />
+    <ClInclude Include="dependencies\formatting\fmt\compile.h" />
+    <ClInclude Include="dependencies\formatting\fmt\core.h" />
+    <ClInclude Include="dependencies\formatting\fmt\format-inl.h" />
+    <ClInclude Include="dependencies\formatting\fmt\format.h" />
+    <ClInclude Include="dependencies\formatting\fmt\locale.h" />
+    <ClInclude Include="dependencies\formatting\fmt\os.h" />
+    <ClInclude Include="dependencies\formatting\fmt\ostream.h" />
+    <ClInclude Include="dependencies\formatting\fmt\posix.h" />
+    <ClInclude Include="dependencies\formatting\fmt\printf.h" />
+    <ClInclude Include="dependencies\formatting\fmt\ranges.h" />
+    <ClInclude Include="dependencies\hash\hash.h" />
+    <ClInclude Include="dependencies\lazy_importer\lazy_importer.h" />
+    <ClInclude Include="dependencies\minhook\include\MinHook.h" />
+    <ClInclude Include="dependencies\minhook\src\buffer.h" />
+    <ClInclude Include="dependencies\minhook\src\hde\hde32.h" />
+    <ClInclude Include="dependencies\minhook\src\hde\hde64.h" />
+    <ClInclude Include="dependencies\minhook\src\hde\pstdint.h" />
+    <ClInclude Include="dependencies\minhook\src\hde\table32.h" />
+    <ClInclude Include="dependencies\minhook\src\hde\table64.h" />
+    <ClInclude Include="dependencies\minhook\src\trampoline.h" />
+    <ClInclude Include="dependencies\mocking_bird\mocking_bird.h" />
+    <ClInclude Include="dependencies\formatting\tinyformat.h" />
+    <ClInclude Include="dependencies\xor\xor.h" />
+    <ClInclude Include="game\datatypes\cutl.h" />
+    <ClInclude Include="game\datatypes\keyvalues.h" />
+    <ClInclude Include="game\sdk\classes\c_base_animating.h" />
+    <ClInclude Include="game\sdk\classes\c_base_combat_character.h" />
+    <ClInclude Include="game\sdk\classes\c_base_combat_weapon.h" />
+    <ClInclude Include="game\sdk\classes\c_base_player.h" />
+    <ClInclude Include="game\sdk\classes\c_cs_player.h" />
+    <ClInclude Include="game\sdk\classes\c_effect.h" />
+    <ClInclude Include="game\sdk\classes\c_input.h" />
+    <ClInclude Include="game\sdk\classes\c_base_entity.h" />
+    <ClInclude Include="game\sdk\classes\c_client_state.h" />
+    <ClInclude Include="game\sdk\classes\c_handle.h" />
+    <ClInclude Include="game\sdk\classes\c_hud_chat.h" />
+    <ClInclude Include="game\sdk\classes\c_studio_render.h" />
+    <ClInclude Include="game\sdk\classes\c_usercmd.h" />
+    <ClInclude Include="game\sdk\classes\c_verified_cmd.h" />
+    <ClInclude Include="game\sdk\classes\c_view_setup.h" />
+    <ClInclude Include="game\sdk\classes\iv_model_render.h" />
+    <ClInclude Include="game\sdk\classes\i_collideable.h" />
+    <ClInclude Include="game\sdk\classes\i_cvar.h" />
+    <ClInclude Include="game\sdk\classes\i_client_networkable.h" />
+    <ClInclude Include="game\sdk\classes\i_client_renderable.h" />
+    <ClInclude Include="game\sdk\classes\i_client_thinkable.h" />
+    <ClInclude Include="game\sdk\classes\i_client_unknown.h" />
+    <ClInclude Include="game\sdk\classes\i_client_dll.h" />
+    <ClInclude Include="game\sdk\classes\i_client_entity.h" />
+    <ClInclude Include="game\sdk\classes\i_client_entity_list.h" />
+    <ClInclude Include="game\sdk\classes\i_debug_overlay.h" />
+    <ClInclude Include="game\sdk\classes\i_engine_sound.h" />
+    <ClInclude Include="game\sdk\classes\i_engine_trace.h" />
+    <ClInclude Include="game\sdk\classes\i_localize.h" />
+    <ClInclude Include="game\sdk\classes\i_material_system.h" />
+    <ClInclude Include="game\sdk\classes\i_mat_render_ctx.h" />
+    <ClInclude Include="game\sdk\classes\i_panel.h" />
+    <ClInclude Include="game\sdk\classes\i_prediction.h" />
+    <ClInclude Include="game\sdk\structs\model_render_info.h" />
+    <ClInclude Include="game\sdk\enums\buttons.h" />
+    <ClInclude Include="game\sdk\enums\cvar_ids.h" />
+    <ClInclude Include="game\sdk\enums\flow.h" />
+    <ClInclude Include="game\sdk\enums\glow_style.h" />
+    <ClInclude Include="game\sdk\enums\key_type.h" />
+    <ClInclude Include="game\sdk\enums\material_var_flags.h" />
+    <ClInclude Include="game\sdk\enums\td_offset.h" />
+    <ClInclude Include="game\sdk\enums\trace_type.h" />
+    <ClInclude Include="game\sdk\include.h" />
+    <ClInclude Include="game\sdk\structs\cnetmsg_signonstate_t.h" />
+    <ClInclude Include="game\sdk\structs\color.h" />
+    <ClInclude Include="game\sdk\classes\i_app_system.h" />
+    <ClInclude Include="game\sdk\classes\i_global_vars.h" />
+    <ClInclude Include="game\sdk\classes\i_handle_entity.h" />
+    <ClInclude Include="game\sdk\classes\i_net_channel_info.h" />
+    <ClInclude Include="game\sdk\enums\class_ids.h" />
+    <ClInclude Include="game\sdk\enums\data_update_type.h" />
+    <ClInclude Include="game\sdk\enums\def_idx.h" />
+    <ClInclude Include="game\sdk\enums\field_type.h" />
+    <ClInclude Include="game\sdk\enums\frame_stage.h" />
+    <ClInclude Include="game\sdk\enums\move_type.h" />
+    <ClInclude Include="game\sdk\enums\net_channel_type.h" />
+    <ClInclude Include="game\sdk\enums\player_flags.h" />
+    <ClInclude Include="game\sdk\enums\prop_type.h" />
+    <ClInclude Include="game\sdk\enums\weapon_type.h" />
+    <ClInclude Include="game\sdk\classes\iv_engine_client.h" />
+    <ClInclude Include="game\sdk\structs\data_map.h" />
+    <ClInclude Include="game\sdk\structs\demo_playback_parameters_t.h" />
+    <ClInclude Include="game\sdk\structs\dt_common.h" />
+    <ClInclude Include="game\sdk\structs\dt_recv.h" />
+    <ClInclude Include="game\sdk\structs\i_client_class.h" />
+    <ClInclude Include="game\sdk\structs\i_material.h" />
+    <ClInclude Include="game\sdk\structs\i_texture.h" />
+    <ClInclude Include="game\sdk\structs\player_info_t.h" />
+    <ClInclude Include="game\sdk\enums\teams.h" />
+    <ClInclude Include="game\sdk\structs\studio.h" />
+    <ClInclude Include="game\sdk\structs\type_description.h" />
+    <ClInclude Include="game\sdk\structs\weapon_data_t.h" />
+    <ClInclude Include="globals\csgo.h" />
+    <ClInclude Include="globals\ctx\ctx.h" />
+    <ClInclude Include="globals\hooks\anim_fix\anim_fix.h" />
+    <ClInclude Include="globals\hooks\cl_move\cl_move.h" />
+    <ClInclude Include="globals\hooks\create_move\create_move.h" />
+    <ClInclude Include="globals\hooks\draw_model_execute\draw_model_execute.h" />
+    <ClInclude Include="globals\hooks\emit_sound\emit_sound.h" />
+    <ClInclude Include="globals\hooks\end_scene\end_scene.h" />
+    <ClInclude Include="globals\hooks\frame_stage_notify\frame_stage_notify.h" />
+    <ClInclude Include="globals\hooks\glow_effect_spectator\glow_effect_spectator.h" />
+    <ClInclude Include="globals\hooks\item_post_frame\item_post_frame.h" />
+    <ClInclude Include="globals\hooks\paint_traverse\paint_traverse.h" />
+    <ClInclude Include="globals\hooks\wndproc\wndproc.h" />
+    <ClInclude Include="globals\wednesday\wednesday.h" />
+    <ClInclude Include="globals\includes\includes.h" />
+    <ClInclude Include="globals\interfaces\interfaces.h" />
+    <ClInclude Include="globals\macros\macros.h" />
+    <ClInclude Include="hacks\features\aimbot\aimbot.h" />
+    <ClInclude Include="hacks\features\lagcomp\lagcomp.h" />
+    <ClInclude Include="hacks\features\movement\movement.h" />
+    <ClInclude Include="hacks\features\visuals\visuals.h" />
+    <ClInclude Include="hacks\gui\anims\anims.h" />
+    <ClInclude Include="hacks\gui\anims\effects.h" />
+    <ClInclude Include="hacks\gui\cfg\cfg.h" />
+    <ClInclude Include="hacks\gui\groupbox\groupbox.h" />
+    <ClInclude Include="hacks\gui\gui_ctx\gui_ctx.h" />
+    <ClInclude Include="hacks\gui\gui.h" />
+    <ClInclude Include="hacks\gui\includes\includes.h" />
+    <ClInclude Include="hacks\gui\utils\ui_utils.h" />
+    <ClInclude Include="hacks\gui\window\window.h" />
+    <ClInclude Include="hacks\logging\logging.h" />
+    <ClInclude Include="hacks\prediction\prediction.h" />
+    <ClInclude Include="utils\console\log_level\log_level.h" />
+    <ClInclude Include="utils\convars\convars.h" />
+    <ClInclude Include="utils\entity_list\entity_list.h" />
+    <ClInclude Include="utils\helpers\function_enforce\function_enforce.h" />
+    <ClInclude Include="globals\hooks\hooking.h" />
+    <ClInclude Include="utils\keybinds\keybinds.h" />
+    <ClInclude Include="utils\math\math.h" />
+    <ClInclude Include="utils\math\types\matrix.h" />
+    <ClInclude Include="utils\math\types\quaternion.h" />
+    <ClInclude Include="utils\math\types\vector.h" />
+    <ClInclude Include="utils\modules\address\address.h" />
+    <ClInclude Include="utils\modules\modules.h" />
+    <ClInclude Include="utils\console\console.h" />
+    <ClInclude Include="utils\helpers\bit_flag.h" />
+    <ClInclude Include="utils\helpers\primitive_definitions\primitives.h" />
+    <ClInclude Include="utils\netvar\netvar.h" />
+    <ClInclude Include="utils\particle_system\particle_system.h" />
+    <ClInclude Include="utils\renderer\renderer.h" />
+    <ClInclude Include="utils\utils.h" />
+    <ClInclude Include="utils\vfunc\vfunc.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="hacks\gui\cfg\cfg.inl" />
+    <None Include="utils\console\console.inl" />
+    <None Include="utils\math\math.inl" />
+    <None Include="utils\modules\modules.inl" />
+    <None Include="utils\renderer\renderer.inl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

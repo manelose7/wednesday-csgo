@@ -1,0 +1,3 @@
+C:/Users/Liga/Desktop/hotwheels/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Liga/Desktop/hotwheels/cmake-build-debug/CMakeFiles/hotwheels.dir
+C:/Users/Liga/Desktop/hotwheels/cmake-build-debug/CMakeFiles/rebuild_cache.dir

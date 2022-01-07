@@ -1,0 +1,2398 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "hotwheels.exe"
+		},
+		{
+			"path" : "hotwheels.pdb"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"include_directories"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 75,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 6,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 7,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 8,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 9,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 10,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 11,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 12,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 13,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 14,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 15,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 16,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 17,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 18,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 19,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 20,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 21,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 22,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 23,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 24,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 25,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 26,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 27,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 28,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 29,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 30,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 31,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 32,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 33,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 34,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 35,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 36,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 37,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 38,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 39,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 40,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 41,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 42,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 43,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 44,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 45,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 46,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 47,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 48,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 49,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 50,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 51,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 52,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 53,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 54,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 55,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 56,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 57,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 58,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 59,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 60,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 61,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 62,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 63,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 64,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 65,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 66,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 67,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 68,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 69,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 70,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 71,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 72,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 73,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g"
+				},
+				{
+					"fragment" : "-std=gnu++14"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 2,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/audio"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/audio/kyu"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/audio/peter_griffin"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/audio/soilder"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/checksum"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/formatting"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/formatting/fmt"
+				},
+				{
+					"backtrace" : 9,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/hash"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/lazy_importer"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/minhook/include"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/minhook/src"
+				},
+				{
+					"backtrace" : 13,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/minhook/src/hde"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/mocking_bird"
+				},
+				{
+					"backtrace" : 15,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/xor"
+				},
+				{
+					"backtrace" : 16,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/game/datatypes"
+				},
+				{
+					"backtrace" : 17,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/game/sdk"
+				},
+				{
+					"backtrace" : 18,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/game/sdk/classes"
+				},
+				{
+					"backtrace" : 19,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/game/sdk/enums"
+				},
+				{
+					"backtrace" : 20,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/game/sdk/structs"
+				},
+				{
+					"backtrace" : 21,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals"
+				},
+				{
+					"backtrace" : 22,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/ctx"
+				},
+				{
+					"backtrace" : 23,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/hooks"
+				},
+				{
+					"backtrace" : 24,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/hooks/anim_fix"
+				},
+				{
+					"backtrace" : 25,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/hooks/cl_move"
+				},
+				{
+					"backtrace" : 26,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/hooks/create_move"
+				},
+				{
+					"backtrace" : 27,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/hooks/draw_model_execute"
+				},
+				{
+					"backtrace" : 28,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/hooks/emit_sound"
+				},
+				{
+					"backtrace" : 29,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/hooks/end_scene"
+				},
+				{
+					"backtrace" : 30,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/hooks/frame_stage_notify"
+				},
+				{
+					"backtrace" : 31,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/hooks/glow_effect_spectator"
+				},
+				{
+					"backtrace" : 32,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/hooks/item_post_frame"
+				},
+				{
+					"backtrace" : 33,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/hooks/paint_traverse"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/hooks/wndproc"
+				},
+				{
+					"backtrace" : 35,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/hotwheels"
+				},
+				{
+					"backtrace" : 36,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/includes"
+				},
+				{
+					"backtrace" : 37,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/interfaces"
+				},
+				{
+					"backtrace" : 38,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/macros"
+				},
+				{
+					"backtrace" : 39,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/features/aimbot"
+				},
+				{
+					"backtrace" : 40,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/features/lagcomp"
+				},
+				{
+					"backtrace" : 41,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/features/movement"
+				},
+				{
+					"backtrace" : 42,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/features/visuals"
+				},
+				{
+					"backtrace" : 43,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/gui"
+				},
+				{
+					"backtrace" : 44,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/gui/anims"
+				},
+				{
+					"backtrace" : 45,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/gui/cfg"
+				},
+				{
+					"backtrace" : 46,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/gui/groupbox"
+				},
+				{
+					"backtrace" : 47,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/gui/gui_ctx"
+				},
+				{
+					"backtrace" : 48,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/gui/includes"
+				},
+				{
+					"backtrace" : 49,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/gui/utils"
+				},
+				{
+					"backtrace" : 50,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/gui/window"
+				},
+				{
+					"backtrace" : 51,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/logging"
+				},
+				{
+					"backtrace" : 52,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/prediction"
+				},
+				{
+					"backtrace" : 53,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils"
+				},
+				{
+					"backtrace" : 54,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/console"
+				},
+				{
+					"backtrace" : 55,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/console/log_level"
+				},
+				{
+					"backtrace" : 56,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/convars"
+				},
+				{
+					"backtrace" : 57,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/entity_list"
+				},
+				{
+					"backtrace" : 58,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/helpers"
+				},
+				{
+					"backtrace" : 59,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/helpers/function_enforce"
+				},
+				{
+					"backtrace" : 60,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/helpers/primitive_definitions"
+				},
+				{
+					"backtrace" : 61,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/keybinds"
+				},
+				{
+					"backtrace" : 62,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/math"
+				},
+				{
+					"backtrace" : 63,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/math/types"
+				},
+				{
+					"backtrace" : 64,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/modules"
+				},
+				{
+					"backtrace" : 65,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/modules/address"
+				},
+				{
+					"backtrace" : 66,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/netvar"
+				},
+				{
+					"backtrace" : 67,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/particle_system"
+				},
+				{
+					"backtrace" : 68,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/renderer"
+				},
+				{
+					"backtrace" : 69,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/vfunc"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "14"
+			},
+			"sourceIndexes" : 
+			[
+				3,
+				43,
+				110,
+				112,
+				114,
+				116,
+				118,
+				120,
+				122,
+				124,
+				126,
+				128,
+				130,
+				132,
+				134,
+				136,
+				139,
+				142,
+				144,
+				146,
+				148,
+				150,
+				154,
+				157,
+				159,
+				162,
+				164,
+				166,
+				168,
+				170,
+				173,
+				177,
+				182,
+				187,
+				191,
+				194,
+				196,
+				198,
+				202,
+				204
+			]
+		},
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 2,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/audio"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/audio/kyu"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/audio/peter_griffin"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/audio/soilder"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/checksum"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/formatting"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/formatting/fmt"
+				},
+				{
+					"backtrace" : 9,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/hash"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/lazy_importer"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/minhook/include"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/minhook/src"
+				},
+				{
+					"backtrace" : 13,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/minhook/src/hde"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/mocking_bird"
+				},
+				{
+					"backtrace" : 15,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/dependencies/xor"
+				},
+				{
+					"backtrace" : 16,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/game/datatypes"
+				},
+				{
+					"backtrace" : 17,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/game/sdk"
+				},
+				{
+					"backtrace" : 18,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/game/sdk/classes"
+				},
+				{
+					"backtrace" : 19,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/game/sdk/enums"
+				},
+				{
+					"backtrace" : 20,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/game/sdk/structs"
+				},
+				{
+					"backtrace" : 21,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals"
+				},
+				{
+					"backtrace" : 22,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/ctx"
+				},
+				{
+					"backtrace" : 23,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/hooks"
+				},
+				{
+					"backtrace" : 24,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/hooks/anim_fix"
+				},
+				{
+					"backtrace" : 25,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/hooks/cl_move"
+				},
+				{
+					"backtrace" : 26,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/hooks/create_move"
+				},
+				{
+					"backtrace" : 27,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/hooks/draw_model_execute"
+				},
+				{
+					"backtrace" : 28,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/hooks/emit_sound"
+				},
+				{
+					"backtrace" : 29,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/hooks/end_scene"
+				},
+				{
+					"backtrace" : 30,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/hooks/frame_stage_notify"
+				},
+				{
+					"backtrace" : 31,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/hooks/glow_effect_spectator"
+				},
+				{
+					"backtrace" : 32,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/hooks/item_post_frame"
+				},
+				{
+					"backtrace" : 33,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/hooks/paint_traverse"
+				},
+				{
+					"backtrace" : 34,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/hooks/wndproc"
+				},
+				{
+					"backtrace" : 35,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/hotwheels"
+				},
+				{
+					"backtrace" : 36,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/includes"
+				},
+				{
+					"backtrace" : 37,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/interfaces"
+				},
+				{
+					"backtrace" : 38,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/globals/macros"
+				},
+				{
+					"backtrace" : 39,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/features/aimbot"
+				},
+				{
+					"backtrace" : 40,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/features/lagcomp"
+				},
+				{
+					"backtrace" : 41,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/features/movement"
+				},
+				{
+					"backtrace" : 42,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/features/visuals"
+				},
+				{
+					"backtrace" : 43,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/gui"
+				},
+				{
+					"backtrace" : 44,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/gui/anims"
+				},
+				{
+					"backtrace" : 45,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/gui/cfg"
+				},
+				{
+					"backtrace" : 46,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/gui/groupbox"
+				},
+				{
+					"backtrace" : 47,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/gui/gui_ctx"
+				},
+				{
+					"backtrace" : 48,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/gui/includes"
+				},
+				{
+					"backtrace" : 49,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/gui/utils"
+				},
+				{
+					"backtrace" : 50,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/gui/window"
+				},
+				{
+					"backtrace" : 51,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/logging"
+				},
+				{
+					"backtrace" : 52,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/hacks/prediction"
+				},
+				{
+					"backtrace" : 53,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils"
+				},
+				{
+					"backtrace" : 54,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/console"
+				},
+				{
+					"backtrace" : 55,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/console/log_level"
+				},
+				{
+					"backtrace" : 56,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/convars"
+				},
+				{
+					"backtrace" : 57,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/entity_list"
+				},
+				{
+					"backtrace" : 58,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/helpers"
+				},
+				{
+					"backtrace" : 59,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/helpers/function_enforce"
+				},
+				{
+					"backtrace" : 60,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/helpers/primitive_definitions"
+				},
+				{
+					"backtrace" : 61,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/keybinds"
+				},
+				{
+					"backtrace" : 62,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/math"
+				},
+				{
+					"backtrace" : 63,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/math/types"
+				},
+				{
+					"backtrace" : 64,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/modules"
+				},
+				{
+					"backtrace" : 65,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/modules/address"
+				},
+				{
+					"backtrace" : 66,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/netvar"
+				},
+				{
+					"backtrace" : 67,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/particle_system"
+				},
+				{
+					"backtrace" : 68,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/renderer"
+				},
+				{
+					"backtrace" : 69,
+					"path" : "C:/Users/Liga/Desktop/hotwheels/hw-sdk/utils/vfunc"
+				}
+			],
+			"language" : "C",
+			"sourceIndexes" : 
+			[
+				21,
+				23,
+				28,
+				30,
+				31
+			]
+		}
+	],
+	"id" : "hotwheels::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "hotwheels",
+	"nameOnDisk" : "hotwheels.exe",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				22,
+				24,
+				25,
+				26,
+				27,
+				29,
+				32,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				42,
+				44,
+				45,
+				46,
+				47,
+				48,
+				49,
+				50,
+				51,
+				52,
+				53,
+				54,
+				55,
+				56,
+				57,
+				58,
+				59,
+				60,
+				61,
+				62,
+				63,
+				64,
+				65,
+				66,
+				67,
+				68,
+				69,
+				70,
+				71,
+				72,
+				73,
+				74,
+				75,
+				76,
+				77,
+				78,
+				79,
+				80,
+				81,
+				82,
+				83,
+				84,
+				85,
+				86,
+				87,
+				88,
+				89,
+				90,
+				91,
+				92,
+				93,
+				94,
+				95,
+				96,
+				97,
+				98,
+				99,
+				100,
+				101,
+				102,
+				103,
+				104,
+				105,
+				106,
+				107,
+				108,
+				109,
+				111,
+				113,
+				115,
+				117,
+				119,
+				121,
+				123,
+				125,
+				127,
+				129,
+				131,
+				133,
+				135,
+				137,
+				138,
+				140,
+				141,
+				143,
+				145,
+				147,
+				149,
+				151,
+				152,
+				153,
+				155,
+				156,
+				158,
+				160,
+				161,
+				163,
+				165,
+				167,
+				169,
+				171,
+				172,
+				174,
+				175,
+				176,
+				178,
+				179,
+				180,
+				181,
+				183,
+				184,
+				185,
+				186,
+				188,
+				189,
+				190,
+				192,
+				193,
+				195,
+				197,
+				199,
+				200,
+				201,
+				203
+			]
+		},
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				3,
+				21,
+				23,
+				28,
+				30,
+				31,
+				43,
+				110,
+				112,
+				114,
+				116,
+				118,
+				120,
+				122,
+				124,
+				126,
+				128,
+				130,
+				132,
+				134,
+				136,
+				139,
+				142,
+				144,
+				146,
+				148,
+				150,
+				154,
+				157,
+				159,
+				162,
+				164,
+				166,
+				168,
+				170,
+				173,
+				177,
+				182,
+				187,
+				191,
+				194,
+				196,
+				198,
+				202,
+				204
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/audio/kyu/loaded.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/audio/peter_griffin/loaded.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/audio/soilder/loaded.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/dependencies/checksum/checksum.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/checksum/checksum.hpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/formatting/fmt/chrono.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/formatting/fmt/color.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/formatting/fmt/compile.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/formatting/fmt/core.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/formatting/fmt/format-inl.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/formatting/fmt/format.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/formatting/fmt/locale.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/formatting/fmt/os.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/formatting/fmt/ostream.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/formatting/fmt/posix.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/formatting/fmt/printf.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/formatting/fmt/ranges.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/formatting/tinyformat.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/hash/hash.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/lazy_importer/lazy_importer.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/minhook/include/MinHook.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "hw-sdk/dependencies/minhook/src/hde/hde32.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/minhook/src/hde/hde32.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "hw-sdk/dependencies/minhook/src/hde/hde64.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/minhook/src/hde/hde64.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/minhook/src/hde/pstdint.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/minhook/src/hde/table32.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/minhook/src/hde/table64.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "hw-sdk/dependencies/minhook/src/buffer.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/minhook/src/buffer.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "hw-sdk/dependencies/minhook/src/hook.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "hw-sdk/dependencies/minhook/src/trampoline.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/minhook/src/trampoline.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/mocking_bird/mocking_bird.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/dependencies/xor/xor.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/datatypes/cutl.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/datatypes/keyvalues.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/c_base_animating.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/c_base_combat_character.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/c_base_combat_weapon.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/c_base_entity.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/c_base_player.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/c_client_state.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/game/sdk/classes/c_cs_player.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/c_cs_player.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/c_effect.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/c_handle.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/c_hud_chat.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/c_input.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/c_studio_render.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/c_usercmd.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/c_verified_cmd.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/c_view_setup.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/i_app_system.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/i_client_dll.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/i_client_entity.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/i_client_entity_list.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/i_client_networkable.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/i_client_renderable.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/i_client_thinkable.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/i_client_unknown.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/i_collideable.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/i_cvar.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/i_debug_overlay.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/i_engine_sound.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/i_engine_trace.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/i_global_vars.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/i_handle_entity.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/i_localize.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/i_mat_render_ctx.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/i_material_system.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/i_net_channel_info.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/i_panel.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/i_prediction.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/iv_engine_client.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/classes/iv_model_render.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/enums/buttons.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/enums/class_ids.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/enums/cvar_ids.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/enums/data_update_type.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/enums/def_idx.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/enums/field_type.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/enums/flow.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/enums/frame_stage.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/enums/glow_style.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/enums/key_type.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/enums/material_var_flags.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/enums/move_type.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/enums/net_channel_type.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/enums/player_flags.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/enums/prop_type.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/enums/td_offset.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/enums/teams.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/enums/trace_type.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/enums/weapon_type.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/structs/cnetmsg_signonstate_t.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/structs/color.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/structs/data_map.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/structs/demo_playback_parameters_t.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/structs/dt_common.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/structs/dt_recv.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/structs/i_client_class.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/structs/i_material.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/structs/i_texture.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/structs/model_render_info.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/structs/player_info_t.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/structs/studio.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/structs/type_description.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/structs/weapon_data_t.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/game/sdk/include.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/globals/ctx/ctx.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/globals/ctx/ctx.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/globals/hooks/anim_fix/anim_fix.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/globals/hooks/anim_fix/anim_fix.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/globals/hooks/cl_move/cl_move.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/globals/hooks/cl_move/cl_move.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/globals/hooks/create_move/create_move.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/globals/hooks/create_move/create_move.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/globals/hooks/draw_model_execute/draw_model_execute.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/globals/hooks/draw_model_execute/draw_model_execute.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/globals/hooks/emit_sound/emit_sound.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/globals/hooks/emit_sound/emit_sound.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/globals/hooks/end_scene/end_scene.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/globals/hooks/end_scene/end_scene.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/globals/hooks/frame_stage_notify/frame_stage_notify.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/globals/hooks/frame_stage_notify/frame_stage_notify.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/globals/hooks/glow_effect_spectator/glow_effect_spectator.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/globals/hooks/glow_effect_spectator/glow_effect_spectator.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/globals/hooks/item_post_frame/item_post_frame.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/globals/hooks/item_post_frame/item_post_frame.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/globals/hooks/paint_traverse/paint_traverse.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/globals/hooks/paint_traverse/paint_traverse.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/globals/hooks/wndproc/wndproc.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/globals/hooks/wndproc/wndproc.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/globals/hooks/hooking.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/globals/hooks/hooking.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/globals/hotwheels/hotwheels.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/globals/hotwheels/hotwheels.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/globals/includes/includes.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/globals/interfaces/interfaces.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/globals/interfaces/interfaces.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/globals/macros/macros.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/globals/csgo.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/globals/csgo.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/hacks/features/aimbot/aimbot.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/hacks/features/aimbot/aimbot.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/hacks/features/lagcomp/lagcomp.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/hacks/features/lagcomp/lagcomp.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/hacks/features/movement/movement.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/hacks/features/movement/movement.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/hacks/features/visuals/visuals.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/hacks/features/visuals/visuals.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/hacks/gui/anims/anims.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/hacks/gui/anims/effects.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/hacks/gui/cfg/cfg.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/hacks/gui/cfg/cfg.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/hacks/gui/cfg/cfg.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/hacks/gui/groupbox/groupbox.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/hacks/gui/groupbox/groupbox.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/hacks/gui/gui_ctx/gui_ctx.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/hacks/gui/gui_ctx/gui_ctx.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/hacks/gui/includes/includes.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/hacks/gui/utils/ui_utils.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/hacks/gui/utils/ui_utils.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/hacks/gui/window/window.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/hacks/gui/window/window.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/hacks/gui/gui.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/hacks/gui/gui.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/hacks/logging/logging.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/hacks/logging/logging.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/hacks/prediction/prediction.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/hacks/prediction/prediction.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/utils/console/log_level/log_level.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/utils/console/console.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/utils/console/console.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/utils/console/console.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/utils/convars/convars.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/utils/entity_list/entity_list.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/utils/entity_list/entity_list.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/utils/helpers/function_enforce/function_enforce.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/utils/helpers/primitive_definitions/primitives.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/utils/helpers/bit_flag.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/utils/keybinds/keybinds.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/utils/keybinds/keybinds.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/utils/math/types/matrix.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/utils/math/types/quaternion.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/utils/math/types/vector.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/utils/math/math.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/utils/math/math.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/utils/math/math.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/utils/modules/address/address.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/utils/modules/modules.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/utils/modules/modules.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/utils/modules/modules.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/utils/netvar/netvar.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/utils/netvar/netvar.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/utils/particle_system/particle_system.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/utils/particle_system/particle_system.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/utils/renderer/renderer.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/utils/renderer/renderer.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/utils/renderer/renderer.inl",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/utils/vfunc/vfunc.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/utils/utils.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "hw-sdk/utils/utils.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "hw-sdk/dllmain.cpp",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "EXECUTABLE"
+}
