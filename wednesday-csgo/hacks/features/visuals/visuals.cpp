@@ -58,7 +58,7 @@ void visuals::impl::update_object( esp_object& object )
 	object.m_box.m_cornered     = false;
 	object.m_box.m_outline[ 0 ] = true;
 	object.m_box.m_outline[ 1 ] = true;
-	object.m_box.m_draw         = false;
+	object.m_box.m_draw         = true;
 
 	object.m_box.m_color.r = 255;
 	object.m_box.m_color.g = 255;
@@ -93,9 +93,9 @@ void visuals::impl::update_object( esp_object& object )
 	buffer_bar.m_color_to.g   = 0;
 	buffer_bar.m_color_to.b   = 0;
 	buffer_bar.m_color_to.a   = 255;
-	buffer_bar.m_min          = 0;
-	buffer_bar.m_max          = 100;
-	buffer_bar.m_cur          = object.m_owner->health( );
+	buffer_bar.m_min      = 0;
+	buffer_bar.m_max      = 100;
+	buffer_bar.m_cur      = object.m_owner->health( );
 
 	object.m_box.m_bars.push_back( buffer_bar );
 }
@@ -232,37 +232,37 @@ void visuals::esp_bar::render( math::box box, int offset )
 	auto current_percentage = -( m_cur / ( m_max - m_min ) ) + 1.f;
 
 	if ( m_location == esp_location::LOCATION_TOP ) {
-		border_start_position = math::vec2< int >( box.x - m_width - 4, box.y );
-		border_end_position = math::vec2< int >( box.x - m_width - 4, box.y );
+		border_start_position = math::vec2< int >( box.x - m_width - 3, box.y );
+		border_end_position   = math::vec2< int >( box.x - m_width - 3, box.y );
 
-		start_position = math::vec2< int >( box.x - m_width - 4, box.y );
-		end_position   = math::vec2< int >( box.x - 4, box.h ) - start_position;
+		start_position = math::vec2< int >( box.x - m_width - 3, box.y );
+		end_position   = math::vec2< int >( box.x - 3, box.h ) - start_position;
 	}
 	if ( m_location == esp_location::LOCATION_BOTTOM ) {
-		border_start_position = math::vec2< int >( box.x - m_width - 4, box.y );
-		border_end_position = math::vec2< int >( box.x - m_width - 4, box.y );
+		border_start_position = math::vec2< int >( box.x - m_width - 3, box.y );
+		border_end_position   = math::vec2< int >( box.x - m_width - 3, box.y );
 
-		start_position = math::vec2< int >( box.x - m_width - 4, box.y );
-		end_position   = math::vec2< int >( box.x - 4, box.h ) - start_position;
+		start_position = math::vec2< int >( box.x - m_width - 3, box.y );
+		end_position   = math::vec2< int >( box.x - 3, box.h ) - start_position;
 	}
 	if ( m_location == esp_location::LOCATION_RIGHT ) {
-		border_start_position = math::vec2< int >( box.x + 4, box.y );
-		border_end_position = math::vec2< int >( box.x + 4, box.h ) - border_start_position;
+		border_start_position = math::vec2< int >( box.x + 3, box.y );
+		border_end_position   = math::vec2< int >( box.x + 3, box.h ) - border_start_position;
 
-		start_position = math::vec2< int >( box.x + 4, box.y + ( ( box.h - box.y ) * current_percentage ) );
-		end_position   = math::vec2< int >( box.x + m_width + 4, box.h ) - start_position;
+		start_position = math::vec2< int >( box.x + 3, box.y + ( ( box.h - box.y ) * current_percentage ) );
+		end_position   = math::vec2< int >( box.x + m_width + 3, box.h ) - start_position;
 	}
 	if ( m_location == esp_location::LOCATION_LEFT ) {
-		border_start_position = math::vec2< int >( box.x - m_width - 4, box.y );
-		border_end_position = math::vec2< int >( box.x - 4, box.h ) - border_start_position;
+		border_start_position = math::vec2< int >( box.x - m_width - 3, box.y );
+		border_end_position   = math::vec2< int >( box.x - 3, box.h ) - border_start_position;
 
-		start_position = math::vec2< int >( box.x - m_width - 4, box.y + ( ( box.h - box.y ) * current_percentage ) );
-		end_position   = math::vec2< int >( box.x - 4, box.h ) - start_position;
+		start_position = math::vec2< int >( box.x - m_width - 3, box.y + ( ( box.h - box.y ) * current_percentage ) );
+		end_position   = math::vec2< int >( box.x - 3, box.h ) - start_position;
 	}
 
 	auto current_color = m_color_from.lerp( m_color_to, current_percentage );
 
-	g_render.render_filled_rectangle( border_start_position - math::vec2< int >( 1, 1 ), border_end_position + math::vec2< int >( m_width, m_width ),
-	                                  color( 32, 32, 32, current_color.a ) );
+	g_render.render_filled_rectangle( border_start_position - math::vec2< int >( 1, 1 ), border_end_position + math::vec2< int >( 2, 2 ),
+	                                  color( 32, 32, 32, current_color.a - 155 ) );
 	g_render.render_filled_rectangle( start_position, end_position, current_color );
 }
