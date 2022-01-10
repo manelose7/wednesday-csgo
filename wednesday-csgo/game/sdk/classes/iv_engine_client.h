@@ -133,7 +133,11 @@ namespace sdk
 		}
 		void fire_events( )
 		{
-			virtual_func::call< void >( this, 58 );
+			static auto fire_events_address =
+				g_engine_dll.pattern_scan( "e9 ? ? ? ? cc cc cc cc cc cc cc cc cc cc cc 8b 0d ? ? ? ? 8d 89" ).as< std::uintptr_t >( );
+			using fire_events_type = void( __cdecl* )( );
+
+			reinterpret_cast< fire_events_type >( fire_events_address )( );
 		}
 	};
 } // namespace sdk
