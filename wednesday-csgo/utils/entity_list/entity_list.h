@@ -10,7 +10,7 @@ namespace entity_list
 {
 	struct player_info {
 	public:
-		std::string m_name;
+		const char* m_name;
 
 		math::vec3 m_mins{ };
 		math::vec3 m_maxs{ };

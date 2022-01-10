@@ -36,6 +36,8 @@ bool sdk::interfaces::init( )
 		localize = g_localize_dll.find_interface< sdk::i_localize* >( LOCALIZE_LOCALIZE_VERSION );
 
 		model_render = g_engine_dll.find_interface< sdk::iv_model_render* >( VENGINE_MODEL_VERSION );
+
+		model_info = g_engine_dll.find_interface< sdk::iv_model_info* >( VENGINE_MODEL_INFO );
 	}
 
 	// virtuals

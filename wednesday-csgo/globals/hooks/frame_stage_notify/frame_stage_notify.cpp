@@ -9,6 +9,11 @@ void __fastcall hooks::frame_stage_notify::frame_stage_notify_detour( void* self
 	case NET_UPDATE_END:
 		g_entity_list.update( );
 
+		//for ( auto event = g_interfaces.client_state-; event; event = event->next )
+		//	event->fire_delay = 0.f;
+
+		//g_interfaces.engine->fire_events( );
+
 		for ( auto& player_info : g_entity_list.players ) {
 			auto player = g_interfaces.entity_list->get_client_entity< sdk::c_cs_player* >( player_info.m_index );
 
@@ -16,8 +21,8 @@ void __fastcall hooks::frame_stage_notify::frame_stage_notify_detour( void* self
 				continue;
 
 			g_ctx.updating_animations = true;
-			//player->update_client_side_animation( );
-			//g_ctx.updating_animations = false;
+			// player->update_client_side_animation( );
+			// g_ctx.updating_animations = false;
 		}
 
 		g_lagcomp.update( );

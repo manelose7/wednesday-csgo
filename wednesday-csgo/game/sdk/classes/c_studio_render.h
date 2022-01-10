@@ -12,7 +12,7 @@ namespace sdk
 	};
 
 	struct draw_model_info_t {
-		sdk::studio_hdr_t* studio_hdr;
+		sdk::studio_hdr* studio_hdr;
 		unk* hardware_data;
 		sdk::studio_decal_handle_t decals;
 		int mskin;

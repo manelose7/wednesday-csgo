@@ -32,6 +32,7 @@ namespace sdk
 		sdk::i_panel* panel;
 		sdk::i_localize* localize;
 		sdk::iv_model_render* model_render;
+		sdk::iv_model_info* model_info;
 
 		bool init( );
 	};

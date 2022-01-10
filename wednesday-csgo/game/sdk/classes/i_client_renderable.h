@@ -5,13 +5,13 @@
 
 #include "../../../utils/math/types/matrix.h"
 #include "../../../utils/math/types/vector.h"
+#include "../structs/i_model.h"
 
 typedef std::uintptr_t client_shadow_handle;
 typedef std::uintptr_t client_render_handle;
 typedef std::uintptr_t model_instance_handle;
 
 struct bf_read;
-struct model_t;
 
 namespace sdk
 {
@@ -29,7 +29,7 @@ namespace sdk
 	public:
 		virtual client_shadow_handle get_shadow_handle( )                                                                                    = 0;
 		virtual client_render_handle get_render_handle( )                                                                                    = 0;
-		virtual model_t* get_model( )                                                                                                        = 0;
+		virtual i_model* get_model( )                                                                                                        = 0;
 		virtual int draw_model( int flags, std::uintptr_t& instance )                                                                        = 0;
 		virtual int get_body( )                                                                                                              = 0;
 		virtual void get_color_modulation( float* color )                                                                                    = 0;

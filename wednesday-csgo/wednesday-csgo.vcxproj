@@ -180,7 +180,8 @@
     <ClCompile Include="dependencies\minhook\src\hook.c" />
     <ClCompile Include="dependencies\minhook\src\trampoline.c" />
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="game\sdk\classes\c_cs_player.cpp" />
+    <ClCompile Include="game\definitions\classes\c_base_animating.cpp" />
+    <ClCompile Include="game\definitions\classes\c_cs_player.cpp" />
     <ClCompile Include="globals\csgo.cpp" />
     <ClCompile Include="globals\ctx\ctx.cpp" />
     <ClCompile Include="globals\hooks\anim_fix\anim_fix.cpp" />
@@ -266,6 +267,7 @@
     <ClInclude Include="game\sdk\classes\c_usercmd.h" />
     <ClInclude Include="game\sdk\classes\c_verified_cmd.h" />
     <ClInclude Include="game\sdk\classes\c_view_setup.h" />
+    <ClInclude Include="game\sdk\classes\iv_model_info.h" />
     <ClInclude Include="game\sdk\classes\iv_model_render.h" />
     <ClInclude Include="game\sdk\classes\i_collideable.h" />
     <ClInclude Include="game\sdk\classes\i_cvar.h" />
@@ -284,6 +286,8 @@
     <ClInclude Include="game\sdk\classes\i_mat_render_ctx.h" />
     <ClInclude Include="game\sdk\classes\i_panel.h" />
     <ClInclude Include="game\sdk\classes\i_prediction.h" />
+    <ClInclude Include="game\sdk\enums\hitgroup.h" />
+    <ClInclude Include="game\sdk\structs\c_event_info.h" />
     <ClInclude Include="game\sdk\structs\i_model.h" />
     <ClInclude Include="game\sdk\structs\model_render_info.h" />
     <ClInclude Include="game\sdk\enums\buttons.h" />

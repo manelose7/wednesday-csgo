@@ -60,42 +60,30 @@ void visuals::impl::update_object( esp_object& object )
 	object.m_box.m_outline[ 1 ] = true;
 	object.m_box.m_draw         = true;
 
-	object.m_box.m_color.r = 255;
-	object.m_box.m_color.g = 255;
-	object.m_box.m_color.b = 255;
-	object.m_box.m_color.a = 255;
+	object.m_box.m_color = color( 255, 255, 255, 255 );
 
 	object.m_box.m_titles.clear( );
 	object.m_box.m_texts.clear( );
 	object.m_box.m_bars.clear( );
 
-	auto buffer_title = esp_title( );
+	auto buffer_title = esp_text( );
 	auto buffer_bar   = esp_bar( );
 
 	buffer_title.m_location = esp_location::LOCATION_TOP;
 	buffer_title.m_text     = object.m_owner->name( );
-	buffer_title.m_color.r  = 200;
-	buffer_title.m_color.g  = 50;
-	buffer_title.m_color.b  = 0;
-	buffer_title.m_color.a  = 255;
+	buffer_title.m_color    = color( 255, 255, 255, 255 );
 	buffer_title.m_font     = g_fonts[ HASH( "esp_font" ) ];
-	buffer_title.m_flags    = font_flags::FLAG_NONE;
+	buffer_title.m_flags    = font_flags::FLAG_DROPSHADOW;
 
-	object.m_box.m_titles.push_back( buffer_title );
+	object.m_box.m_texts.push_back( buffer_title );
 
-	buffer_bar.m_location     = esp_location::LOCATION_LEFT;
-	buffer_bar.m_width        = 2;
-	buffer_bar.m_color_from.r = 0;
-	buffer_bar.m_color_from.g = 255;
-	buffer_bar.m_color_from.b = 0;
-	buffer_bar.m_color_from.a = 255;
-	buffer_bar.m_color_to.r   = 255;
-	buffer_bar.m_color_to.g   = 0;
-	buffer_bar.m_color_to.b   = 0;
-	buffer_bar.m_color_to.a   = 255;
-	buffer_bar.m_min      = 0;
-	buffer_bar.m_max      = 100;
-	buffer_bar.m_cur      = object.m_owner->health( );
+	buffer_bar.m_location   = esp_location::LOCATION_LEFT;
+	buffer_bar.m_width      = 2;
+	buffer_bar.m_color_from = color( 0, 255, 0, 255 );
+	buffer_bar.m_color_to   = color( 255, 0, 0, 255 );
+	buffer_bar.m_min        = 0;
+	buffer_bar.m_max        = 100;
+	buffer_bar.m_cur        = object.m_owner->health( );
 
 	object.m_box.m_bars.push_back( buffer_bar );
 }
@@ -130,6 +118,10 @@ void visuals::impl::render( )
 		esp_object& object = esp_objects[ player->entity_index( ) ];
 
 		object.m_box.render( player );
+
+		auto w2s = utils::world_to_screen( player->hitbox_position( sdk::HITGROUP_HEAD ) );
+
+		g_render.render_filled_rectangle( w2s - math::vec2( 3, 3 ), math::vec2( 6, 6 ), color( 255, 255, 255 ) );
 	}
 }
 
@@ -209,14 +201,14 @@ void visuals::esp_text::render( math::box box, int offset )
 
 	if ( m_location == esp_location::LOCATION_TOP )
 		position = math::vec2< int >( ( ( box.x + ( box.w - box.x ) / 2 ) - text_size.x / 2 ) - 2,
-		                              ( ( box.y - text_size.y ) - ( ( text_size.y + 4 ) * offset ) ) - 6 );
+		                              ( ( box.y - text_size.y ) - ( ( text_size.y + 4 ) * offset ) ) - 1 );
 	if ( m_location == esp_location::LOCATION_BOTTOM )
 		position = math::vec2< int >( ( ( box.x + ( box.w - box.x ) / 2 ) - text_size.x / 2 ) - 2,
-		                              ( ( box.h + text_size.y ) + ( ( text_size.y + 4 ) * offset ) ) - 10 );
+		                              ( ( box.h + text_size.y ) + ( ( text_size.y + 4 ) * offset ) ) - 5 );
 	if ( m_location == esp_location::LOCATION_RIGHT )
-		position = math::vec2< int >( box.w + 2, ( ( box.y + text_size.y ) + ( ( text_size.y + 4 ) * offset ) ) - 10 );
+		position = math::vec2< int >( box.w + 2, ( ( box.y + text_size.y ) + ( ( text_size.y + 4 ) * offset ) ) - 5 );
 	if ( m_location == esp_location::LOCATION_LEFT )
-		position = math::vec2< int >( ( box.x - text_size.x ) - 1, ( ( box.y + text_size.y ) + ( ( text_size.y + 4 ) * offset ) ) - 10 );
+		position = math::vec2< int >( ( box.x - text_size.x ) - 1, ( ( box.y + text_size.y ) + ( ( text_size.y + 4 ) * offset ) ) - 5 );
 
 	g_render.render_text( position, font_alignment::AL_DEFAULT, m_flags, m_text.c_str( ), m_font, m_color );
 }

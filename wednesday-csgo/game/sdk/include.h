@@ -18,6 +18,7 @@
 #include "classes/iv_engine_client.h"
 #include "classes/i_localize.h"
 #include "classes/iv_model_render.h"
+#include "classes/iv_model_info.h"
 
 // structs
 #include "structs/i_material.h"

@@ -49,6 +49,7 @@
 #define VGUI_PANEL_CLIENT_VERSION             _( "VGUI_Panel009" )
 #define LOCALIZE_LOCALIZE_VERSION             _( "Localize_001" )
 #define VENGINE_MODEL_VERSION                 _( "VEngineModel016" )
+#define VENGINE_MODEL_INFO                    _( "VModelInfoClient004" )
 
 // [#] utils
 

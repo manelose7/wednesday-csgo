@@ -131,5 +131,9 @@ namespace sdk
 		{
 			virtual_func::call< void >( this, 114, st, from_console_or_keybind );
 		}
+		void fire_events( )
+		{
+			virtual_func::call< void >( this, 58 );
+		}
 	};
 } // namespace sdk

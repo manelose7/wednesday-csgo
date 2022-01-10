@@ -2,6 +2,7 @@
 
 #include "../../../game/sdk/classes/c_cs_player.h"
 #include "../../../game/sdk/classes/i_collideable.h"
+#include "../../../game/sdk/enums/hitgroup.h"
 #include "../../../game/sdk/include.h"
 #include "../../../globals/includes/includes.h"
 #include "../../../utils/console/console.h"

@@ -1,13 +1,13 @@
 #pragma once
 #include "../../../utils/math/types/matrix.h"
 #include "../../../utils/math/types/vector.h"
+#include "../structs/i_model.h"
 #include "i_engine_trace.h"
 #include "i_handle_entity.h"
 
 namespace sdk
 {
 	struct trace_t;
-	struct model_t;
 	struct i_physics_object;
 	struct i_client_unknown;
 
@@ -39,7 +39,7 @@ namespace sdk
 		virtual int get_collision_model_index( ) = 0;
 
 		// return the model, if it's a studio model.
-		virtual const model_t* get_collision_model( ) = 0;
+		virtual const i_model* get_collision_model( ) = 0;
 
 		// get angles and origin.
 		virtual const math::vec3& get_collision_origin( ) const               = 0;
