@@ -10,6 +10,8 @@ static int charged = 0;
 void __cdecl hooks::cl_move::cl_move_detour( float accumulated_extra_samples, bool final_tick )
 {
 	auto can_charge = []( ) -> bool {
+		return false;
+
 		bool sure = false;
 
 		if ( g_ctx.local )
