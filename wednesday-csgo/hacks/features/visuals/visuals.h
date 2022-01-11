@@ -29,7 +29,7 @@ namespace visuals
 
 	struct esp_text {
 	public:
-		void render( math::box box, int offset );
+		void render( math::box box, float& offset_x, float& offset_y );
 
 		std::string m_text{ };
 
@@ -44,12 +44,12 @@ namespace visuals
 
 	struct esp_title : public esp_text {
 	public:
-		void render( math::box box, int offset );
+		void render( math::box box, float& offset_x, float& offset_y );
 	};
 
 	struct esp_bar : public esp_text {
 	public:
-		void render( math::box box, int offset );
+		void render( math::box box, float& offset_x, float& offset_y );
 
 		float m_width{ };
 
@@ -99,8 +99,6 @@ namespace visuals
 
 		void update( );
 		void render( );
-
-		bool HEYIMDRAWINHERE{ }; // dream please don't remove drain gang $$$$$$
 	};
 } // namespace visuals
 

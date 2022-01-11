@@ -146,44 +146,28 @@ void visuals::esp_box::render( sdk::c_cs_player* owner )
 		g_render.render_rectangle< int >( position, size, m_color );
 	}
 
-	unsigned int iterator[ 4 ]{ };
+	float offset_x[ 4 ]{ };
+	float offset_y[ 4 ]{ };
 
-	for ( auto& title : m_titles ) {
-		title.render( dimensions, iterator[ static_cast< unsigned int >( title.m_location ) ] );
+	for ( auto& title : m_titles )
+		title.render( dimensions, offset_x[ static_cast< unsigned int >( title.m_location ) ],
+		              offset_y[ static_cast< unsigned int >( title.m_location ) ] );
 
-		iterator[ static_cast< unsigned int >( title.m_location ) ]++;
-	}
+	for ( auto& text : m_texts )
+		text.render( dimensions, offset_x[ static_cast< unsigned int >( text.m_location ) ],
+		             offset_y[ static_cast< unsigned int >( text.m_location ) ] );
 
-	for ( auto& text : m_texts ) {
-		text.render( dimensions, iterator[ static_cast< unsigned int >( text.m_location ) ] );
-
-		iterator[ static_cast< unsigned int >( text.m_location ) ]++;
-	}
-
-	for ( auto& bar : m_bars ) {
-		bar.render( dimensions, iterator[ static_cast< unsigned int >( bar.m_location ) ] );
-
-		iterator[ static_cast< unsigned int >( bar.m_location ) ]++;
-	}
+	for ( auto& bar : m_bars )
+		bar.render( dimensions, offset_x[ static_cast< unsigned int >( bar.m_location ) ],
+		            offset_y[ static_cast< unsigned int >( bar.m_location ) ] );
 }
 
-void visuals::esp_title::render( math::box box, int offset )
+void visuals::esp_title::render( math::box box, float& offset_x, float& offset_y )
 {
 	auto text_size_buffer = g_render.render_text_size( m_text.c_str( ), m_font );
 	auto text_size        = math::vec2< int >( text_size_buffer.x, text_size_buffer.y );
 
 	math::vec2< int > position;
-
-	if ( m_location == esp_location::LOCATION_TOP )
-		position = math::vec2< int >( ( ( box.x + ( box.w - box.x ) / 2 ) - text_size.x / 2 ) - 2,
-		                              ( ( box.y - text_size.y ) - ( ( text_size.y + 4 ) * offset ) ) - 6 );
-	if ( m_location == esp_location::LOCATION_BOTTOM )
-		position = math::vec2< int >( ( ( box.x + ( box.w - box.x ) / 2 ) - text_size.x / 2 ) - 2,
-		                              ( ( box.h + text_size.y ) + ( ( text_size.y + 4 ) * offset ) ) - 10 );
-	if ( m_location == esp_location::LOCATION_RIGHT )
-		position = math::vec2< int >( box.w + 3, ( ( box.y + text_size.y ) + ( ( text_size.y + 4 ) * offset ) ) - 13 );
-	if ( m_location == esp_location::LOCATION_LEFT )
-		position = math::vec2< int >( ( box.x - text_size.x ) - 7, ( ( box.y + text_size.y ) + ( ( text_size.y + 4 ) * offset ) ) - 13 );
 
 	g_render.render_filled_rectangle( position, math::vec2< int >( text_size.x + 5, text_size.y + 4 ), color( 0, 0, 0, m_color.a * 0.7 ) );
 	g_render.render_filled_rectangle( position, math::vec2< int >( 1, text_size.y + 4 ), m_color );
@@ -192,28 +176,17 @@ void visuals::esp_title::render( math::box box, int offset )
 	                      color( 255, 255, 255, 255 ) );
 }
 
-void visuals::esp_text::render( math::box box, int offset )
+void visuals::esp_text::render( math::box box, float& offset_x, float& offset_y )
 {
 	auto text_size_buffer = g_render.render_text_size( m_text.c_str( ), m_font );
 	auto text_size        = math::vec2< int >( text_size_buffer.x, text_size_buffer.y );
 
 	math::vec2< int > position;
 
-	if ( m_location == esp_location::LOCATION_TOP )
-		position = math::vec2< int >( ( ( box.x + ( box.w - box.x ) / 2 ) - text_size.x / 2 ) - 2,
-		                              ( ( box.y - text_size.y ) - ( ( text_size.y + 4 ) * offset ) ) - 1 );
-	if ( m_location == esp_location::LOCATION_BOTTOM )
-		position = math::vec2< int >( ( ( box.x + ( box.w - box.x ) / 2 ) - text_size.x / 2 ) - 2,
-		                              ( ( box.h + text_size.y ) + ( ( text_size.y + 4 ) * offset ) ) - 5 );
-	if ( m_location == esp_location::LOCATION_RIGHT )
-		position = math::vec2< int >( box.w + 2, ( ( box.y + text_size.y ) + ( ( text_size.y + 4 ) * offset ) ) - 5 );
-	if ( m_location == esp_location::LOCATION_LEFT )
-		position = math::vec2< int >( ( box.x - text_size.x ) - 1, ( ( box.y + text_size.y ) + ( ( text_size.y + 4 ) * offset ) ) - 5 );
-
 	g_render.render_text( position, font_alignment::AL_DEFAULT, m_flags, m_text.c_str( ), m_font, m_color );
 }
 
-void visuals::esp_bar::render( math::box box, int offset )
+void visuals::esp_bar::render( math::box box, float& offset_x, float& offset_y )
 {
 	math::vec2< int > border_start_position;
 	math::vec2< int > border_end_position;
@@ -222,35 +195,6 @@ void visuals::esp_bar::render( math::box box, int offset )
 	math::vec2< int > end_position;
 
 	auto current_percentage = -( m_cur / ( m_max - m_min ) ) + 1.f;
-
-	if ( m_location == esp_location::LOCATION_TOP ) {
-		border_start_position = math::vec2< int >( box.x - m_width - 3, box.y );
-		border_end_position   = math::vec2< int >( box.x - m_width - 3, box.y );
-
-		start_position = math::vec2< int >( box.x - m_width - 3, box.y );
-		end_position   = math::vec2< int >( box.x - 3, box.h ) - start_position;
-	}
-	if ( m_location == esp_location::LOCATION_BOTTOM ) {
-		border_start_position = math::vec2< int >( box.x - m_width - 3, box.y );
-		border_end_position   = math::vec2< int >( box.x - m_width - 3, box.y );
-
-		start_position = math::vec2< int >( box.x - m_width - 3, box.y );
-		end_position   = math::vec2< int >( box.x - 3, box.h ) - start_position;
-	}
-	if ( m_location == esp_location::LOCATION_RIGHT ) {
-		border_start_position = math::vec2< int >( box.x + 3, box.y );
-		border_end_position   = math::vec2< int >( box.x + 3, box.h ) - border_start_position;
-
-		start_position = math::vec2< int >( box.x + 3, box.y + ( ( box.h - box.y ) * current_percentage ) );
-		end_position   = math::vec2< int >( box.x + m_width + 3, box.h ) - start_position;
-	}
-	if ( m_location == esp_location::LOCATION_LEFT ) {
-		border_start_position = math::vec2< int >( box.x - m_width - 3, box.y );
-		border_end_position   = math::vec2< int >( box.x - 3, box.h ) - border_start_position;
-
-		start_position = math::vec2< int >( box.x - m_width - 3, box.y + ( ( box.h - box.y ) * current_percentage ) );
-		end_position   = math::vec2< int >( box.x - 3, box.h ) - start_position;
-	}
 
 	auto current_color = m_color_from.lerp( m_color_to, current_percentage );
 
