@@ -287,5 +287,10 @@ namespace math
 		constexpr box( int x, int y, int w, int h ) : x( x ), y( y ), w( w ), h( h ){ };
 
 		int x, y, w, h;
+
+		vec2< int > width( )
+		{
+			return { w - x, h - y };
+		}
 	};
 }; // namespace math

@@ -67,7 +67,7 @@ void visuals::impl::update_object( esp_object& object )
 	object.m_box.m_bars.clear( );
 
 	auto buffer_title = esp_text( );
-	auto buffer_bar   = esp_bar( );
+	// auto buffer_bar   = esp_bar( );
 
 	buffer_title.m_location = esp_location::LOCATION_TOP;
 	buffer_title.m_text     = object.m_owner->name( );
@@ -76,16 +76,36 @@ void visuals::impl::update_object( esp_object& object )
 	buffer_title.m_flags    = font_flags::FLAG_DROPSHADOW;
 
 	object.m_box.m_texts.push_back( buffer_title );
+	object.m_box.m_texts.push_back( buffer_title );
+	object.m_box.m_texts.push_back( buffer_title );
 
-	buffer_bar.m_location   = esp_location::LOCATION_LEFT;
-	buffer_bar.m_width      = 2;
-	buffer_bar.m_color_from = color( 0, 255, 0, 255 );
-	buffer_bar.m_color_to   = color( 255, 0, 0, 255 );
-	buffer_bar.m_min        = 0;
-	buffer_bar.m_max        = 100;
-	buffer_bar.m_cur        = object.m_owner->health( );
+	buffer_title.m_location = esp_location::LOCATION_BOTTOM;
 
-	object.m_box.m_bars.push_back( buffer_bar );
+	object.m_box.m_texts.push_back( buffer_title );
+	object.m_box.m_texts.push_back( buffer_title );
+	object.m_box.m_texts.push_back( buffer_title );
+
+	buffer_title.m_location = esp_location::LOCATION_LEFT;
+
+	object.m_box.m_texts.push_back( buffer_title );
+	object.m_box.m_texts.push_back( buffer_title );
+	object.m_box.m_texts.push_back( buffer_title );
+
+	buffer_title.m_location = esp_location::LOCATION_RIGHT;
+
+	object.m_box.m_texts.push_back( buffer_title );
+	object.m_box.m_texts.push_back( buffer_title );
+	object.m_box.m_texts.push_back( buffer_title );
+
+	// buffer_bar.m_location   = esp_location::LOCATION_LEFT;
+	// buffer_bar.m_width      = 2;
+	// buffer_bar.m_color_from = color( 0, 255, 0, 255 );
+	// buffer_bar.m_color_to   = color( 255, 0, 0, 255 );
+	// buffer_bar.m_min        = 0;
+	// buffer_bar.m_max        = 100;
+	// buffer_bar.m_cur        = object.m_owner->health( );
+
+	// object.m_box.m_bars.push_back( buffer_bar );
 }
 
 void visuals::impl::update( )
@@ -169,6 +189,17 @@ void visuals::esp_title::render( math::box box, float& offset_x, float& offset_y
 
 	math::vec2< int > position;
 
+	switch ( m_location ) {
+	case esp_location::LOCATION_TOP:
+		break;
+	case esp_location::LOCATION_LEFT:
+		break;
+	case esp_location::LOCATION_BOTTOM:
+		break;
+	case esp_location::LOCATION_RIGHT:
+		break;
+	}
+
 	g_render.render_filled_rectangle( position, math::vec2< int >( text_size.x + 5, text_size.y + 4 ), color( 0, 0, 0, m_color.a * 0.7 ) );
 	g_render.render_filled_rectangle( position, math::vec2< int >( 1, text_size.y + 4 ), m_color );
 
@@ -183,6 +214,39 @@ void visuals::esp_text::render( math::box box, float& offset_x, float& offset_y 
 
 	math::vec2< int > position;
 
+	switch ( m_location ) {
+	case esp_location::LOCATION_TOP:
+		position.x = ( box.x + box.width( ).x / 2 ) - text_size.x / 2;
+		position.y = ( box.y - text_size.y ) - 1;
+
+		position.x += offset_x;
+		position.y -= offset_y;
+		break;
+	case esp_location::LOCATION_BOTTOM:
+		position.x = ( box.x + box.width( ).x / 2 ) - text_size.x / 2;
+		position.y = box.h + 1;
+
+		position.x += offset_x;
+		position.y += offset_y;
+		break;
+	case esp_location::LOCATION_LEFT:
+		position.x = (box.x - text_size.x) - 3;
+		position.y = box.y;
+
+		position.x += offset_x;
+		position.y += offset_y;
+		break;
+	case esp_location::LOCATION_RIGHT:
+		position.x = box.w + 2;
+		position.y = box.y;
+
+		position.x += offset_x;
+		position.y += offset_y;
+		break;
+	}
+
+	offset_y += text_size.y;
+
 	g_render.render_text( position, font_alignment::AL_DEFAULT, m_flags, m_text.c_str( ), m_font, m_color );
 }
 
@@ -195,8 +259,18 @@ void visuals::esp_bar::render( math::box box, float& offset_x, float& offset_y )
 	math::vec2< int > end_position;
 
 	auto current_percentage = -( m_cur / ( m_max - m_min ) ) + 1.f;
+	auto current_color      = m_color_from.lerp( m_color_to, current_percentage );
 
-	auto current_color = m_color_from.lerp( m_color_to, current_percentage );
+	switch ( m_location ) {
+	case esp_location::LOCATION_TOP:
+		break;
+	case esp_location::LOCATION_LEFT:
+		break;
+	case esp_location::LOCATION_BOTTOM:
+		break;
+	case esp_location::LOCATION_RIGHT:
+		break;
+	}
 
 	g_render.render_filled_rectangle( border_start_position - math::vec2< int >( 1, 1 ), border_end_position + math::vec2< int >( 2, 2 ),
 	                                  color( 32, 32, 32, current_color.a - 155 ) );
