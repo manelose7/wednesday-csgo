@@ -23,6 +23,11 @@ void __fastcall hooks::frame_stage_notify::frame_stage_notify_detour( void* self
 			g_ctx.updating_animations = true;
 			// player->update_client_side_animation( );
 			// g_ctx.updating_animations = false;
+
+			auto var_mapping = player->get_var_map( );
+
+			for ( int iterator = 0; iterator < var_mapping->interpolated_entries; iterator++ )
+				var_mapping->entries[ iterator ].needs_to_interpolate = false;
 		}
 
 		g_lagcomp.update( );

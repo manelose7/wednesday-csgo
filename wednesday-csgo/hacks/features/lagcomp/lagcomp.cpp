@@ -61,13 +61,14 @@ void lagcomp::impl::update( )
 		if ( !heap_records[ player_info.m_index ] )
 			heap_records[ player_info.m_index ] = new record[ sv_maxunlag_ticks ];
 
-		auto& current_record = heap_records[ player_info.m_index ][ current_heap_iterator ];
+		auto current_record = heap_records[ player_info.m_index ][ current_heap_iterator ];
 
 		current_record.abs_origin      = player->get_abs_angles( );
 		current_record.eye_position    = player->eye_position( );
 		current_record.simulation_time = player->simulation_time( );
 		current_record.valid           = is_valid( current_record );
 		current_record.player          = player;
+		player->setup_bones( current_record.bone_matrix, 128, 256, 0.f );
 
 		current_heap_iterator++;
 
@@ -102,7 +103,7 @@ void lagcomp::impl::backtrack_player( sdk::c_cs_player* player )
 		return;
 
 	for ( int current_heap_iterator = 0; current_heap_iterator < sv_maxunlag_ticks; current_heap_iterator++ ) {
-		record* current_record = &heap_records[ entity_index ][ current_heap_iterator ];
+		auto current_record = &heap_records[ entity_index ][ current_heap_iterator ];
 
 		if ( !current_record )
 			continue;

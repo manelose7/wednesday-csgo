@@ -30,27 +30,31 @@ namespace sdk
 		virtual bool is_translucent_two_pass( const i_model* model ) const                                     = 0;
 
 	private:
-		virtual void padding( ) { }
+		virtual void padding( ) = 0;
 
 	public:
-		virtual void* compute_translucency_type( const i_model* model, int skin, int body )                                           = 0;
-		virtual int get_model_material_count( const i_model* model ) const                                                            = 0;
-		virtual void get_model_materials( const i_model* model, int i_count, i_material** materials )                                 = 0;
-		virtual bool is_model_vertex_lit( const i_model* model ) const                                                                = 0;
-		virtual const char* get_model_key_value_text( const i_model* model )                                                          = 0;
-		virtual bool get_model_key_value( const i_model* model, void*& buf )                                                          = 0;
-		virtual float get_model_radius( const i_model* model )                                                                        = 0;
-		virtual const void** find_model( const void** studio_hdr, void** cache, const char* model_name ) const                        = 0;
-		virtual const void** find_model( void* cache ) const                                                                          = 0;
-		virtual void** get_virtual_model( const void** studio_hdr ) const                                                             = 0;
-		virtual std::uint8_t* get_anim_block( const void** studio_hdr, int i_block ) const                                            = 0;
-		virtual bool has_anim_block_beepreloaded( void* const* studio_hdr, int i_block ) const                                        = 0;
+		virtual void* compute_translucency_type( const i_model* model, int skin, int body )                                   = 0;
+		virtual int get_model_material_count( const i_model* model ) const                                                    = 0;
+		virtual void get_model_materials( const i_model* model, int i_count, i_material** materials )                         = 0;
+		virtual bool is_model_vertex_lit( const i_model* model ) const                                                        = 0;
+		virtual const char* get_model_key_value_text( const i_model* model )                                                  = 0;
+		virtual bool get_model_key_value( const i_model* model, void*& buf )                                                  = 0;
+		virtual float get_model_radius( const i_model* model )                                                                = 0;
+		virtual const void** find_model( const void** studio_hdr, void** cache, const char* model_name ) const                = 0;
+		virtual const void** find_model( void* cache ) const                                                                  = 0;
+		virtual void** get_virtual_model( const void** studio_hdr ) const                                                     = 0;
+		virtual std::uint8_t* get_anim_block( const void** studio_hdr, int i_block ) const                                    = 0;
+		virtual bool has_anim_block_beepreloaded( void* const* studio_hdr, int i_block ) const                                = 0;
 		virtual void get_model_material_color_and_lighting( const i_model* model, const math::vec3& vec_origin, const math::vec3& angles,
-		                                                    trace_t* trace, math::vec3& vec_lighting, math::vec3& mat_color )         = 0;
+		                                                    trace_t* trace, math::vec3& vec_lighting, math::vec3& mat_color ) = 0;
 		virtual void get_illuminatiopoint( const i_model* model, i_client_renderable* renderable, const math::vec3& vec_origin,
-		                                   const math::vec3& angles, math::vec3* lighting_center )                                    = 0;
-		virtual int get_model_contents( int model_index ) const                                                                       = 0;
-		virtual studio_hdr* get_studio_model( const i_model* model )                                                                  = 0;
+		                                   const math::vec3& angles, math::vec3* lighting_center )                            = 0;
+		virtual int get_model_contents( int model_index ) const                                                               = 0;
+
+	private:
+		virtual void padding_( ) = 0;
+
+	public:
 		virtual int get_model_sprite_width( const i_model* model ) const                                                              = 0;
 		virtual int get_model_sprite_height( const i_model* model ) const                                                             = 0;
 		virtual void set_level_screefade_range( float fl_misize, float fl_max_size )                                                  = 0;
@@ -72,5 +76,10 @@ namespace sdk
 		virtual int register_combined_dynamic_model( const char* name, void* handle )                                                 = 0;
 		virtual void update_combined_dynamic_model( int model_index, void* handle )                                                   = 0;
 		virtual int begicombined_model( const char* name, bool b_reuse_existing )                                                     = 0;
+
+		studio_hdr* get_studio_model( i_model* model )
+		{
+			return virtual_func::call< sdk::studio_hdr* >( this, 32, model );
+		}
 	};
 } // namespace sdk

@@ -17,18 +17,20 @@ namespace lagcomp
 		math::vec3 eye_position = { };
 
 		sdk::c_cs_player* player = { };
+
+		math::matrix_3x4 bone_matrix[ 128 ] = { };
 	};
 
 	struct impl {
 	private:
 		// You should kill yourself NOW!
 		// [ 1-64 ] is the range of possible player indexes.
-		std::array<int, 65> heap_iterator;
+		std::array< int, 65 > heap_iterator;
 		float lerp_time( );
 		bool is_valid( record heap_record );
 
 	public:
-		std::array<record*, 65> heap_records;
+		std::array< record*, 65 > heap_records;
 
 		void update( );
 

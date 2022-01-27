@@ -53,7 +53,7 @@ sdk::c_user_cmd* sdk::c_input::get_user_cmd( int slot, int sequence_number )
 
 sdk::c_verified_cmd* sdk::c_input::get_verified_cmd( int sequence_number )
 {
-	auto verified_commands = *reinterpret_cast< sdk::c_verified_cmd** >( reinterpret_cast< std::uint32_t >( this ) + 0x10C );
+	auto verified_commands = *reinterpret_cast< sdk::c_verified_cmd** >( reinterpret_cast< std::uint32_t >( this ) + 0xF8 );
 
 	return &verified_commands[ sequence_number % multiplayer_backup ];
 }

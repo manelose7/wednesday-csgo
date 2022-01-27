@@ -58,7 +58,8 @@ void visuals::impl::update_object( esp_object& object )
 	object.m_box.m_cornered     = false;
 	object.m_box.m_outline[ 0 ] = true;
 	object.m_box.m_outline[ 1 ] = true;
-	object.m_box.m_draw         = true;
+	object.m_box.m_draw         = false;
+	object.m_box.m_skeleton     = true;
 
 	object.m_box.m_color = color( 255, 255, 255, 255 );
 
@@ -67,7 +68,7 @@ void visuals::impl::update_object( esp_object& object )
 	object.m_box.m_bars.clear( );
 
 	auto buffer_title = esp_text( );
-	// auto buffer_bar   = esp_bar( );
+	auto buffer_bar   = esp_bar( );
 
 	buffer_title.m_location = esp_location::LOCATION_TOP;
 	buffer_title.m_text     = object.m_owner->name( );
@@ -76,36 +77,16 @@ void visuals::impl::update_object( esp_object& object )
 	buffer_title.m_flags    = font_flags::FLAG_DROPSHADOW;
 
 	object.m_box.m_texts.push_back( buffer_title );
-	object.m_box.m_texts.push_back( buffer_title );
-	object.m_box.m_texts.push_back( buffer_title );
 
-	buffer_title.m_location = esp_location::LOCATION_BOTTOM;
+	buffer_bar.m_location   = esp_location::LOCATION_LEFT;
+	buffer_bar.m_width      = 2;
+	buffer_bar.m_color_from = color( 0, 255, 0, 255 );
+	buffer_bar.m_color_to   = color( 255, 0, 0, 255 );
+	buffer_bar.m_min        = 0;
+	buffer_bar.m_max        = 100;
+	buffer_bar.m_cur        = object.m_owner->health( );
 
-	object.m_box.m_texts.push_back( buffer_title );
-	object.m_box.m_texts.push_back( buffer_title );
-	object.m_box.m_texts.push_back( buffer_title );
-
-	buffer_title.m_location = esp_location::LOCATION_LEFT;
-
-	object.m_box.m_texts.push_back( buffer_title );
-	object.m_box.m_texts.push_back( buffer_title );
-	object.m_box.m_texts.push_back( buffer_title );
-
-	buffer_title.m_location = esp_location::LOCATION_RIGHT;
-
-	object.m_box.m_texts.push_back( buffer_title );
-	object.m_box.m_texts.push_back( buffer_title );
-	object.m_box.m_texts.push_back( buffer_title );
-
-	// buffer_bar.m_location   = esp_location::LOCATION_LEFT;
-	// buffer_bar.m_width      = 2;
-	// buffer_bar.m_color_from = color( 0, 255, 0, 255 );
-	// buffer_bar.m_color_to   = color( 255, 0, 0, 255 );
-	// buffer_bar.m_min        = 0;
-	// buffer_bar.m_max        = 100;
-	// buffer_bar.m_cur        = object.m_owner->health( );
-
-	// object.m_box.m_bars.push_back( buffer_bar );
+	object.m_box.m_bars.push_back( buffer_bar );
 }
 
 void visuals::impl::update( )
@@ -138,10 +119,6 @@ void visuals::impl::render( )
 		esp_object& object = esp_objects[ player->entity_index( ) ];
 
 		object.m_box.render( player );
-
-		auto w2s = utils::world_to_screen( player->hitbox_position( sdk::HITGROUP_HEAD ) );
-
-		g_render.render_filled_rectangle( w2s - math::vec2( 3, 3 ), math::vec2( 6, 6 ), color( 255, 255, 255 ) );
 	}
 }
 
@@ -164,6 +141,58 @@ void visuals::esp_box::render( sdk::c_cs_player* owner )
 			g_render.render_rectangle< int >( position + math::vec2< int >( 1, 1 ), size - math::vec2< int >( 2, 2 ), color( 0, 0, 0, m_color.a ) );
 
 		g_render.render_rectangle< int >( position, size, m_color );
+	}
+
+	if ( m_skeleton ) {
+		if ( !g_lagcomp.heap_records[ owner->entity_index( ) ] )
+			return;
+
+		static auto unlag_pointer = g_convars[ _( "sv_maxunlag" ) ];
+		auto sv_maxunlag          = unlag_pointer->get_float( );
+		auto sv_maxunlag_ticks    = sdk::time_to_ticks( sv_maxunlag );
+
+		for ( int current_heap_iterator = 0; current_heap_iterator < sv_maxunlag_ticks; current_heap_iterator++ ) {
+			lagcomp::record* current_record = &g_lagcomp.heap_records[ owner->entity_index( ) ][ current_heap_iterator ];
+
+			if ( !current_record )
+				continue;
+
+			if ( auto studio = g_interfaces.model_info->get_studio_model( owner->get_model( ) ) ) {
+				for ( int bone_index = 0; bone_index < studio->bones; bone_index++ ) {
+					auto bone = studio->get_bone( bone_index );
+
+					if ( !bone || !( bone->flags & 0x100 ) || bone->parent == -1 )
+						continue;
+
+					auto parent_bone_index = bone->parent;
+
+					math::vec2< int > parent_bone_screen{ }, bone_screen{ };
+
+					parent_bone_screen = utils::world_to_screen( owner->get_bone_position( parent_bone_index, current_record->bone_matrix ) );
+					bone_screen        = utils::world_to_screen( owner->get_bone_position( bone_index, current_record->bone_matrix ) );
+
+					g_render.render_line( parent_bone_screen.x, parent_bone_screen.y, bone_screen.x, bone_screen.y, { 255, 255, 255, 50 } );
+				}
+			}
+		}
+
+		if ( auto studio = g_interfaces.model_info->get_studio_model( owner->get_model( ) ) ) {
+			for ( int bone_index = 0; bone_index < studio->bones; bone_index++ ) {
+				auto bone = studio->get_bone( bone_index );
+
+				if ( !bone || !( bone->flags & 0x100 ) || bone->parent == -1 )
+					continue;
+
+				auto parent_bone_index = bone->parent;
+
+				math::vec2< int > parent_bone_screen{ }, bone_screen{ };
+
+				parent_bone_screen = utils::world_to_screen( owner->get_bone_position( parent_bone_index ) );
+				bone_screen        = utils::world_to_screen( owner->get_bone_position( bone_index ) );
+
+				g_render.render_line( parent_bone_screen.x, parent_bone_screen.y, bone_screen.x, bone_screen.y, { 255, 255, 255 } );
+			}
+		}
 	}
 
 	float offset_x[ 4 ]{ };
@@ -230,7 +259,7 @@ void visuals::esp_text::render( math::box box, float& offset_x, float& offset_y 
 		position.y += offset_y;
 		break;
 	case esp_location::LOCATION_LEFT:
-		position.x = (box.x - text_size.x) - 3;
+		position.x = ( box.x - text_size.x ) - 3;
 		position.y = box.y;
 
 		position.x += offset_x;

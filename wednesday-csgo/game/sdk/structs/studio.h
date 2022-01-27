@@ -32,36 +32,13 @@ namespace sdk
 	struct studio_bone {
 		int name_index;
 		int parent;
-		int bone_controller[ 6 ];
-		math::vec3 position;
-		float quat[ 4 ];
-		math::vec3 rotation;
-		math::vec3 pos_scale;
-		math::vec3 rot_scale;
-		math::matrix_3x4 bone_to_world;
-		float alignment[ 4 ];
+		PAD( 0x98 );
 		int flags;
-		int proc_type;
-		int proc_index;
-		int physics_bone;
-		int surface_prop_index;
-		int contents;
+		PAD( 0x34 );
 
 		char* name( )
 		{
 			return reinterpret_cast< char* >( reinterpret_cast< std::uintptr_t >( this ) + name_index );
-		}
-
-		void* procedure( )
-		{
-			if ( proc_index == 0 )
-				return nullptr;
-			return reinterpret_cast< void* >( reinterpret_cast< std::uintptr_t >( this ) + proc_index );
-		}
-
-		char* surface_prop( )
-		{
-			return reinterpret_cast< char* >( reinterpret_cast< std::uintptr_t >( this ) + surface_prop_index );
 		}
 	};
 
@@ -88,12 +65,12 @@ namespace sdk
 
 		studio_bone* get_bone( int index )
 		{
-			return reinterpret_cast< studio_bone* >( reinterpret_cast< std::uintptr_t >( this ) + bone_index + index );
+			return reinterpret_cast< studio_bone* >( reinterpret_cast< std::uintptr_t >( this ) + bone_index ) + index;
 		};
 
 		studio_hitbox_set* get_hitbox_set( int index )
 		{
-			return reinterpret_cast< studio_hitbox_set* >( reinterpret_cast< std::uintptr_t >( this ) + hitbox_set_index + index );
+			return reinterpret_cast< studio_hitbox_set* >( reinterpret_cast< std::uintptr_t >( this ) + hitbox_set_index ) + index;
 		}
 
 		studio_bbox* get_hitbox( int index, int hitbox_set )

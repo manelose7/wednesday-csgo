@@ -27,9 +27,13 @@ namespace sdk
 		virtual void padding( ) = 0;
 
 	public:
-		virtual client_shadow_handle get_shadow_handle( )                                                                                    = 0;
-		virtual client_render_handle get_render_handle( )                                                                                    = 0;
-		virtual i_model* get_model( )                                                                                                        = 0;
+		virtual client_shadow_handle get_shadow_handle( ) = 0;
+		virtual client_render_handle get_render_handle( ) = 0;
+
+	private:
+		virtual void padding_( ) = 0;
+
+	public:
 		virtual int draw_model( int flags, std::uintptr_t& instance )                                                                        = 0;
 		virtual int get_body( )                                                                                                              = 0;
 		virtual void get_color_modulation( float* color )                                                                                    = 0;
@@ -64,5 +68,36 @@ namespace sdk
 		virtual bool should_draw_for_split_screen_user( int n_slot )                                                                         = 0;
 		virtual std::uint8_t override_alpha_modulation( std::uint8_t n_alpha )                                                               = 0;
 		virtual std::uint8_t override_shadow_alpha_modulation( std::uint8_t n_alpha )                                                        = 0;
+
+		i_model* get_model( )
+		{
+			return virtual_func::call< sdk::i_model* >( this, 8 );
+		}
+
+		math::vec3 get_bone_position( int bone_index )
+		{
+			if ( math::matrix_3x4 matrix[ 128 ]; setup_bones( matrix, 128, 256, 0.f ) ) {
+				auto bone_matrix = matrix[ bone_index ];
+
+				return {
+					bone_matrix[ 0 ][ 3 ],
+					bone_matrix[ 1 ][ 3 ],
+					bone_matrix[ 2 ][ 3 ],
+				};
+			}
+
+			return { };
+		}
+
+		math::vec3 get_bone_position( int bone_index, math::matrix_3x4* matrix )
+		{
+			auto bone_matrix = matrix[ bone_index ];
+
+			return {
+				bone_matrix[ 0 ][ 3 ],
+				bone_matrix[ 1 ][ 3 ],
+				bone_matrix[ 2 ][ 3 ],
+			};
+		}
 	};
 } // namespace sdk

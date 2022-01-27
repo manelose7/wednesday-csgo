@@ -5,6 +5,7 @@
 #include "../../../utils/math/types/vector.h"
 #include "../../../utils/netvar/netvar.h"
 #include "../structs/data_map.h"
+#include "../structs/var_mapping.h"
 
 #include "c_handle.h"
 
@@ -45,6 +46,11 @@ namespace sdk
 		data_map* prediction_description_map( )
 		{
 			return virtual_func::call< data_map* >( this, 17 );
+		}
+
+		var_mapping* get_var_map( )
+		{
+			return reinterpret_cast< var_mapping* >( reinterpret_cast< std::uintptr_t >( this ) + 0x24 );
 		}
 	};
 } // namespace sdk
