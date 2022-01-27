@@ -76,6 +76,7 @@ namespace visuals
 		bool m_draw{ };
 
 		bool m_skeleton{ };
+		bool m_backtrack{ };
 
 		std::deque< esp_title > m_titles{ };
 		std::deque< esp_text > m_texts{ };

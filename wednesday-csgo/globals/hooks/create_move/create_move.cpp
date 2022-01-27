@@ -35,7 +35,9 @@ void __stdcall create_move_function( int sequence_number, float input_sample_fra
 	{
 		g_aimbot.run( );
 
-		if ( g_input.key_state< input::key_state_t::KEY_DOWN >( VK_END ) )
+		auto choked_packets = g_interfaces.client_state->choked_commands;
+
+		if ( g_input.key_state< input::key_state_t::KEY_DOWN >( VK_END ) && choked_packets < 14)
 			send_packet = false;
 	}
 	g_prediction.end( g_ctx.local );

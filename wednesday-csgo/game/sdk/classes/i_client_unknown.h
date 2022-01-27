@@ -1,17 +1,18 @@
 #pragma once
 #include <iostream>
 
-#include "i_handle_entity.h"
 #include "i_collideable.h"
+#include "i_handle_entity.h"
 
 struct i_client_networkable;
 struct i_client_renderable;
 struct i_client_entity;
 struct i_client_thinkable;
-struct c_base_entity;
 
 namespace sdk
 {
+	struct c_base_entity;
+
 	struct i_client_unknown : public i_handle_entity {
 	public:
 		virtual i_collideable* get_collideable( )               = 0;

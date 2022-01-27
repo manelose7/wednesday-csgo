@@ -34,7 +34,15 @@ void __fastcall hooks::draw_model_execute::draw_model_execute_detour( void* ecx,
 	if ( !model_is_player )
 		return draw_model_execute_hook.call_original< void >( ecx, edx, context, state, info, custom_bone_to_world );
 
-	animated_wireframe->color_modulate( 1.f, 0.f, 0.f );
+	if ( info.entity_index < 0 || info.entity_index > 64 )
+		return draw_model_execute_hook.call_original< void >( ecx, edx, context, state, info, custom_bone_to_world );
+
+	auto& player_info = g_entity_list.players[ info.entity_index ];
+
+	if ( !player_info.m_valid )
+		return draw_model_execute_hook.call_original< void >( ecx, edx, context, state, info, custom_bone_to_world );
+
+	animated_wireframe->color_modulate( 144 / 255.f, 2 / 255.f, 168 / 255.f );
 
 	draw_model_execute_hook.call_original< void >( ecx, edx, context, state, info, custom_bone_to_world );
 

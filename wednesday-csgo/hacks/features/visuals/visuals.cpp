@@ -59,7 +59,8 @@ void visuals::impl::update_object( esp_object& object )
 	object.m_box.m_outline[ 0 ] = true;
 	object.m_box.m_outline[ 1 ] = true;
 	object.m_box.m_draw         = false;
-	object.m_box.m_skeleton     = true;
+	object.m_box.m_skeleton     = false;
+	object.m_box.m_backtrack    = true;
 
 	object.m_box.m_color = color( 255, 255, 255, 255 );
 
@@ -144,38 +145,6 @@ void visuals::esp_box::render( sdk::c_cs_player* owner )
 	}
 
 	if ( m_skeleton ) {
-		if ( !g_lagcomp.heap_records[ owner->entity_index( ) ] )
-			return;
-
-		static auto unlag_pointer = g_convars[ _( "sv_maxunlag" ) ];
-		auto sv_maxunlag          = unlag_pointer->get_float( );
-		auto sv_maxunlag_ticks    = sdk::time_to_ticks( sv_maxunlag );
-
-		for ( int current_heap_iterator = 0; current_heap_iterator < sv_maxunlag_ticks; current_heap_iterator++ ) {
-			lagcomp::record* current_record = &g_lagcomp.heap_records[ owner->entity_index( ) ][ current_heap_iterator ];
-
-			if ( !current_record )
-				continue;
-
-			if ( auto studio = g_interfaces.model_info->get_studio_model( owner->get_model( ) ) ) {
-				for ( int bone_index = 0; bone_index < studio->bones; bone_index++ ) {
-					auto bone = studio->get_bone( bone_index );
-
-					if ( !bone || !( bone->flags & 0x100 ) || bone->parent == -1 )
-						continue;
-
-					auto parent_bone_index = bone->parent;
-
-					math::vec2< int > parent_bone_screen{ }, bone_screen{ };
-
-					parent_bone_screen = utils::world_to_screen( owner->get_bone_position( parent_bone_index, current_record->bone_matrix ) );
-					bone_screen        = utils::world_to_screen( owner->get_bone_position( bone_index, current_record->bone_matrix ) );
-
-					g_render.render_line( parent_bone_screen.x, parent_bone_screen.y, bone_screen.x, bone_screen.y, { 255, 255, 255, 50 } );
-				}
-			}
-		}
-
 		if ( auto studio = g_interfaces.model_info->get_studio_model( owner->get_model( ) ) ) {
 			for ( int bone_index = 0; bone_index < studio->bones; bone_index++ ) {
 				auto bone = studio->get_bone( bone_index );
@@ -191,6 +160,51 @@ void visuals::esp_box::render( sdk::c_cs_player* owner )
 				bone_screen        = utils::world_to_screen( owner->get_bone_position( bone_index ) );
 
 				g_render.render_line( parent_bone_screen.x, parent_bone_screen.y, bone_screen.x, bone_screen.y, { 255, 255, 255 } );
+			}
+		}
+	}
+
+	if ( m_backtrack ) {
+		if ( !g_lagcomp.heap_records[ owner->entity_index( ) ] )
+			return;
+
+		static auto unlag_pointer = g_convars[ _( "sv_maxunlag" ) ];
+		auto sv_maxunlag          = unlag_pointer->get_float( );
+		auto sv_maxunlag_ticks    = sdk::time_to_ticks( sv_maxunlag );
+
+		int last_valid_heap_record   = 0;
+		float lowest_simulation_time = FLT_MAX;
+
+		for ( int current_heap_iterator = 0; current_heap_iterator < sv_maxunlag_ticks; current_heap_iterator++ ) {
+			lagcomp::record* current_record = &g_lagcomp.heap_records[ owner->entity_index( ) ][ current_heap_iterator ];
+
+			if ( !current_record )
+				continue;
+
+			if ( current_record->simulation_time > lowest_simulation_time )
+				continue;
+
+			last_valid_heap_record = current_heap_iterator;
+			lowest_simulation_time = current_record->simulation_time;
+		}
+
+		if ( lagcomp::record* current_record = &g_lagcomp.heap_records[ owner->entity_index( ) ][ last_valid_heap_record ] ) {
+			if ( auto studio = g_interfaces.model_info->get_studio_model( owner->get_model( ) ) ) {
+				for ( int bone_index = 0; bone_index < studio->bones; bone_index++ ) {
+					auto bone = studio->get_bone( bone_index );
+
+					if ( !bone || !( bone->flags & 0x100 ) || bone->parent == -1 )
+						continue;
+
+					auto parent_bone_index = bone->parent;
+
+					math::vec2< int > parent_bone_screen{ }, bone_screen{ };
+
+					parent_bone_screen = utils::world_to_screen( owner->get_bone_position( parent_bone_index, current_record->bone_matrix ) );
+					bone_screen        = utils::world_to_screen( owner->get_bone_position( bone_index, current_record->bone_matrix ) );
+
+					g_render.render_line( parent_bone_screen.x, parent_bone_screen.y, bone_screen.x, bone_screen.y, { 255, 255, 255, 150 } );
+				}
 			}
 		}
 	}

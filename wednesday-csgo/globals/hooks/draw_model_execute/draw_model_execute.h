@@ -7,6 +7,7 @@
 #include "../../../utils/math/types/matrix.h"
 #include "../../../utils/vfunc/vfunc.h"
 #include "../../interfaces/interfaces.h"
+#include "../../../utils/entity_list/entity_list.h"
 #include "../hooking.h"
 
 namespace hooks

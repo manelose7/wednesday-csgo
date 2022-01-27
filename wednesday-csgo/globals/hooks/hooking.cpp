@@ -11,6 +11,7 @@
 #include "frame_stage_notify/frame_stage_notify.h"
 #include "glow_effect_spectator/glow_effect_spectator.h"
 #include "item_post_frame/item_post_frame.h"
+#include "list_leaves_in_box/list_leaves_in_box.h"
 #include "paint_traverse/paint_traverse.h"
 #include "wndproc/wndproc.h"
 
@@ -37,6 +38,7 @@ bool hooks::impl::init( )
 	hooks::process_interpolated_list::init( );
 	hooks::draw_model_execute::init( );
 	hooks::build_transformations::init( );
+	hooks::list_leaves_in_box::init( );
 
 	console::print< console::log_level::SUCCESS >( _( "Initialized all hooks." ) );
 
@@ -64,6 +66,7 @@ void hooks::impl::unload( )
 	hooks::process_interpolated_list::unload( );
 	hooks::draw_model_execute::unload( );
 	hooks::build_transformations::unload( );
+	hooks::list_leaves_in_box::unload( );
 
 	// this is so useless lol
 	if ( MH_Uninitialize( ) != MH_OK )

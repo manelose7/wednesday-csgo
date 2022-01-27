@@ -194,6 +194,7 @@
     <ClCompile Include="globals\hooks\hooking.cpp" />
     <ClCompile Include="globals\hooks\end_scene\end_scene.cpp" />
     <ClCompile Include="globals\hooks\item_post_frame\item_post_frame.cpp" />
+    <ClCompile Include="globals\hooks\list_leaves_in_box\list_leaves_in_box.cpp" />
     <ClCompile Include="globals\hooks\paint_traverse\paint_traverse.cpp" />
     <ClCompile Include="globals\hooks\wndproc\wndproc.cpp" />
     <ClCompile Include="globals\wednesday\wednesday.cpp" />
@@ -286,6 +287,7 @@
     <ClInclude Include="game\sdk\classes\i_mat_render_ctx.h" />
     <ClInclude Include="game\sdk\classes\i_panel.h" />
     <ClInclude Include="game\sdk\classes\i_prediction.h" />
+    <ClInclude Include="game\sdk\structs\renderable_info.h" />
     <ClInclude Include="game\sdk\structs\var_mapping.h" />
     <ClInclude Include="game\sdk\enums\hitgroup.h" />
     <ClInclude Include="game\sdk\structs\c_event_info.h" />
@@ -340,6 +342,7 @@
     <ClInclude Include="globals\hooks\frame_stage_notify\frame_stage_notify.h" />
     <ClInclude Include="globals\hooks\glow_effect_spectator\glow_effect_spectator.h" />
     <ClInclude Include="globals\hooks\item_post_frame\item_post_frame.h" />
+    <ClInclude Include="globals\hooks\list_leaves_in_box\list_leaves_in_box.h" />
     <ClInclude Include="globals\hooks\paint_traverse\paint_traverse.h" />
     <ClInclude Include="globals\hooks\wndproc\wndproc.h" />
     <ClInclude Include="globals\wednesday\wednesday.h" />

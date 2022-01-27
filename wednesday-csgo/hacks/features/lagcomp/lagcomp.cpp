@@ -32,7 +32,6 @@ bool lagcomp::impl::is_valid( record heap_record )
 
 float lagcomp::impl::lerp_time( )
 {
-	// feel free to revert this if u want. fuck you pussy
 	static sdk::con_var *cl_updaterate = g_convars[ _( "cl_updaterate" ) ], *cl_interp_ratio = g_convars[ _( "cl_interp_ratio" ) ],
 						*cl_interp = g_convars[ _( "cl_interp" ) ], *sv_client_min_interp_ratio = g_convars[ _( "sv_client_min_interp_ratio" ) ],
 						*sv_client_max_interp_ratio = g_convars[ _( "sv_client_max_interp_ratio" ) ];
@@ -53,15 +52,21 @@ void lagcomp::impl::update( )
 	for ( auto& player_info : g_entity_list.players ) {
 		auto player = g_interfaces.entity_list->get_client_entity< sdk::c_cs_player* >( player_info.m_index );
 
-		if ( !player_info.m_valid || !player )
+		if ( !player_info.m_valid || !player ) {
+			if ( heap_records[ player_info.m_index ] ) {
+				delete[] heap_records[ player_info.m_index ];
+				heap_records[ player_info.m_index ] = NULL;
+			}
+
 			continue;
+		}
 
 		auto& current_heap_iterator = heap_iterator[ player->entity_index( ) ];
 
 		if ( !heap_records[ player_info.m_index ] )
 			heap_records[ player_info.m_index ] = new record[ sv_maxunlag_ticks ];
 
-		auto current_record = heap_records[ player_info.m_index ][ current_heap_iterator ];
+		auto& current_record = heap_records[ player_info.m_index ][ current_heap_iterator ];
 
 		current_record.abs_origin      = player->get_abs_angles( );
 		current_record.eye_position    = player->eye_position( );
