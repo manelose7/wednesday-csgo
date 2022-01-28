@@ -20,13 +20,20 @@ void __fastcall hooks::paint_traverse::paint_traverse_detour( sdk::i_panel* self
 	for ( auto& player_info : g_entity_list.players ) {
 		auto player = g_interfaces.entity_list->get_client_entity< sdk::c_cs_player* >( player_info.m_index );
 
-		if ( !player_info.m_valid || !player )
+		if ( ( !player_info.m_valid && !player_info.m_dormant_info.m_valid ) || !player )
 			continue;
 
 		visuals::esp_object& object = g_visuals.esp_objects[ player->entity_index( ) ];
 
 		if ( object.m_owner != player )
 			continue;
+
+		math::vec3 old_origin = player->get_abs_origin( );
+
+		if ( !player_info.m_valid && sdk::ticks_to_time( g_interfaces.globals->tick_count - player_info.m_dormant_info.m_found_tick ) < 3.f ) {
+			player->set_abs_origin( player_info.m_dormant_info.m_last_position );
+			player->invalidate_bone_cache( );
+		}
 
 		auto collideable = object.m_owner->get_collideable( );
 
@@ -37,6 +44,11 @@ void __fastcall hooks::paint_traverse::paint_traverse_detour( sdk::i_panel* self
 		player_info.m_maxs = collideable->obb_maxs( );
 
 		player_info.m_rgfl = player->rgfl_coordinate_frame( );
+
+		if ( !player_info.m_valid && sdk::ticks_to_time( g_interfaces.globals->tick_count - player_info.m_dormant_info.m_found_tick ) < 3.f ) {
+			player->set_abs_origin( old_origin );
+			player->invalidate_bone_cache( );
+		}
 	}
 
 	hooks::paint_traverse_hook.call_original< void >( self, edx, panel, force_repaint, allow_force );

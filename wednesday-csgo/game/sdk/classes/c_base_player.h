@@ -100,7 +100,7 @@ namespace sdk
 			filter.skip = this;
 
 			ray.init( eye_position( ), player->hitbox_position( sdk::hitgroup::HITGROUP_HEAD ) );
-			g_interfaces.engine_trace->trace_ray( ray, sdk::TRACE_EVERYTHING, &filter, &trace );
+			g_interfaces.engine_trace->trace_ray( ray, sdk::MASK_PLAYERSOLID, &filter, &trace );
 
 			return trace.did_hit( ) && trace.entity == player;
 		}
@@ -114,7 +114,21 @@ namespace sdk
 			filter.skip = this;
 
 			ray.init( eye_position( ), player->hitbox_position( hitgroup ) );
-			g_interfaces.engine_trace->trace_ray( ray, sdk::TRACE_EVERYTHING, &filter, &trace );
+			g_interfaces.engine_trace->trace_ray( ray, sdk::MASK_PLAYERSOLID, &filter, &trace );
+
+			return trace.did_hit( ) && trace.entity == player;
+		}
+
+		bool can_see_player( c_base_player* player, sdk::hitgroup hitgroup, math::vec3 start, math::vec3 end )
+		{
+			ray_t ray;
+			c_game_trace trace;
+			c_trace_filter_skip_grenades filter;
+
+			filter.skip = this;
+
+			ray.init( start, end );
+			g_interfaces.engine_trace->trace_ray( ray, sdk::MASK_PLAYERSOLID, &filter, &trace );
 
 			return trace.did_hit( ) && trace.entity == player;
 		}

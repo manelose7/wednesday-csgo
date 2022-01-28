@@ -55,6 +55,9 @@ math::box visuals::esp_box::calculate_box( sdk::c_cs_player* player, bool& on_sc
 
 void visuals::impl::update_object( esp_object& object )
 {
+	if ( !object.m_owner->name( ) )
+		return;
+
 	auto& dormant_info = g_entity_list.players[ object.m_owner->entity_index( ) ].m_dormant_info;
 	auto dormant_time  = sdk::ticks_to_time( g_interfaces.globals->tick_count - dormant_info.m_found_tick );
 
@@ -209,7 +212,9 @@ void visuals::esp_box::render( sdk::c_cs_player* owner )
 				lowest_simulation_time = current_record->simulation_time;
 			}
 
-			if ( lagcomp::record* current_record = &g_lagcomp.heap_records[ owner->entity_index( ) ][ last_valid_heap_record ] ) {
+			lagcomp::record current_record = g_lagcomp.heap_records[ owner->entity_index( ) ][ last_valid_heap_record ];
+
+			if ( current_record.player ) {
 				if ( auto studio = g_interfaces.model_info->get_studio_model( owner->get_model( ) ) ) {
 					for ( int bone_index = 0; bone_index < studio->bones; bone_index++ ) {
 						auto bone = studio->get_bone( bone_index );
@@ -221,8 +226,8 @@ void visuals::esp_box::render( sdk::c_cs_player* owner )
 
 						math::vec2< int > parent_bone_screen{ }, bone_screen{ };
 
-						parent_bone_screen = utils::world_to_screen( owner->get_bone_position( parent_bone_index, current_record->bone_matrix ) );
-						bone_screen        = utils::world_to_screen( owner->get_bone_position( bone_index, current_record->bone_matrix ) );
+						parent_bone_screen = utils::world_to_screen( owner->get_bone_position( parent_bone_index, current_record.bone_matrix ) );
+						bone_screen        = utils::world_to_screen( owner->get_bone_position( bone_index, current_record.bone_matrix ) );
 
 						g_render.render_line( parent_bone_screen.x, parent_bone_screen.y, bone_screen.x, bone_screen.y, { 255, 255, 255, 150 } );
 					}

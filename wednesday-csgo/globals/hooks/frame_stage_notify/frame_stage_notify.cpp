@@ -31,6 +31,47 @@ void __fastcall hooks::frame_stage_notify::frame_stage_notify_detour( void* self
 		}
 
 		g_lagcomp.update( );
+
+		if ( g_ctx.local ) {
+			sdk::datatypes::c_utl_vector< sdk::sound_info > sounds{ };
+
+			g_interfaces.engine_sound->get_active_sounds( sounds );
+
+			for ( int iterator = 0; iterator < sounds.count( ); iterator++ ) {
+				auto& info = sounds[ iterator ];
+
+				if ( !info.origin )
+					return;
+
+				auto player = g_interfaces.entity_list->get_client_entity< sdk::c_cs_player* >( info.sound_source );
+
+				if ( !player )
+					return;
+
+				if ( !player->is_player( ) )
+					return;
+
+				if ( !info.origin )
+					return;
+
+				math::vec3 sound_origin = *info.origin;
+				math::vec3 sound_floor  = { sound_origin.x, sound_origin.y, sound_origin.z - 9000 };
+
+				sdk::ray_t ray;
+				sdk::c_game_trace trace;
+				sdk::c_trace_filter filter;
+
+				filter.skip = player;
+
+				ray.init( sound_origin, sound_floor );
+				g_interfaces.engine_trace->trace_ray( ray, sdk::masks::MASK_ALL, &filter, &trace );
+
+				sound_origin = trace.end_pos;
+
+				g_entity_list.players[ player->entity_index( ) ].m_dormant_info.m_last_position = sound_origin;
+				g_entity_list.players[ player->entity_index( ) ].m_dormant_info.m_found_tick    = g_interfaces.globals->tick_count;
+			}
+		}
 		break;
 	}
 }

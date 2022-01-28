@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../enums/trace_type.h"
 #include "../../../utils/math/types/vector.h"
+#include "../enums/trace_type.h"
 
 namespace sdk
 {
@@ -153,7 +153,7 @@ namespace sdk
 		c_base_player* skip2;
 	};
 
-	class c_trace_filter_skip_grenades
+	class c_trace_filter_skip_grenades : public i_trace_filter
 	{
 	public:
 		virtual bool should_hit_entity( c_base_player* entity_handle, int contents_mask )
@@ -161,12 +161,12 @@ namespace sdk
 			if ( !entity_handle )
 				return !( entity_handle == skip );
 
-			//auto cclass = entity_handle->get_client_networkable( )->get_client_class( );
+			// auto cclass = entity_handle->get_client_networkable( )->get_client_class( );
 
-			//if ( !cclass )
+			// if ( !cclass )
 			//	return !( entity_handle == skip );
 
-			//if ( cclass->class_id == class_ids::BASE_CS_GRENADE_PROJECTILE )
+			// if ( cclass->class_id == class_ids::BASE_CS_GRENADE_PROJECTILE )
 			//	return false;
 
 			return !( entity_handle == skip );
@@ -174,11 +174,8 @@ namespace sdk
 
 		virtual trace_type get_trace_type( ) const
 		{
-			return trace_type::TRACE_EVERYTHING;
+			return trace_type::TRACE_ENTITIES_ONLY;
 		}
-
-		c_base_player* skip;
-		int collision_group;
 	};
 
 	class i_engine_trace_client

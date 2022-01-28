@@ -11,18 +11,4 @@ void __fastcall hooks::emit_sound::emit_sound_detour( void* ecx, void* edx, void
 	emit_sound_hook.call_original< void >( ecx, edx, filter, entity_index, channel, sound_entry, sound_entry_hash, sample, volume, seed, sound_level,
 	                                       flags, pitch, origin, direction, utl_vec_origins, update_positions, soundtime, speaker_entity,
 	                                       sound_params );
-
-	if ( !origin )
-		return;
-
-	auto player = g_interfaces.entity_list->get_client_entity< sdk::c_cs_player* >( entity_index );
-
-	if ( !player )
-		return;
-
-	if ( !player->is_player( ) )
-		return;
-
-	g_entity_list.players[ player->entity_index( ) ].m_dormant_info.m_last_position = *origin;
-	g_entity_list.players[ player->entity_index( ) ].m_dormant_info.m_found_tick    = g_interfaces.globals->tick_count;
 }

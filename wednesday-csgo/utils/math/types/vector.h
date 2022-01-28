@@ -47,6 +47,20 @@ namespace math
 			y += add.y;
 			return *this;
 		}
+		[[nodiscard]] constexpr float dot_product( const vec2& dot ) const
+		{
+			return ( this->x * dot.x + this->y * dot.y );
+		}
+
+		[[nodiscard]] constexpr float length_sqr( ) const
+		{
+			return dot_product( *this );
+		}
+
+		[[nodiscard]] float length( ) const
+		{
+			return std::sqrtf( this->length_sqr( ) );
+		}
 	};
 
 	class vec3

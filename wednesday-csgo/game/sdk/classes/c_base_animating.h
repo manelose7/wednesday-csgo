@@ -23,6 +23,15 @@ namespace sdk
 			return *reinterpret_cast< bool* >( reinterpret_cast< std::uintptr_t >( this ) + 0x2930 );
 		}
 
+		void invalidate_bone_cache( )
+		{
+			static auto invalidate_bone_cache_address =
+				g_client_dll.pattern_scan( _( "80 ? ? ? ? ? ? 74 16 A1 ? ? ? ? 48 C7 ? ? ? ? ? ? ? ? ? 89 ? ? ? ? ? C3" ) ).as< std::uintptr_t >( );
+
+			reinterpret_cast< void( __thiscall* )( void* ) >( invalidate_bone_cache_address )( this );
+		}
+
 		math::vec3 hitbox_position( int index, float point_scale = 0.5f );
+		math::vec3 hitbox_position( int index, math::matrix_3x4* matrix, float point_scale = 0.5f );
 	};
 } // namespace sdk
