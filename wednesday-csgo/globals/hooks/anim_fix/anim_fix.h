@@ -4,7 +4,6 @@
 #include <iostream>
 
 #include "../../../game/sdk/classes/c_cs_player.h"
-#include "../../../hacks/gui/gui.h"
 #include "../../../utils/renderer/renderer.h"
 #include "../../../utils/vfunc/vfunc.h"
 #include "../../interfaces/interfaces.h"

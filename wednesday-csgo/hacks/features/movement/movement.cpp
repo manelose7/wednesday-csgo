@@ -1,5 +1,4 @@
 #include "movement.h"
-#include "../../gui/cfg/cfg.h"
 
 void movement::impl::pre_prediction::think( )
 {
@@ -24,34 +23,4 @@ void movement::impl::bhop( )
 	// remove jump flag if player in air
 	if ( !g_ctx.local->flags( ).has( sdk::flags::ONGROUND ) )
 		g_ctx.cmd->buttons.remove( sdk::buttons::IN_JUMP );
-}
-
-void movement::impl::edgebug_t::run_ticks( const bool ducking )
-{
-	if ( !ducking ) {
-		g_ctx.cmd->buttons.remove( sdk::buttons::IN_DUCK );
-		g_ctx.local->flags( ).remove( sdk::flags::DUCKING );
-	} else {
-		g_ctx.cmd->buttons.add( sdk::buttons::IN_DUCK );
-		g_ctx.local->flags( ).add( sdk::flags::DUCKING );
-	}
-	// copy current local/cmd pointer to backup
-	std::memcpy( m_backup.local, g_ctx.local, 0x3870 );
-	std::memcpy( m_backup.cmd, g_ctx.cmd, sizeof( sdk::c_user_cmd ) );
-
-	// loop through ticks
-	for ( int m_tick = 0; m_tick <= g_cfg.get< int >( HASH( "eb_ticks" ) ); m_tick++ ) { }
-
-	// set current pointers to backed up pointers
-	std::memcpy( g_ctx.local, m_backup.local, 0x3870 );
-	std::memcpy( g_ctx.cmd, m_backup.cmd, sizeof( sdk::c_user_cmd ) );
-}
-
-void movement::impl::edgebug_t::think( )
-{
-	// TODO: put cfg here
-	if ( false )
-		return;
-
-	static int m_old_buttons = g_ctx.cmd->buttons;
 }

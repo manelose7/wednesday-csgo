@@ -30,8 +30,6 @@ LONG __stdcall hooks::end_scene::end_scene_detour( IDirect3DDevice9* device )
 
 	g_log.think( );
 
-	g_menu.draw( );
-
 	g_render.finish_state( );
 
 	return hooks::end_scene_hook.call_original< LONG >( device );

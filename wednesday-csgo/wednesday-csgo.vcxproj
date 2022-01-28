@@ -203,12 +203,6 @@
     <ClCompile Include="hacks\features\lagcomp\lagcomp.cpp" />
     <ClCompile Include="hacks\features\movement\movement.cpp" />
     <ClCompile Include="hacks\features\visuals\visuals.cpp" />
-    <ClCompile Include="hacks\gui\cfg\cfg.cpp" />
-    <ClCompile Include="hacks\gui\groupbox\groupbox.cpp" />
-    <ClCompile Include="hacks\gui\gui_ctx\gui_ctx.cpp" />
-    <ClCompile Include="hacks\gui\gui.cpp" />
-    <ClCompile Include="hacks\gui\utils\ui_utils.cpp" />
-    <ClCompile Include="hacks\gui\window\window.cpp" />
     <ClCompile Include="hacks\logging\logging.cpp" />
     <ClCompile Include="hacks\prediction\prediction.cpp" />
     <ClCompile Include="utils\entity_list\entity_list.cpp" />
@@ -353,15 +347,6 @@
     <ClInclude Include="hacks\features\lagcomp\lagcomp.h" />
     <ClInclude Include="hacks\features\movement\movement.h" />
     <ClInclude Include="hacks\features\visuals\visuals.h" />
-    <ClInclude Include="hacks\gui\anims\anims.h" />
-    <ClInclude Include="hacks\gui\anims\effects.h" />
-    <ClInclude Include="hacks\gui\cfg\cfg.h" />
-    <ClInclude Include="hacks\gui\groupbox\groupbox.h" />
-    <ClInclude Include="hacks\gui\gui_ctx\gui_ctx.h" />
-    <ClInclude Include="hacks\gui\gui.h" />
-    <ClInclude Include="hacks\gui\includes\includes.h" />
-    <ClInclude Include="hacks\gui\utils\ui_utils.h" />
-    <ClInclude Include="hacks\gui\window\window.h" />
     <ClInclude Include="hacks\logging\logging.h" />
     <ClInclude Include="hacks\prediction\prediction.h" />
     <ClInclude Include="utils\console\log_level\log_level.h" />
@@ -386,7 +371,6 @@
     <ClInclude Include="utils\vfunc\vfunc.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="hacks\gui\cfg\cfg.inl" />
     <None Include="utils\console\console.inl" />
     <None Include="utils\math\math.inl" />
     <None Include="utils\modules\modules.inl" />
