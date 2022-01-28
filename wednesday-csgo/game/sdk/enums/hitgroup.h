@@ -15,4 +15,4 @@ namespace sdk
 		HITGROUP_NECK,
 		HITGROUP_GEAR
 	};
-}
+} // namespace sdk

@@ -26,17 +26,23 @@ void entity_list::impl::update( )
 
 		auto& player_info = players[ iterator ];
 
-		player_info.m_valid  = false;
+		player_info.m_valid = false;
 
 		if ( !player || player == g_ctx.local )
 			continue;
 
 		if ( player->is_player( ) ) {
-			if ( player->is_dormant( ) )
-				continue;
+			player_info.m_dormant_info.m_valid = false;
 
 			if ( !player->is_alive( ) )
 				continue;
+
+			if ( player->is_dormant( ) ) {
+				if ( sdk::ticks_to_time( g_interfaces.globals->tick_count - player_info.m_dormant_info.m_found_tick ) < 3.f )
+					player_info.m_dormant_info.m_valid = true;
+
+				continue;
+			}
 
 			if ( !player->is_enemy( g_ctx.local ) )
 				continue;
@@ -44,6 +50,9 @@ void entity_list::impl::update( )
 			player_info.m_valid = true;
 			player_info.m_name  = player->name( );
 			player_info.m_index = iterator;
+
+			player_info.m_dormant_info.m_last_position = player->get_abs_origin( );
+			player_info.m_dormant_info.m_found_tick    = g_interfaces.globals->tick_count;
 
 			if ( auto weapon_handle = player->active_weapon( ) ) {
 				auto weapon_entity = g_interfaces.entity_list->get_client_entity_from_handle< sdk::c_base_combat_weapon* >( weapon_handle );

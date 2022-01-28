@@ -8,17 +8,21 @@ void __fastcall hooks::emit_sound::emit_sound_detour( void* ecx, void* edx, void
                                                       void* utl_vec_origins, bool update_positions, float soundtime, int speaker_entity,
                                                       void* sound_params )
 {
-	if ( !g_ctx.local || g_interfaces.engine->connected_safe( ) )
-		goto CALL_ORIGINAL;
+	emit_sound_hook.call_original< void >( ecx, edx, filter, entity_index, channel, sound_entry, sound_entry_hash, sample, volume, seed, sound_level,
+	                                       flags, pitch, origin, direction, utl_vec_origins, update_positions, soundtime, speaker_entity,
+	                                       sound_params );
 
-	// dont play sounds twice while running ProcessMove
-	//if ( g_interfaces.prediction->in_prediction_var && !g_interfaces.prediction->is_first_time_predicted_var )
-	//	return;
+	if ( !origin )
+		return;
 
-	goto CALL_ORIGINAL;
+	auto player = g_interfaces.entity_list->get_client_entity< sdk::c_cs_player* >( entity_index );
 
-CALL_ORIGINAL:
-	hooks::emit_sound_hook.call_original< void >( ecx, edx, filter, entity_index, channel, sound_entry, sound_entry_hash, sample, volume, seed,
-	                                              sound_level, flags, pitch, origin, direction, utl_vec_origins, update_positions, soundtime,
-	                                              speaker_entity, sound_params );
+	if ( !player )
+		return;
+
+	if ( !player->is_player( ) )
+		return;
+
+	g_entity_list.players[ player->entity_index( ) ].m_dormant_info.m_last_position = *origin;
+	g_entity_list.players[ player->entity_index( ) ].m_dormant_info.m_found_tick    = g_interfaces.globals->tick_count;
 }

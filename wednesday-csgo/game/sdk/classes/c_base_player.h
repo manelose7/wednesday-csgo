@@ -2,6 +2,7 @@
 
 #include "../../../globals/includes/includes.h"
 
+#include "../enums/hitgroup.h"
 #include "../enums/player_flags.h"
 #include "c_base_combat_character.h"
 #include "c_handle.h"
@@ -88,6 +89,34 @@ namespace sdk
 		math::vec3 eye_position( )
 		{
 			return vector_origin( ) + view_offset( );
+		}
+
+		bool can_see_player( c_base_player* player )
+		{
+			ray_t ray;
+			c_game_trace trace;
+			c_trace_filter filter;
+
+			filter.skip = this;
+
+			ray.init( eye_position( ), player->hitbox_position( sdk::hitgroup::HITGROUP_HEAD ) );
+			g_interfaces.engine_trace->trace_ray( ray, sdk::TRACE_EVERYTHING, &filter, &trace );
+
+			return trace.did_hit( ) && trace.entity == player;
+		}
+
+		bool can_see_player( c_base_player* player, sdk::hitgroup hitgroup )
+		{
+			ray_t ray;
+			c_game_trace trace;
+			c_trace_filter filter;
+
+			filter.skip = this;
+
+			ray.init( eye_position( ), player->hitbox_position( hitgroup ) );
+			g_interfaces.engine_trace->trace_ray( ray, sdk::TRACE_EVERYTHING, &filter, &trace );
+
+			return trace.did_hit( ) && trace.entity == player;
 		}
 	};
 } // namespace sdk

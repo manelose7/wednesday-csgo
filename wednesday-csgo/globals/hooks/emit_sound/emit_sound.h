@@ -4,6 +4,7 @@
 
 #include "../../../game/sdk/classes/c_base_entity.h"
 #include "../../../game/sdk/classes/c_usercmd.h"
+#include "../../../utils/entity_list/entity_list.h"
 #include "../../../utils/vfunc/vfunc.h"
 #include "../../interfaces/interfaces.h"
 #include "../hooking.h"

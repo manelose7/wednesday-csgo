@@ -8,9 +8,18 @@
 
 namespace entity_list
 {
+	struct dormant_info {
+	public:
+		math::vec3 m_last_position{ };
+
+		int m_found_tick{ };
+
+		bool m_valid{ };
+	};
+
 	struct player_info {
 	public:
-		const char* m_name;
+		const char* m_name{ };
 
 		math::vec3 m_mins{ };
 		math::vec3 m_maxs{ };
@@ -22,6 +31,8 @@ namespace entity_list
 		bool m_valid{ };
 
 		sdk::c_base_combat_weapon* m_weapon{ };
+
+		dormant_info m_dormant_info{ };
 	};
 
 	struct impl {
