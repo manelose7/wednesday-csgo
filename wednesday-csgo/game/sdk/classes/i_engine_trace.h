@@ -178,6 +178,22 @@ namespace sdk
 		}
 	};
 
+	class c_trace_filter_whitelist : public i_trace_filter
+	{
+	public:
+		virtual bool should_hit_entity( c_base_player* entity_handle, int contents_mask )
+		{
+			return entity_handle == whitelist;
+		}
+
+		virtual trace_type get_trace_type( ) const
+		{
+			return trace_type::TRACE_ENTITIES_ONLY;
+		}
+
+		void* whitelist;
+	};
+
 	class i_engine_trace_client
 	{
 	public:

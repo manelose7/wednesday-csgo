@@ -60,5 +60,6 @@ inline modules::impl g_input_system_dll          = modules::impl( INPUTSYSTEM_DL
 inline modules::impl g_data_cache_dll            = modules::impl( DATACACHE_DLL );
 inline modules::impl g_steam_api_dll             = modules::impl( STEAM_API_DLL );
 inline modules::impl g_matchmaking_dll           = modules::impl( MATCHMAKING_DLL );
+inline modules::impl g_file_system_stdio_dll     = modules::impl( FILESYSTEM_DLL );
 
 #include "modules.inl"

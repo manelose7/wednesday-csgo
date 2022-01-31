@@ -25,6 +25,8 @@ void __stdcall create_move_function( int sequence_number, float input_sample_fra
 	if ( !g_ctx.local || !command || !verified || !command->command_number )
 		return;
 
+	auto old_vector = command->view_angles;
+
 	g_particle_system.run( );
 
 	g_movement.pre_prediction.think( );
@@ -37,12 +39,13 @@ void __stdcall create_move_function( int sequence_number, float input_sample_fra
 
 		auto choked_packets = g_interfaces.client_state->choked_commands;
 
-		if ( g_input.key_state< input::key_state_t::KEY_DOWN >( VK_END ) && choked_packets < 14)
+		if ( g_input.key_state< input::key_state_t::KEY_DOWN >( VK_END ) && choked_packets < 14 )
 			send_packet = false;
 	}
 	g_prediction.end( g_ctx.local );
 
 	g_movement.post_prediction.think( );
+	//g_movement.movement_fix( command, old_vector );
 
 	if ( hooks::shifting_tb )
 		send_packet = hooks::send_packet;

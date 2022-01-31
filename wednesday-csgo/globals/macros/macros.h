@@ -33,6 +33,7 @@
 #define MATCHMAKING_DLL         _( "matchmaking.dll" )
 #define SERVER_DLL              _( "server.dll" )
 #define SERVERBROWSER_DLL       _( "serverbrowser.dll" )
+#define FILESYSTEM_DLL          _( "filesystem_stdio.dll" )
 
 // [#] interface-versions
 
@@ -50,6 +51,7 @@
 #define LOCALIZE_LOCALIZE_VERSION             _( "Localize_001" )
 #define VENGINE_MODEL_VERSION                 _( "VEngineModel016" )
 #define VENGINE_MODEL_INFO                    _( "VModelInfoClient004" )
+#define VFILE_SYSTEM_VERSION                  _( "VFileSystem017" )
 
 // [#] utils
 

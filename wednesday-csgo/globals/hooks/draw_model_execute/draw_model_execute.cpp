@@ -5,7 +5,7 @@
 void __fastcall hooks::draw_model_execute::draw_model_execute_detour( void* ecx, void* edx, void* context, void* state, sdk::model_render_info& info,
                                                                       math::matrix_3x4* custom_bone_to_world )
 {
-	static sdk::i_material* animated_wireframe;
+	static sdk::i_material* animated_wireframe{ };
 
 	if ( !animated_wireframe ) {
 		std::ofstream( _( "csgo/materials/animated_wireframe.vmt" ) ) << _( R"#("UnlitGeneric" {
@@ -23,11 +23,11 @@ void __fastcall hooks::draw_model_execute::draw_model_execute_detour( void* ecx,
                 }
             }
         })#" );
-
-		animated_wireframe = g_interfaces.material_system->find_material( _( "animated_wireframe" ) );
-
-		animated_wireframe->set_material_var_flag( sdk::material_var_flags::MATERIAL_VAR_IGNOREZ, true );
 	}
+
+	animated_wireframe = g_interfaces.material_system->find_material( _( "animated_wireframe" ) );
+
+	animated_wireframe->set_material_var_flag( sdk::material_var_flags::MATERIAL_VAR_IGNOREZ, true );
 
 	bool model_is_player = strstr( info.model->name, "models/player" );
 

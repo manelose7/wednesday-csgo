@@ -1,6 +1,7 @@
 #include "paint_traverse.h"
 #include "../../../hacks/features/visuals/visuals.h"
 #include "../../../hacks/logging/logging.h"
+#include "../../../hacks/menu/menu.h"
 #include "../../ctx/ctx.h"
 
 void __fastcall hooks::paint_traverse::paint_traverse_detour( sdk::i_panel* self, void* edx, unsigned int panel, bool force_repaint,
@@ -48,6 +49,16 @@ void __fastcall hooks::paint_traverse::paint_traverse_detour( sdk::i_panel* self
 		if ( !player_info.m_valid && sdk::ticks_to_time( g_interfaces.globals->tick_count - player_info.m_dormant_info.m_found_tick ) < 3.f ) {
 			player->set_abs_origin( old_origin );
 			player->invalidate_bone_cache( );
+		}
+	}
+
+	if ( panel_hash == HASH( "FocusOverlayPanel" ) ) {
+		if ( g_menu.menu_open ) {
+			g_interfaces.panel->set_input_keyboard_state( panel, true );
+			g_interfaces.panel->set_input_mouse_state( panel, true );
+		} else {
+			g_interfaces.panel->set_input_keyboard_state( panel, false );
+			g_interfaces.panel->set_input_mouse_state( panel, false );
 		}
 	}
 

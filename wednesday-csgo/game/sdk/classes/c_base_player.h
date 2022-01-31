@@ -132,5 +132,20 @@ namespace sdk
 
 			return trace.did_hit( ) && trace.entity == player;
 		}
+
+		bool can_see_player_ignore_walls( c_base_player* player, sdk::hitgroup hitgroup, math::vec3 start, math::vec3 end )
+		{
+			ray_t ray;
+			c_game_trace trace;
+			c_trace_filter_whitelist filter;
+
+			filter.skip      = this;
+			filter.whitelist = player;
+
+			ray.init( start, end );
+			g_interfaces.engine_trace->trace_ray( ray, sdk::MASK_PLAYERSOLID, &filter, &trace );
+
+			return trace.did_hit( ) && trace.entity == player;
+		}
 	};
 } // namespace sdk

@@ -151,6 +151,17 @@ namespace math
 			return out;
 		}
 
+		vec3 normalize( )
+		{
+			vec3 buffer{ };
+
+			buffer.x = std::isfinite( x ) ? std::remainder( x, 360.f ) : 0.f;
+			buffer.y = std::isfinite( y ) ? std::remainder( y, 360.f ) : 0.f;
+			buffer.z = 0.f;
+
+			return buffer;
+		}
+
 		constexpr vec3 cross_product( const vec3& cross ) const
 		{
 			return vec3( this->y * cross.z - this->z * cross.y, this->z * cross.x - this->x * cross.z, this->x * cross.y - this->y * cross.x );

@@ -30,11 +30,11 @@ enum class gradient_type_t
 
 enum font_alignment : unsigned
 {
-	AL_DEFAULT,
-	AL_VERTICAL_TOP,
-	AL_VERTICAL_CENTER,
-	AL_HORIZONTAL_LEFT,
-	AL_HORIZONTAL_CENTER,
+	AL_DEFAULT           = ( 1 << 0 ),
+	AL_VERTICAL_TOP      = ( 1 << 1 ),
+	AL_VERTICAL_CENTER   = ( 1 << 2 ),
+	AL_HORIZONTAL_LEFT   = ( 1 << 3 ),
+	AL_HORIZONTAL_CENTER = ( 1 << 4 ),
 };
 
 class vertex
@@ -154,6 +154,11 @@ namespace fonts
 		LPD3DXFONT operator[]( std::uint32_t hash )
 		{
 			return find( hash );
+		}
+
+		LPD3DXFONT operator[]( std::string string )
+		{
+			return find( HASH( string ) );
 		}
 	};
 } // namespace fonts

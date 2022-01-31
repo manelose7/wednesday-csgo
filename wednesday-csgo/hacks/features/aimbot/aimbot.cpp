@@ -51,7 +51,7 @@ float aimbot::impl::hitchance( sdk::c_cs_player* player, math::vec3 angles, sdk:
 		direction     = ( forward + ( right * weapon_spread.x ) + ( up * weapon_spread.y ) ).normalized( );
 		end           = start + ( direction * weapon_data->range );
 
-		if ( g_ctx.local->can_see_player( player, hit_group, start, end ) )
+		if ( g_ctx.local->can_see_player_ignore_walls( player, hit_group, start, end ) )
 			total_hits++;
 	}
 
@@ -87,6 +87,13 @@ void aimbot::impl::run( )
 		forward_to_head = g_ctx.local->eye_position( ) - entity->hitbox_position( sdk::HITGROUP_HEAD, g_ctx.record->bone_matrix );
 		math::vector_angles( forward_to_head, angles_to_head );
 	}
+
+	auto recoil_scale = g_convars[ _( "weapon_recoil_scale" ) ]->get_float( );
+	auto recoil_angle = g_ctx.local->aim_punch_angle( ) * ( recoil_scale * -1.f );
+
+	angles_to_head += recoil_angle;
+
+	angles_to_head = angles_to_head.normalize( );
 
 	if ( head_hitchance > 70 )
 		g_ctx.cmd->view_angles = angles_to_head;

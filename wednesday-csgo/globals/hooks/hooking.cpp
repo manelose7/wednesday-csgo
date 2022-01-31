@@ -10,9 +10,11 @@
 #include "end_scene/end_scene.h"
 #include "frame_stage_notify/frame_stage_notify.h"
 #include "glow_effect_spectator/glow_effect_spectator.h"
+#include "is_loose_file_allowed/is_loose_file_allowed.h"
 #include "item_post_frame/item_post_frame.h"
 #include "list_leaves_in_box/list_leaves_in_box.h"
 #include "paint_traverse/paint_traverse.h"
+#include "send_net_msg/send_net_msg.h"
 #include "wndproc/wndproc.h"
 
 bool hooks::impl::init( )
@@ -39,6 +41,8 @@ bool hooks::impl::init( )
 	hooks::draw_model_execute::init( );
 	hooks::build_transformations::init( );
 	hooks::list_leaves_in_box::init( );
+	hooks::is_loose_file_allowed::init( );
+	hooks::send_net_msg::init( );
 
 	console::print< console::log_level::SUCCESS >( _( "Initialized all hooks." ) );
 
@@ -67,6 +71,8 @@ void hooks::impl::unload( )
 	hooks::draw_model_execute::unload( );
 	hooks::build_transformations::unload( );
 	hooks::list_leaves_in_box::unload( );
+	hooks::is_loose_file_allowed::unload( );
+	hooks::send_net_msg::unload( );
 
 	// this is so useless lol
 	if ( MH_Uninitialize( ) != MH_OK )

@@ -19,6 +19,9 @@ namespace movement
 		struct post_prediction {
 			void think( );
 		} post_prediction;
+
+		void movement_fix( sdk::c_user_cmd* command, math::vec3 old_view_angle );
+
 		void bhop( );
 	};
 } // namespace movement

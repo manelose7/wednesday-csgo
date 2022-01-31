@@ -3,6 +3,7 @@
 #include "../../../hacks/features/lagcomp/lagcomp.h"
 #include "../../../hacks/features/visuals/visuals.h"
 #include "../../../hacks/logging/logging.h"
+#include "../../../hacks/menu/menu.h"
 #include "../../../utils/convars/convars.h"
 #include "../../../utils/entity_list/entity_list.h"
 #include "../../ctx/ctx.h"
@@ -27,6 +28,8 @@ LONG __stdcall hooks::end_scene::end_scene_detour( IDirect3DDevice9* device )
 	g_render.setup_state( );
 
 	g_visuals.render( );
+
+	g_menu.draw( );
 
 	g_log.think( );
 

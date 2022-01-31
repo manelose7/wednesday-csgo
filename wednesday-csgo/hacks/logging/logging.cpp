@@ -2,6 +2,7 @@
 #include "../../game/sdk/structs/color.h"
 #include "../../globals/interfaces/interfaces.h"
 #include "../../utils/renderer/renderer.h"
+#include "../menu/config/config.h"
 
 void logging::impl::print( std::string_view text, std::string_view prefix, float time )
 {
@@ -45,7 +46,7 @@ void logging::impl::think( )
 			draw_color.a = 255;
 
 		g_render.render_text( x, y, font_alignment::AL_DEFAULT, font_flags::FLAG_DROPSHADOW, log.m_prefix.data( ),
-		                      g_fonts[ HASH( "main_font_bold" ) ], color( 255, 255, 255, 255 ) );
+		                      g_fonts[ HASH( "main_font_bold" ) ], g_config.find< color >( _( "menu_color" ) ) );
 
 		g_render.render_text( x + 3 + g_render.render_text_size( log.m_text.data( ), g_fonts[ HASH( "main_font" ) ] ).x, y,
 		                      font_alignment::AL_DEFAULT, font_flags::FLAG_DROPSHADOW, log.m_text.data( ), g_fonts[ HASH( "main_font" ) ],

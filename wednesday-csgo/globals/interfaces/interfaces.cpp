@@ -38,6 +38,8 @@ bool sdk::interfaces::init( )
 		model_render = g_engine_dll.find_interface< sdk::iv_model_render* >( VENGINE_MODEL_VERSION );
 
 		model_info = g_engine_dll.find_interface< sdk::iv_model_info* >( VENGINE_MODEL_INFO );
+
+		file_system = g_file_system_stdio_dll.find_interface< void* >( VFILE_SYSTEM_VERSION );
 	}
 
 	// virtuals

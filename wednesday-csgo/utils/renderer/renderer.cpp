@@ -27,6 +27,8 @@ void render::impl::init( IDirect3DDevice9* buffer_device )
 	g_fonts.create_font( _( "esp_font" ), 13, FW_BOLD, false, _( "Verdana" ) );
 	g_fonts.create_font( _( "esp_indicator_font" ), 13, FW_BOLD, false, _( "Smallest Pixel-7" ) );
 
+	g_fonts.create_font( _( "menu_font" ), 12, FW_NORMAL, false, _( "Verdana" ) );
+
 	console::print< console::log_level::DEBUG >( _( "Created {} fonts." ), g_fonts.font_list.size( ) );
 }
 
