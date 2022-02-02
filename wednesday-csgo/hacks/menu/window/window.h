@@ -10,9 +10,12 @@ namespace menu
 {
 	struct window {
 		bool dragging{ };
+		std::uint32_t dragged_object{ };
+
+		bool resizing{ };
 		bool allowed_to_drag{ };
 
-		std::int32_t selected_tab{ };
+		std::uint32_t selected_tab{ };
 		std::vector< menu::tab* > tabs{ };
 
 		static bool inside_position( math::vec2< int > mouse_position, math::vec2< int > window_position, math::vec2< int > window_size );

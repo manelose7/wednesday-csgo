@@ -17,8 +17,8 @@ namespace hooks
 
 		static void init( )
 		{
-			send_net_msg_hook.create( g_engine_dll.pattern_scan( _( "55 8B EC 83 EC 08 56 8B F1 8B 4D 04 8B C1 83 C0" ) ).as< void* >( ),
-			                          send_net_msg_detour, _( "send_net_msg_detour" ) );
+			send_net_msg_hook.create( g_engine_dll.pattern_scan( _( "55 8B EC 83 EC 08 56 8B F1 8B 4D 04 E8s" ) ).as< void* >( ), send_net_msg_detour,
+			                          _( "send_net_msg_detour" ) );
 		}
 		static void unload( )
 		{

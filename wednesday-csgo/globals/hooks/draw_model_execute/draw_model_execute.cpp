@@ -13,6 +13,7 @@ void __fastcall hooks::draw_model_execute::draw_model_execute_detour( void* ecx,
             "$wireframe" "1"
             "$alpha" "0.6"
             "$additive" "1"
+			"$ignorez" "1"
             "proxies"
              {
                 "texturescroll"
@@ -26,8 +27,6 @@ void __fastcall hooks::draw_model_execute::draw_model_execute_detour( void* ecx,
 	}
 
 	animated_wireframe = g_interfaces.material_system->find_material( _( "animated_wireframe" ) );
-
-	animated_wireframe->set_material_var_flag( sdk::material_var_flags::MATERIAL_VAR_IGNOREZ, true );
 
 	bool model_is_player = strstr( info.model->name, "models/player" );
 

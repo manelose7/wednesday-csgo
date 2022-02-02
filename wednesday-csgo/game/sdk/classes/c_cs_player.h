@@ -23,6 +23,7 @@ namespace sdk
 		NETVAR( flash_max_alpha, float, "CCSPlayer", "m_flFlashMaxAlpha" );
 		NETVAR( account, std::int32_t, "CCSPlayer", "m_iAccount" );
 		NETVAR( flash_duration, float, "CCSPlayer", "m_flFlashDuration" );
+		NETVAR( stamina, float, "CCSPlayer", "m_flStamina" );
 
 		const bool is_enemy( sdk::c_cs_player* player );
 
@@ -30,6 +31,6 @@ namespace sdk
 
 		const char* name( );
 
-		void update_client_side_animation();
+		void update_client_side_animation( );
 	};
 } // namespace sdk

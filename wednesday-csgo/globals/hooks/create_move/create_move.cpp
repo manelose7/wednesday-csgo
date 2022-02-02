@@ -27,8 +27,6 @@ void __stdcall create_move_function( int sequence_number, float input_sample_fra
 
 	auto old_vector = command->view_angles;
 
-	g_particle_system.run( );
-
 	g_movement.pre_prediction.think( );
 
 	g_prediction.update( );
@@ -45,7 +43,7 @@ void __stdcall create_move_function( int sequence_number, float input_sample_fra
 	g_prediction.end( g_ctx.local );
 
 	g_movement.post_prediction.think( );
-	//g_movement.movement_fix( command, old_vector );
+	g_movement.movement_fix( command, old_vector );
 
 	if ( hooks::shifting_tb )
 		send_packet = hooks::send_packet;

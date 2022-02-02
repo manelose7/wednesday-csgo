@@ -15,7 +15,8 @@ namespace particle_system
 	public:
 		void* get_particle_system_index( const char* system_name );
 		sdk::c_effect* create_effect( void* system, math::vec3* origin );
-		void run( );
+		void run( math::vec3 origin, const char* effect_name );
+		bool init( );
 	};
 } // namespace particle_system
 

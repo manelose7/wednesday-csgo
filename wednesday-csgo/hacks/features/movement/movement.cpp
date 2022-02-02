@@ -1,11 +1,18 @@
 #include "movement.h"
+#include "../../../utils/keybinds/keybinds.h"
+#include "../../prediction/prediction.h"
 
 void movement::impl::pre_prediction::think( )
 {
 	if ( !g_ctx.local->is_alive( ) || !g_interfaces.engine->connected_safe( ) )
 		return;
 
+	if ( !g_ctx.cmd->buttons.has( sdk::IN_BULLRUSH ) )
+		g_ctx.cmd->buttons.add( sdk::IN_BULLRUSH );
+
 	g_movement.bhop( );
+
+	// g_movement.mini_hop( );
 }
 
 void movement::impl::post_prediction::think( )
@@ -58,6 +65,61 @@ void movement::impl::movement_fix( sdk::c_user_cmd* command, math::vec3 old_view
 	command->forward_move = std::clamp( x, -max_forward_speed, max_forward_speed );
 	command->side_move    = std::clamp( y, -max_side_speed, max_side_speed );
 	command->up_move      = std::clamp( z, -max_up_speed, max_up_speed );
+}
+
+void movement::impl::jump_bug( )
+{
+	static bool jump_bugged = false;
+
+	bool is_on_ground = !( g_prediction.backup_vars.flags.has( sdk::ONGROUND ) ) && g_ctx.local->flags( ).has( sdk::ONGROUND );
+
+	if ( !g_input.key_state< input::KEY_DOWN >( VK_SPACE ) ) {
+		if ( is_on_ground && !jump_bugged ) {
+			g_ctx.cmd->buttons.add( sdk::IN_DUCK );
+			jump_bugged = true;
+		} else {
+			jump_bugged = false;
+		}
+
+		if ( g_prediction.backup_vars.flags.has( sdk::ONGROUND ) && jump_bugged )
+			jump_bugged = false;
+	} else {
+		int pre_flags = g_ctx.local->flags( );
+
+		g_prediction.start( g_ctx.local );
+		g_prediction.end( g_ctx.local );
+
+		if ( g_prediction.backup_vars.flags.has( sdk::ONGROUND ) || !( g_ctx.local->flags( ).has( sdk::ONGROUND ) ) )
+			jump_bugged = false;
+		else {
+			g_ctx.cmd->buttons.add( sdk::IN_DUCK );
+			g_ctx.cmd->buttons.remove( sdk::IN_JUMP );
+			jump_bugged = true;
+		}
+	}
+}
+
+void movement::impl::mini_hop( )
+{
+	static bool did_duck = false;
+	bool stay_in_duck    = true;
+
+	[[unlikely]] if ( g_ctx.local->move_type( ).has_any_of(
+						  { sdk::move_type::MOVE_NOCLIP, sdk::move_type::MOVE_LADDER, sdk::move_type::MOVE_FLY } ) ) return;
+
+	if ( g_prediction.backup_vars.flags.has( sdk::ONGROUND ) && g_ctx.cmd->buttons.has( sdk::IN_JUMP ) ) {
+		if ( !did_duck ) {
+			did_duck = true;
+			g_ctx.cmd->buttons.add( sdk::IN_DUCK );
+		} else {
+			did_duck = false;
+
+			if ( stay_in_duck )
+				g_ctx.cmd->buttons.add( sdk::IN_DUCK );
+
+			g_ctx.cmd->buttons.remove( sdk::IN_JUMP );
+		}
+	}
 }
 
 void movement::impl::bhop( )

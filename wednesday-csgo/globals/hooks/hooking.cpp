@@ -8,6 +8,7 @@
 #include "draw_model_execute/draw_model_execute.h"
 #include "emit_sound/emit_sound.h"
 #include "end_scene/end_scene.h"
+#include "fire_event_intern/fire_event_intern.h"
 #include "frame_stage_notify/frame_stage_notify.h"
 #include "glow_effect_spectator/glow_effect_spectator.h"
 #include "is_loose_file_allowed/is_loose_file_allowed.h"
@@ -43,6 +44,7 @@ bool hooks::impl::init( )
 	hooks::list_leaves_in_box::init( );
 	hooks::is_loose_file_allowed::init( );
 	hooks::send_net_msg::init( );
+	hooks::fire_event_intern::init( );
 
 	console::print< console::log_level::SUCCESS >( _( "Initialized all hooks." ) );
 
@@ -73,6 +75,7 @@ void hooks::impl::unload( )
 	hooks::list_leaves_in_box::unload( );
 	hooks::is_loose_file_allowed::unload( );
 	hooks::send_net_msg::unload( );
+	hooks::fire_event_intern::unload( );
 
 	// this is so useless lol
 	if ( MH_Uninitialize( ) != MH_OK )

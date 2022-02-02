@@ -73,6 +73,9 @@ namespace config
 
 		bool init( );
 
+		void save( std::string path );
+		void load( std::string path );
+
 		void insert( std::uint32_t hash, option _option );
 		void insert( std::string name, option _option );
 

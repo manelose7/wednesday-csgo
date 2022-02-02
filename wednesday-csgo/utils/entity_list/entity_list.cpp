@@ -54,6 +54,9 @@ void entity_list::impl::update( )
 			player_info.m_dormant_info.m_last_position = player->get_abs_origin( );
 			player_info.m_dormant_info.m_found_tick    = g_interfaces.globals->tick_count;
 
+			player_info.m_dormant_info.m_vouchable_position = player->get_abs_origin( );
+			player_info.m_dormant_info.m_vouchable_tick     = g_interfaces.globals->tick_count;
+
 			if ( auto weapon_handle = player->active_weapon( ) ) {
 				auto weapon_entity = g_interfaces.entity_list->get_client_entity_from_handle< sdk::c_base_combat_weapon* >( weapon_handle );
 

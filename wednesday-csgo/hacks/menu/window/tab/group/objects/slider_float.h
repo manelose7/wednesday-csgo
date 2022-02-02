@@ -5,27 +5,13 @@ namespace menu
 {
 	struct group;
 
-	struct check_box : public base_object {
-		check_box( group* group, std::uint32_t hash, std::string name ) : parent_group( group ), option_hash( hash ), option_name( name ) { }
+	struct slider_float : public base_object {
+		slider_float( group* group, std::uint32_t hash, std::string name ) : parent_group( group ), option_hash( hash ), option_name( name ) { }
 
 		group* parent_group{ };
 
 		std::string option_name{ };
 		std::uint32_t option_hash{ };
-
-		bool keybind{ };
-
-		bool keybind_init{ };
-		bool awaiting_keybind{ };
-
-		std::uint32_t keybind_hash{ };
-
-		void add_keybind( std::uint32_t hash );
-
-		void add_keybind( const char* name )
-		{
-			add_keybind( HASH( name ) );
-		}
 
 		virtual void draw( int& group_x, int& group_y, int& group_width, int& group_height );
 		virtual void input( int& group_x, int& group_y, int& group_width, int& group_height );

@@ -31,6 +31,9 @@ namespace menu
 
 		int cursor_position{ };
 
+		int scroll_amount{ };
+		int needed_scroll_amount{ };
+
 		std::vector< menu::base_object* > objects{ };
 
 		void draw( int& window_x, int& window_y, int& size_x, int& size_y, int current_index );

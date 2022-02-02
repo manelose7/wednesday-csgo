@@ -24,7 +24,7 @@ void render::impl::init( IDirect3DDevice9* buffer_device )
 	g_fonts.create_font( _( "main_verdana_bold_font" ), 13, FW_BOLD, true, _( "Verdana" ) );
 	g_fonts.create_font( _( "indicator_verdana_font" ), 30, FW_BOLD, true, _( "Verdana" ) );
 
-	g_fonts.create_font( _( "esp_font" ), 13, FW_BOLD, false, _( "Verdana" ) );
+	g_fonts.create_font( _( "esp_font" ), 14, FW_BOLD, false, _( "Arial" ) );
 	g_fonts.create_font( _( "esp_indicator_font" ), 13, FW_BOLD, false, _( "Smallest Pixel-7" ) );
 
 	g_fonts.create_font( _( "menu_font" ), 12, FW_NORMAL, false, _( "Verdana" ) );
@@ -134,7 +134,7 @@ D3DXVECTOR2 render::impl::render_text_size( const char* string, LPD3DXFONT font 
 	return D3DXVECTOR2( static_cast< const short >( rect.right - rect.left ), static_cast< const short >( rect.bottom - rect.top ) );
 }
 
-const auto render::impl::get_viewport( )
+D3DVIEWPORT9 render::impl::get_viewport( )
 {
 	D3DVIEWPORT9 vp{ };
 	device->GetViewport( &vp );

@@ -8,6 +8,7 @@
 #include "../../hacks/menu/config/config.h"
 #include "../../utils/helpers/function_enforce/function_enforce.h"
 #include "../../utils/keybinds/keybinds.h"
+#include "../../utils/particle_system/particle_system.h"
 #include "../csgo.h"
 #include "../hooks/hooking.h"
 #include "../interfaces/interfaces.h"
@@ -33,6 +34,8 @@ DWORD WINAPI wednesday::init( void* module_handle )
 	ENFORCE_FAILURE( g_interfaces.init( ), "Failed to init interfaces" );
 
 	ENFORCE_FAILURE( g_hooks.init( ), "Failed to init hooks" );
+
+	ENFORCE_FAILURE( g_particle_system.init( ), "Failed to init particle system" );
 
 	// i dont want to hear this ever again
 	// LI_FN( PlaySoundA )( reinterpret_cast< LPCSTR >( kyu::loaded ), nullptr, SND_MEMORY | SND_ASYNC );

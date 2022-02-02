@@ -79,9 +79,13 @@ void visuals::impl::update_object( esp_object& object )
 	object.m_box.m_texts.clear( );
 	object.m_box.m_bars.clear( );
 
-	auto text_name   = esp_text( );
+	auto text_name = esp_text( );
+
 	auto health_bar  = esp_bar( );
 	auto health_text = esp_text( );
+
+	auto weapon_ammo_bar  = esp_bar( );
+	auto weapon_name_text = esp_text( );
 
 	text_name.m_location = esp_location::LOCATION_TOP;
 	text_name.m_text     = object.m_owner->name( );
@@ -108,6 +112,35 @@ void visuals::impl::update_object( esp_object& object )
 	health_text.m_flags    = font_flags::FLAG_OUTLINE;
 
 	object.m_box.m_texts.push_back( health_text );
+
+	auto player_weapon = g_interfaces.entity_list->get_client_entity_from_handle< sdk::c_base_combat_weapon* >( object.m_owner->active_weapon( ) );
+
+	if ( player_weapon ) {
+		auto weapon_info = player_weapon->get_weapon_data( );
+
+		if ( weapon_info ) {
+			weapon_ammo_bar.m_location   = esp_location::LOCATION_BOTTOM;
+			weapon_ammo_bar.m_width      = 2;
+			weapon_ammo_bar.m_color_from = color( 173, 216, 230, 255 * dormant_alpha_modulation );
+			weapon_ammo_bar.m_color_to   = color( 173, 216, 230, 255 * dormant_alpha_modulation );
+			weapon_ammo_bar.m_min        = 0;
+			weapon_ammo_bar.m_max        = weapon_info->max_clip1;
+			weapon_ammo_bar.m_cur        = player_weapon->clip_mag( );
+
+			object.m_box.m_bars.push_back( weapon_ammo_bar );
+
+			std::wstring weapon_name_wide = g_interfaces.localize->find( weapon_info->hud_name );
+			auto weapon_name_string       = std::string( weapon_name_wide.begin( ), weapon_name_wide.end( ) );
+
+			weapon_name_text.m_location = esp_location::LOCATION_BOTTOM;
+			weapon_name_text.m_text     = weapon_name_string;
+			weapon_name_text.m_color    = color( 255, 255, 255, 255 * dormant_alpha_modulation );
+			weapon_name_text.m_font     = g_fonts[ HASH( "esp_indicator_font" ) ];
+			weapon_name_text.m_flags    = font_flags::FLAG_OUTLINE;
+
+			object.m_box.m_texts.push_back( weapon_name_text );
+		}
+	}
 }
 
 void visuals::impl::update( )

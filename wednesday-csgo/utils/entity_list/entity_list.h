@@ -12,6 +12,9 @@ namespace entity_list
 	public:
 		math::vec3 m_last_position{ };
 
+		math::vec3 m_vouchable_position{ };
+
+		int m_vouchable_tick{ };
 		int m_found_tick{ };
 
 		bool m_valid{ };

@@ -189,6 +189,7 @@
     <ClCompile Include="globals\hooks\create_move\create_move.cpp" />
     <ClCompile Include="globals\hooks\draw_model_execute\draw_model_execute.cpp" />
     <ClCompile Include="globals\hooks\emit_sound\emit_sound.cpp" />
+    <ClCompile Include="globals\hooks\fire_event_intern\fire_event_intern.cpp" />
     <ClCompile Include="globals\hooks\frame_stage_notify\frame_stage_notify.cpp" />
     <ClCompile Include="globals\hooks\glow_effect_spectator\glow_effect_spectator.cpp" />
     <ClCompile Include="globals\hooks\hooking.cpp" />
@@ -210,6 +211,7 @@
     <ClCompile Include="hacks\menu\menu.cpp" />
     <ClCompile Include="hacks\menu\window\tab\group\group.cpp" />
     <ClCompile Include="hacks\menu\window\tab\group\objects\checkbox.cpp" />
+    <ClCompile Include="hacks\menu\window\tab\group\objects\slider_float.cpp" />
     <ClCompile Include="hacks\menu\window\tab\group\objects\slider_int.cpp" />
     <ClCompile Include="hacks\menu\window\tab\tab.cpp" />
     <ClCompile Include="hacks\menu\window\window.cpp" />
@@ -242,6 +244,7 @@
     <ClInclude Include="dependencies\formatting\fmt\printf.h" />
     <ClInclude Include="dependencies\formatting\fmt\ranges.h" />
     <ClInclude Include="dependencies\hash\hash.h" />
+    <ClInclude Include="dependencies\json\json.hpp" />
     <ClInclude Include="dependencies\lazy_importer\lazy_importer.h" />
     <ClInclude Include="dependencies\minhook\include\MinHook.h" />
     <ClInclude Include="dependencies\minhook\src\buffer.h" />
@@ -290,6 +293,7 @@
     <ClInclude Include="game\sdk\classes\i_mat_render_ctx.h" />
     <ClInclude Include="game\sdk\classes\i_panel.h" />
     <ClInclude Include="game\sdk\classes\i_prediction.h" />
+    <ClInclude Include="game\sdk\structs\i_game_event.h" />
     <ClInclude Include="game\sdk\structs\i_net_msg.h" />
     <ClInclude Include="game\sdk\structs\renderable_info.h" />
     <ClInclude Include="game\sdk\structs\var_mapping.h" />
@@ -343,6 +347,7 @@
     <ClInclude Include="globals\hooks\draw_model_execute\draw_model_execute.h" />
     <ClInclude Include="globals\hooks\emit_sound\emit_sound.h" />
     <ClInclude Include="globals\hooks\end_scene\end_scene.h" />
+    <ClInclude Include="globals\hooks\fire_event_intern\fire_event_intern.h" />
     <ClInclude Include="globals\hooks\frame_stage_notify\frame_stage_notify.h" />
     <ClInclude Include="globals\hooks\glow_effect_spectator\glow_effect_spectator.h" />
     <ClInclude Include="globals\hooks\is_loose_file_allowed\is_loose_file_allowed.h" />
@@ -365,6 +370,7 @@
     <ClInclude Include="hacks\menu\window\tab\group\objects\base_object.h" />
     <ClInclude Include="hacks\menu\window\tab\group\group.h" />
     <ClInclude Include="hacks\menu\window\tab\group\objects\checkbox.h" />
+    <ClInclude Include="hacks\menu\window\tab\group\objects\slider_float.h" />
     <ClInclude Include="hacks\menu\window\tab\group\objects\slider_int.h" />
     <ClInclude Include="hacks\menu\window\tab\tab.h" />
     <ClInclude Include="hacks\menu\window\window.h" />

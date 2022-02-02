@@ -35,7 +35,8 @@ void menu::tab::input( int& window_x, int& window_y, int& size_x, int& size_y, i
 
 	math::vec2 window_inset = { window_x + 3, window_y + 24 };
 
-	if ( menu::window::inside_position( { mouse_x, mouse_y }, { window_x + current_x, window_y + 26 }, { adjusted_x - current_x, 20 } ) ) {
+	if ( menu::window::inside_position( { mouse_x, mouse_y }, { window_x + current_x, window_y + 26 }, { adjusted_x - current_x, 20 } ) &&
+	     !parent_window->dragging ) {
 		parent_window->allowed_to_drag = false;
 
 		if ( g_input.key_state< input::KEY_RELEASED >( VK_LBUTTON ) ) {
@@ -44,6 +45,9 @@ void menu::tab::input( int& window_x, int& window_y, int& size_x, int& size_y, i
 	}
 
 	int _current_index[ 2 ]{ };
+
+	if ( parent_window->selected_tab != HASH( name.c_str( ) ) )
+		return;
 
 	for ( auto& group : groups )
 		group->input( window_x, window_y, size_x, size_y,

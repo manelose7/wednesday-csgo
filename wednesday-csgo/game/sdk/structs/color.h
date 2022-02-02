@@ -7,6 +7,12 @@
 // https://docs.microsoft.com/en-us/cpp/error-messages/compiler-warnings/compiler-warning-levels-3-and-4-c4244?view=msvc-160
 #pragma warning( disable : 4244 )
 
+struct hsv {
+	float h{ }, s{ }, v{ };
+
+	
+};
+
 struct color {
 	unsigned char r, g, b, a;
 
@@ -66,10 +72,10 @@ struct color {
 		b = static_cast< int >( b * f );
 		return *this;
 	}
-	//color operator( )( const int al ) const
+	// color operator( )( const int al ) const
 	//{
 	//	return color( r, g, b, al );
-	//}
+	// }
 	color& operator/=( const float d )
 	{
 		const auto float_division = 1.f / d;
@@ -82,14 +88,14 @@ struct color {
 		auto color = *this;
 		return color *= coeff;
 	}
-	//color& operator=( color col ) const
+	// color& operator=( color col ) const
 	//{
 	//	color cf{ *this };
 	//	cf.r = col.r;
 	//	cf.g = col.g;
 	//	cf.b = col.b;
 	//	return cf;
-	//}
+	// }
 	color& operator+( color col ) const
 	{
 		color cf = { *this };

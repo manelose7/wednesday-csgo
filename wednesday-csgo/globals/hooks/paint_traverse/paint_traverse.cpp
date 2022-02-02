@@ -32,7 +32,9 @@ void __fastcall hooks::paint_traverse::paint_traverse_detour( sdk::i_panel* self
 		math::vec3 old_origin = player->get_abs_origin( );
 
 		if ( !player_info.m_valid && sdk::ticks_to_time( g_interfaces.globals->tick_count - player_info.m_dormant_info.m_found_tick ) < 3.f ) {
-			player->set_abs_origin( player_info.m_dormant_info.m_last_position );
+			player->set_abs_origin( sdk::ticks_to_time( g_interfaces.globals->tick_count - player_info.m_dormant_info.m_vouchable_tick ) < 3.f
+			                            ? player_info.m_dormant_info.m_vouchable_position
+			                            : player_info.m_dormant_info.m_last_position );
 			player->invalidate_bone_cache( );
 		}
 

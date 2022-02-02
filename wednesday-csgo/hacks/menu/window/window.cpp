@@ -39,17 +39,33 @@ void menu::window::input( int& window_x, int& window_y, int& size_x, int& size_y
 
 	int current_index = 0;
 
-	for ( auto& tab : tabs )
-		tab->input( window_x, window_y, size_x, size_y, current_index++ );
+	if ( !resizing )
+		for ( auto& tab : tabs )
+			tab->input( window_x, window_y, size_x, size_y, current_index++ );
 
-	if ( g_input.key_state< input::KEY_DOWN >( VK_LBUTTON ) && inside_position( g_input.mouse.pos, { window_x, window_y }, { size_x, size_y } ) &&
-	     allowed_to_drag ) {
-		dragging = true;
+	auto& menu_size_x = g_config.find< int >( _( "menu_size_x" ) );
+	auto& menu_size_y = g_config.find< int >( _( "menu_size_y" ) );
 
-		window_x += g_input.mouse.pos.x - last_mouse_x;
-		window_y += g_input.mouse.pos.y - last_mouse_y;
+	if ( g_input.key_state< input::KEY_DOWN >( VK_LBUTTON ) ) {
+		if ( inside_position( g_input.mouse.pos, { window_x, window_y }, { size_x, size_y } ) && allowed_to_drag && !dragging || resizing ) {
+			if ( inside_position( g_input.mouse.pos, { window_x + size_x - 10, window_y + size_y - 10 }, { 10, 10 } ) || resizing ) {
+				resizing = true;
+
+				menu_size_x += g_input.mouse.pos.x - last_mouse_x;
+				menu_size_y += g_input.mouse.pos.y - last_mouse_y;
+
+				menu_size_x = std::clamp( menu_size_x, 400, 1000 );
+				menu_size_y = std::clamp( menu_size_y, 500, 1000 );
+			} else {
+				window_x += g_input.mouse.pos.x - last_mouse_x;
+				window_y += g_input.mouse.pos.y - last_mouse_y;
+
+				window_x = std::clamp( window_x, 0, g_ctx.screen_size.x - size_x );
+				window_y = std::clamp( window_y, 0, g_ctx.screen_size.y - size_y );
+			}
+		}
 	} else {
-		dragging = false;
+		resizing = false;
 	}
 
 	last_mouse_x = g_input.mouse.pos.x;

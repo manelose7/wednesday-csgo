@@ -22,6 +22,9 @@ namespace movement
 
 		void movement_fix( sdk::c_user_cmd* command, math::vec3 old_view_angle );
 
+		void jump_bug( );
+
+		void mini_hop( );
 		void bhop( );
 	};
 } // namespace movement
