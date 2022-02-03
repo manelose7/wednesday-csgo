@@ -4,13 +4,15 @@
 #include <d3dx9.h>
 #include <iostream>
 
+#include "../../../globals/macros/macros.h"
+
 // https://docs.microsoft.com/en-us/cpp/error-messages/compiler-warnings/compiler-warning-levels-3-and-4-c4244?view=msvc-160
 #pragma warning( disable : 4244 )
 
-struct hsv {
-	float h{ }, s{ }, v{ };
+struct color;
 
-	
+struct hsv {
+	int h{ }, s{ }, v{ }, a{ };
 };
 
 struct color {
@@ -42,10 +44,42 @@ struct color {
 	{
 		return D3DCOLOR_ARGB( a, r, g, b );
 	}
+	hsv to_hsv( )
+	{
+		auto max_lambda = []( float a, float b, float c ) -> float { return ( ( a > b ) ? ( a > c ? a : c ) : ( b > c ? b : c ) ); };
+
+		auto min_lambda = []( float a, float b, float c ) -> float { return ( ( a < b ) ? ( a < c ? a : c ) : ( b < c ? b : c ) ); };
+
+		float hue, saturation, vibrance;
+		float red   = r / 255.f;
+		float green = g / 255.f;
+		float blue  = b / 255.f;
+
+		float cmax = max_lambda( red, green, blue );
+		float cmin = min_lambda( red, green, blue );
+		float diff = cmax - cmin;
+		if ( cmax == cmin )
+			hue = 0;
+		else if ( cmax == red )
+			hue = fmod( ( 60.f * ( ( green - blue ) / diff ) + 360.f ), 360.f );
+		else if ( cmax == green )
+			hue = fmod( ( 60.f * ( ( blue - red ) / diff ) + 120.f ), 360.f );
+		else if ( cmax == blue )
+			hue = fmod( ( 60.f * ( ( red - green ) / diff ) + 240.f ), 360.f );
+		// if cmax equal zero
+		if ( cmax == 0.f )
+			saturation = 0.f;
+		else
+			saturation = ( diff / cmax ) * 100.f;
+		// compute v
+		vibrance = cmax * 100.f;
+
+		return { ROUND_UP( hue ), ROUND_UP( saturation ), ROUND_UP( vibrance ), a };
+	}
 	color lerp( const color col, const float t )
 	{
-		constexpr auto lerp = []( const unsigned char from, const unsigned char to, const float t ) {
-			return ( unsigned char )( ( 1.f - t ) * from + t * to );
+		constexpr auto lerp = []( const unsigned char rom, const unsigned char to, const float t ) {
+			return ( unsigned char )( ( 1.f - t ) * rom + t * to );
 		};
 
 		color lerped = *this;

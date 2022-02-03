@@ -115,7 +115,7 @@ void visuals::impl::update_object( esp_object& object )
 
 	auto player_weapon = g_interfaces.entity_list->get_client_entity_from_handle< sdk::c_base_combat_weapon* >( object.m_owner->active_weapon( ) );
 
-	if ( player_weapon ) {
+	if ( player_weapon && player_weapon->definition_index( ) ) {
 		auto weapon_info = player_weapon->get_weapon_data( );
 
 		if ( weapon_info ) {
