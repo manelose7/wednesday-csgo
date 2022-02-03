@@ -182,6 +182,7 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="game\definitions\classes\c_base_animating.cpp" />
     <ClCompile Include="game\definitions\classes\c_cs_player.cpp" />
+    <ClCompile Include="game\definitions\structs\color.cpp" />
     <ClCompile Include="globals\csgo.cpp" />
     <ClCompile Include="globals\ctx\ctx.cpp" />
     <ClCompile Include="globals\hooks\anim_fix\anim_fix.cpp" />

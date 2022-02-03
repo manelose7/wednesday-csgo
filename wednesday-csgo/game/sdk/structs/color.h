@@ -13,19 +13,21 @@ struct color;
 
 struct hsv {
 	int h{ }, s{ }, v{ }, a{ };
+
+	color to_color( );
 };
 
 struct color {
-	unsigned char r, g, b, a;
+	int r{ }, g{ }, b{ }, a{ };
 
 	// ctors
 	color( ) : r{ 0 }, g{ 0 }, b{ 0 }, a{ 255 } { };
 
-	color( unsigned char re, unsigned char gr, unsigned char bl, unsigned char al = 255 ) : r{ re }, g{ gr }, b{ bl }, a{ al } { };
+	color( int re, int gr, int bl, int al = 255 ) : r{ re }, g{ gr }, b{ bl }, a{ al } { };
 
 	color( std::uint32_t hex ) : r( ( hex >> 24 ) & 0xFF ), g( ( hex >> 16 ) & 0xFF ), b( ( hex >> 8 ) & 0xFF ), a( hex & 0xFF ){ };
 
-	constexpr static auto MAX_ALPHA = ( unsigned char )255;
+	constexpr static auto MAX_ALPHA = ( int )255;
 
 	std::uint32_t to_u32( ) const
 	{
@@ -38,7 +40,7 @@ struct color {
 	}
 	color set_alpha( int new_alpha )
 	{
-		return color( r, g, b, static_cast< unsigned char >( new_alpha ) );
+		return color( r, g, b, static_cast< int >( new_alpha ) );
 	}
 	D3DCOLOR to_d3d( ) const
 	{
@@ -66,20 +68,20 @@ struct color {
 			hue = fmod( ( 60.f * ( ( blue - red ) / diff ) + 120.f ), 360.f );
 		else if ( cmax == blue )
 			hue = fmod( ( 60.f * ( ( red - green ) / diff ) + 240.f ), 360.f );
-		// if cmax equal zero
+
 		if ( cmax == 0.f )
 			saturation = 0.f;
 		else
 			saturation = ( diff / cmax ) * 100.f;
-		// compute v
+
 		vibrance = cmax * 100.f;
 
 		return { ROUND_UP( hue ), ROUND_UP( saturation ), ROUND_UP( vibrance ), a };
 	}
 	color lerp( const color col, const float t )
 	{
-		constexpr auto lerp = []( const unsigned char rom, const unsigned char to, const float t ) {
-			return ( unsigned char )( ( 1.f - t ) * rom + t * to );
+		constexpr auto lerp = []( const int rom, const int to, const float t ) {
+			return ( int )( ( 1.f - t ) * rom + t * to );
 		};
 
 		color lerped = *this;
