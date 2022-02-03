@@ -19,7 +19,6 @@ void __stdcall create_move_function( int sequence_number, float input_sample_fra
 	auto command  = g_interfaces.input->get_user_cmd( 0, sequence_number );
 	auto verified = g_interfaces.input->get_verified_cmd( sequence_number );
 
-	// grab global cmd
 	g_ctx.cmd = command;
 
 	if ( !g_ctx.local || !command || !verified || !command->command_number )
