@@ -117,6 +117,10 @@ namespace render
 		void render_text( const math::vec2< T >& pos, unsigned int alignment, const font_flags flags, const char* string, LPD3DXFONT font,
 		                  color color );
 
+		void render_circle( int x, int y, int radius, int segments, color color );
+		template< class T = int >
+		void render_circle( const math::vec2< T >& pos, const math::vec2< T >& size, color color );
+
 		template< auto gradient_type = gradient_type_t::HORIZONTAL >
 		void render_gradient( int x, int y, int width, int height, color from, color to );
 

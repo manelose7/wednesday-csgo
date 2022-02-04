@@ -14,17 +14,24 @@ namespace menu
 		std::uint32_t option_hash{ };
 
 		bool keybind{ };
-
-		bool keybind_init{ };
 		bool awaiting_keybind{ };
-
 		std::uint32_t keybind_hash{ };
+
+		bool color_picker{ };
+		std::uint32_t color_picker_hash{ };
 
 		void add_keybind( std::uint32_t hash );
 
 		void add_keybind( const char* name )
 		{
 			add_keybind( HASH( name ) );
+		}
+
+		void add_color_picker( std::uint32_t hash );
+
+		void add_color_picker( const char* name )
+		{
+			add_color_picker( HASH( name ) );
 		}
 
 		virtual void draw( int& group_x, int& group_y, int& group_width, int& group_height );

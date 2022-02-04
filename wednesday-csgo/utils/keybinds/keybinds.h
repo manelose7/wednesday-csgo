@@ -66,7 +66,7 @@ namespace input
 
 			std::uint64_t time = lazy_get_tickcount( );
 
-			if constexpr ( state == key_state_t::KEY_RELEASED ) {
+			if ( state == key_state_t::KEY_RELEASED ) {
 				if ( key.state == state )
 					if ( time - key.time <= input::MAX_RELEASED_TIME )
 						return key.state = key_state_t::KEY_UP;

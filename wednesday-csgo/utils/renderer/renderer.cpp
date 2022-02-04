@@ -235,6 +235,20 @@ void render::impl::render_text( int x, int y, unsigned int alignment, const font
 	}
 }
 
+void render::impl::render_circle( int x, int y, int radius, int segments, color color )
+{
+	vertex* verticies = new vertex[ segments + 1 ];
+
+	for ( int iterator = 0; iterator <= segments; iterator++ )
+		verticies[ iterator ] = vertex( x + radius * cos( D3DX_PI * ( iterator / ( segments / 2.f ) ) ),
+		                                y + radius * sin( D3DX_PI * ( iterator / ( segments / 2.f ) ) ), color );
+
+	device->SetFVF( D3DFVF_XYZRHW | D3DFVF_DIFFUSE );
+	device->DrawPrimitiveUP( D3DPT_LINESTRIP, segments, verticies, sizeof vertex );
+
+	delete[] verticies;
+}
+
 void fonts::impl::create_font( const char* name, std::size_t size, std::size_t weight, bool anti_aliased, const char* font_name )
 {
 	LPD3DXFONT buffer_font;

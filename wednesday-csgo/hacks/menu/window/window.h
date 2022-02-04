@@ -16,6 +16,17 @@ namespace menu
 		bool allowed_to_drag{ };
 
 		std::uint32_t selected_tab{ };
+
+		std::uint32_t selected_color_picker{ };
+		bool dragging_alpha_color_picker{ };
+		bool dragging_hue_color_picker{ };
+		bool dragging_picker_color_picker{ };
+
+		int color_picker_x{ };
+		int color_picker_y{ };
+
+		color copied_color{ };
+
 		std::vector< menu::tab* > tabs{ };
 
 		static bool inside_position( math::vec2< int > mouse_position, math::vec2< int > window_position, math::vec2< int > window_size );

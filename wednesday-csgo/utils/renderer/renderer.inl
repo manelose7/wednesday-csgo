@@ -1,5 +1,11 @@
 #include "renderer.h"
 
+template< class T >
+void render::impl::render_circle( const math::vec2< T >& pos, const math::vec2< T >& size, color color )
+{
+	render_circle( pos.x, pos.y, size.x, size.y, color );
+}
+
 template< auto gradient_type >
 void render::impl::render_gradient( int x, int y, int width, int height, color from, color to )
 {

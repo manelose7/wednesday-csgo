@@ -35,14 +35,18 @@ bool menu::impl::init( )
 	static auto group3 = new menu::group{ tab1, std::string( "group3" ), static_cast< int >( group_position::GROUP_RIGHT ), true };
 
 	static auto checkbox1 = new menu::check_box{ group1, HASH( "buffer_value_bool_1" ), _( "test" ) };
-	checkbox1->add_keybind( "buffer_keybind_1" );
+	checkbox1->add_keybind( _( "buffer_keybind_1" ) );
 
 	static auto slider1   = new menu::slider_int{ group1, HASH( "buffer_value_int_1" ), _( "test" ) };
 	static auto checkbox2 = new menu::check_box{ group1, HASH( "buffer_value_bool_2" ), _( "test" ) };
+	checkbox2->add_color_picker( _( "menu_color" ) );
+
 	static auto slider2   = new menu::slider_int{ group1, HASH( "buffer_value_int_2" ), _( "test" ) };
 	static auto checkbox3 = new menu::check_box{ group1, HASH( "buffer_value_bool_3" ), _( "test" ) };
-	static auto slider3   = new menu::slider_int{ group1, HASH( "buffer_value_int_3" ), _( "test" ) };
-	static auto slider4   = new menu::slider_float{ group1, HASH( "buffer_value_float_1" ), _( "test" ) };
+	checkbox3->add_color_picker( _( "menu_color" ) );
+
+	static auto slider3 = new menu::slider_int{ group1, HASH( "buffer_value_int_3" ), _( "test" ) };
+	static auto slider4 = new menu::slider_float{ group1, HASH( "buffer_value_float_1" ), _( "test" ) };
 
 	group1->objects.push_back( checkbox1 );
 	group1->objects.push_back( slider1 );

@@ -27,5 +27,5 @@ color hsv::to_color( )
 	auto _g = static_cast< int >( ( g + m ) * 255 );
 	auto _b = static_cast< int >( ( b + m ) * 255 );
 
-	return { _r, _g, _b, static_cast< int >( a ) };
+	return { _r, _g, _b, a };
 }
