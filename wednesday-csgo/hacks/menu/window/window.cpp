@@ -203,6 +203,10 @@ void menu::window::input( int& window_x, int& window_y, int& size_x, int& size_y
 				option = copied_color;
 			}
 		}
+	} else {
+		dragging_picker_color_picker = false;
+		dragging_hue_color_picker = false;
+		dragging_alpha_color_picker = false;
 	}
 
 	if ( !resizing && !dragging_picker_color_picker && !dragging_hue_color_picker && !dragging_alpha_color_picker &&

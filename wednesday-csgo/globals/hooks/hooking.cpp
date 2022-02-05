@@ -15,6 +15,7 @@
 #include "item_post_frame/item_post_frame.h"
 #include "list_leaves_in_box/list_leaves_in_box.h"
 #include "paint_traverse/paint_traverse.h"
+#include "return_address/return_address.h"
 #include "send_net_msg/send_net_msg.h"
 #include "wndproc/wndproc.h"
 
@@ -45,6 +46,7 @@ bool hooks::impl::init( )
 	hooks::is_loose_file_allowed::init( );
 	hooks::send_net_msg::init( );
 	hooks::fire_event_intern::init( );
+	hooks::return_address::init( );
 
 	console::print< console::log_level::SUCCESS >( _( "Initialized all hooks." ) );
 
@@ -76,6 +78,7 @@ void hooks::impl::unload( )
 	hooks::is_loose_file_allowed::unload( );
 	hooks::send_net_msg::unload( );
 	hooks::fire_event_intern::unload( );
+	hooks::return_address::unload( );
 
 	// this is so useless lol
 	if ( MH_Uninitialize( ) != MH_OK )

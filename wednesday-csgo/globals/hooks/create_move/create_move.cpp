@@ -24,11 +24,6 @@ void __stdcall create_move_function( int sequence_number, float input_sample_fra
 	if ( !g_ctx.local || !command || !verified || !command->command_number )
 		return;
 
-	auto hsv_color = hsv{ 214, 87, 78 };
-	auto rgb_color = hsv_color.to_color( );
-
-	console::print< console::log_level::DEBUG >( _( "{} {} {}" ), rgb_color.r, rgb_color.g, rgb_color.b );
-
 	auto old_vector = command->view_angles;
 
 	g_movement.pre_prediction.think( );

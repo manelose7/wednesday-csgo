@@ -57,5 +57,8 @@ namespace sdk
 
 			return { ( c1 * ( r1 * inaccuracy ) ) + ( c2 * ( r3 * spread ) ), ( s1 * ( r1 * inaccuracy ) ) + ( s2 * ( r3 * spread ) ), 0.f };
 		}
+
+		bool can_shoot_primary( );
+		bool can_shoot_secondary( );
 	};
 } // namespace sdk

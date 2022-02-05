@@ -181,6 +181,7 @@
     <ClCompile Include="dependencies\minhook\src\trampoline.c" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="game\definitions\classes\c_base_animating.cpp" />
+    <ClCompile Include="game\definitions\classes\c_base_combat_weapon.cpp" />
     <ClCompile Include="game\definitions\classes\c_cs_player.cpp" />
     <ClCompile Include="game\definitions\structs\color.cpp" />
     <ClCompile Include="globals\csgo.cpp" />
@@ -199,6 +200,7 @@
     <ClCompile Include="globals\hooks\item_post_frame\item_post_frame.cpp" />
     <ClCompile Include="globals\hooks\list_leaves_in_box\list_leaves_in_box.cpp" />
     <ClCompile Include="globals\hooks\paint_traverse\paint_traverse.cpp" />
+    <ClCompile Include="globals\hooks\return_address\return_address.cpp" />
     <ClCompile Include="globals\hooks\send_net_msg\send_net_msg.cpp" />
     <ClCompile Include="globals\hooks\wndproc\wndproc.cpp" />
     <ClCompile Include="globals\wednesday\wednesday.cpp" />
@@ -355,6 +357,7 @@
     <ClInclude Include="globals\hooks\item_post_frame\item_post_frame.h" />
     <ClInclude Include="globals\hooks\list_leaves_in_box\list_leaves_in_box.h" />
     <ClInclude Include="globals\hooks\paint_traverse\paint_traverse.h" />
+    <ClInclude Include="globals\hooks\return_address\return_address.h" />
     <ClInclude Include="globals\hooks\send_net_msg\send_net_msg.h" />
     <ClInclude Include="globals\hooks\wndproc\wndproc.h" />
     <ClInclude Include="globals\wednesday\wednesday.h" />

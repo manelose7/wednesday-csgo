@@ -95,6 +95,6 @@ void aimbot::impl::run( )
 
 	angles_to_head = angles_to_head.normalize( );
 
-	if ( head_hitchance > 70 )
+	if ( head_hitchance > 70 && g_ctx.weapon->can_shoot_primary( ) )
 		g_ctx.cmd->view_angles = angles_to_head;
 }
